@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/departments/create', 'Departamentos\DepartmentsController@create');
+Route::post('/departments', 'Departamentos\DepartmentsController@store');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
