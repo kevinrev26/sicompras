@@ -16,6 +16,7 @@ class CreateMenuItemTable extends Migration
         //
         Schema::create('menu_item', function ( Blueprint $table ){
           $table->increments('id_menu_item');
+          $table->string('nombre_item');
           $table->string('ruta');
           $table->integer('menu')->unsigned();
           //llave foranea
