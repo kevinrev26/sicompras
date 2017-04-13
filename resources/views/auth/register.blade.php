@@ -11,7 +11,7 @@
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
+                            <label for="name" class="col-md-4 control-label">Nombre</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
@@ -25,7 +25,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                            <label for="email" class="col-md-4 control-label">Correo Electrónico</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
@@ -39,7 +39,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
+                            <label for="password" class="col-md-4 control-label">Contraseña</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control" name="password" required>
@@ -53,17 +53,35 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
+                            <label for="password-confirm" class="col-md-4 control-label">Confirmar contraseña</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
 
+                        @if (count($instituciones) > 0)
+                          <div class="form-group">
+                             <label class="col-md-4 control-label">Institución</label>
+                             <div class="col-md-6 selectContainer">
+                                 <select class="form-control" name="institucion">
+
+                                     @foreach ($instituciones as $institucion )
+                                       <option value="{{ $institucion->id_institucion }}">
+                                          {{ $institucion->nombre_institucion }}
+                                       </option>
+                                     @endforeach
+                                 </select>
+                             </div>
+                         </div>
+                        @else
+                          <h1>No hay instituciones para agregar al usuario, verifique con el administrador</h1>
+                        @endif
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Register
+                                    Registrar
                                 </button>
                             </div>
                         </div>

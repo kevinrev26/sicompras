@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
+use App\Modelos\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Modelos\InstitucionGobierno;
 
 class RegisterController extends Controller
 {
@@ -67,5 +68,13 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    public function showRegistrationForm()
+    {
+      # code...
+      #
+      $instituciones = InstitucionGobierno::all();
+      return view('auth.register', ['instituciones' => $instituciones]);
     }
 }
