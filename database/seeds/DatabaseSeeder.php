@@ -17,5 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(MenuSeeder::class);
         $this->call(MenuItemSeeder::class);
         $this->call(PermisoSeeder::class);
+        //AgregarSeeder de departamentos
+        $this->call(AdminSeeder::class);
     }
 }
