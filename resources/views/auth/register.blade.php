@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
 <div class="container">
@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Register</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
+                    <form  id="departamentos" class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -62,9 +62,9 @@
 
                         @if (count($instituciones) > 0)
                           <div class="form-group">
-                             <label class="col-md-4 control-label">Institución</label>
+                             <label class="col-md-4 control-label">Institucion de Gobierno</label>
                              <div class="col-md-6 selectContainer">
-                                 <select class="form-control" name="institucion">
+                                 <select v-model="identificador" class="form-control" name="institucion">
 
                                      @foreach ($instituciones as $institucion )
                                        <option value="{{ $institucion->id_institucion }}">
@@ -73,6 +73,14 @@
                                      @endforeach
                                  </select>
                              </div>
+                         </div>
+                         <div class="form-group">
+                           <label class="col-md-4 control-label">Departamento</label>
+                           <div class="col-md-6 selectContainer">
+                             <select class="form-control" name="departamento">
+                               <option v-for="d in departamentos" v-bind:value="d.codigo_departamento"> @{{ d.nombre_departamento }} </option>
+                             </select>
+                           </div>
                          </div>
                         @else
                           <h1>No hay instituciones para agregar al usuario, verifique con el administrador</h1>
@@ -91,4 +99,9 @@
         </div>
     </div>
 </div>
+@endsection
+@section('scripts')
+  @parent
+  <script src=" {{ asset('js/deptos.js') }} " ></script>
+
 @endsection

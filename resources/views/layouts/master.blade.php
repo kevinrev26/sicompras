@@ -28,5 +28,10 @@
         <div class="container">
             @yield('content')
         </div>
+
+        @section('scripts')
+          <script src=" {{ asset('js/vue.js') }} "></script>
+          <script src=" {{ asset('js/vue-resource.min.js') }} "></script>
+        @show
     </body>
 </html>

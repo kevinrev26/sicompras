@@ -21,3 +21,4 @@ Route::post('/departments', 'Departamentos\DepartmentsController@store');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+Route::get('institutions/{id}/deparments', 'Departamentos\DepartmentsController@listDepartmentsByInstitution');

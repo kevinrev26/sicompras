@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Modelos\InstitucionGobierno;
 use App\Modelos\Departamento;
+use Illuminate\Support\Facades\Log;
 
 class DepartmentsController extends Controller
 {
@@ -37,6 +38,13 @@ class DepartmentsController extends Controller
     //Retornar la vista del formulario
     $instituciones = InstitucionGobierno::all();
     return view('departamentos.create', ['instituciones' => $instituciones]);
+  }
+
+  public function listDepartmentsByInstitution($id){
+    //Log::info('ID entrante: '.$id);
+    $departamentos = Departamento::where('institucion', $id)->orderBy('nombre_departamento','desc')->get();
+    //Log::info($departamentos);
+    return response()->json($departamentos);
   }
 
 
