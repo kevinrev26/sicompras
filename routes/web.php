@@ -22,3 +22,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 Route::get('institutions/{id}/deparments', 'Departamentos\DepartmentsController@listDepartmentsByInstitution');
+Route::get('/users', 'Usuarios\UsersController@index');
