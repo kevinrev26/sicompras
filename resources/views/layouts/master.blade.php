@@ -20,14 +20,18 @@
       <title>SICOMPRAS - @yield('title')</title>
     </head>
     <body>
-        {{-- Agregar Barra de navegación --}}
+        @include('partials.navbar')
 
         <div class="container">
             @yield('content')
         </div>
 
         @section('scripts')
+          {{-- JQUERY --}}
+          <script src=" {{ asset('js/app.js') }}" ></script>
+          {{-- VUEJS --}}
           <script src=" {{ asset('js/vue.js') }} "></script>
+          {{-- VUE resource --}}
           <script src=" {{ asset('js/vue-resource.min.js') }} "></script>
         @show
     </body>
