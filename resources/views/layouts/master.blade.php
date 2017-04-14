@@ -20,10 +20,7 @@
       <title>SICOMPRAS - @yield('title')</title>
     </head>
     <body>
-        {{-- @section('sidebar')
-            This is the master sidebar.
-            The navigation goes here
-        @show --}}
+        {{-- Agregar Barra de navegación --}}
 
         <div class="container">
             @yield('content')

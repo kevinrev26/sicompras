@@ -22,7 +22,7 @@ class CreateDepartamentoTable extends Migration
           //Llave primaria
           $table->primary('codigo_departamento');
           //Llave foranea
-          $table->foreign('institucion')->references('id_institucion')->on('institucion_gobierno');
+          $table->foreign('institucion')->references('id')->on('institucion_gobierno');
         });
     }
 

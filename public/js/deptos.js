@@ -16,6 +16,7 @@ let application = new Vue({
 
         } else {
           console.log("No existen departamentos en esa institucion");
+          this.departamentos = "";
         }
       }, resp => {
         /*Fail*/

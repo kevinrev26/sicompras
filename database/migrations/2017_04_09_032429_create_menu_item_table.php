@@ -15,12 +15,12 @@ class CreateMenuItemTable extends Migration
     {
         //
         Schema::create('menu_item', function ( Blueprint $table ){
-          $table->increments('id_menu_item');
+          $table->increments('id');
           $table->string('nombre_item');
           $table->string('ruta');
           $table->integer('menu')->unsigned();
           //llave foranea
-          $table->foreign('menu')->references('id_menu')->on('menu');
+          $table->foreign('menu')->references('id')->on('menu');
         });
     }
 

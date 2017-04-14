@@ -40,7 +40,7 @@
              <select class="form-control" name="institucion">
 
                  @foreach ($instituciones as $institucion )
-                   <option value="{{ $institucion->id_institucion }}">
+                   <option value="{{ $institucion->id }}">
                       {{ $institucion->nombre_institucion }}
                    </option>
                  @endforeach

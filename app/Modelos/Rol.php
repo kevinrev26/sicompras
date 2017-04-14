@@ -12,4 +12,9 @@ class Rol extends Model
     {
       return $this->hasMany('App\User');
     }
+
+    public function menus()
+    {
+      return $this->belongsToMany('App\Modelos\Menu', 'permiso', 'id_rol', 'id_menu');
+    }
 }

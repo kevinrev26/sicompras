@@ -18,7 +18,7 @@ class AddRolColumn extends Migration
           $table->integer('rol')->unsigned()->default(1);
 
           //Clave foranea
-          $table->foreign('rol')->references('id_rol')->on('rol');
+          $table->foreign('rol')->references('id')->on('rol');
         });
     }
 

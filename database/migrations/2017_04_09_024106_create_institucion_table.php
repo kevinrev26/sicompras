@@ -15,7 +15,7 @@ class CreateInstitucionTable extends Migration
     {
         //Creando la tabla institucion.
         Schema::create('institucion_gobierno', function ( Blueprint $table ){
-          $table->increments('id_institucion');
+          $table->increments('id');
           $table->string('nombre_institucion');
           $table->string('logo_institucion'); //Se guardara la ruta a la imagen del logo.
         });

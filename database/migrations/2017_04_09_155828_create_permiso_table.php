@@ -21,8 +21,8 @@ class CreatePermisoTable extends Migration
           //Llave primaria
           $table->primary(['id_rol', 'id_menu']);
           //llaves foraneas
-          $table->foreign('id_rol')->references('id_rol')->on('rol');
-          $table->foreign('id_menu')->references('id_menu')->on('menu');          
+          $table->foreign('id_rol')->references('id')->on('rol');
+          $table->foreign('id_menu')->references('id')->on('menu');
 
         } );
     }

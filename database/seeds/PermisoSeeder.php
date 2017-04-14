@@ -19,67 +19,67 @@ class PermisoSeeder extends Seeder
       //Recuperando los menus.
       $menu = Menu::where('slug_menu', 'usuario')->first();
       $table->insert([
-        'id_rol' => $rol->id_rol,
-        'id_menu' => $menu->id_menu,
+        'id_rol' => $rol->id,
+        'id_menu' => $menu->id,
       ]);
       $menu = Menu::where('slug_menu', 'institucion')->first();
       $table->insert([
-        'id_rol' => $rol->id_rol,
-        'id_menu' => $menu->id_menu,
+        'id_rol' => $rol->id,
+        'id_menu' => $menu->id,
       ]);
       $menu = Menu::where('slug_menu', 'licitacion')->first();
       $table->insert([
-        'id_rol' => $rol->id_rol,
-        'id_menu' => $menu->id_menu,
+        'id_rol' => $rol->id,
+        'id_menu' => $menu->id,
       ]);
       $menu = Menu::where('slug_menu', 'solicitud')->first();
       $table->insert([
-        'id_rol' => $rol->id_rol,
-        'id_menu' => $menu->id_menu,
+        'id_rol' => $rol->id,
+        'id_menu' => $menu->id,
       ]);
       $menu = Menu::where('slug_menu', 'equipo')->first();
       $table->insert([
-        'id_rol' => $rol->id_rol,
-        'id_menu' => $menu->id_menu,
+        'id_rol' => $rol->id,
+        'id_menu' => $menu->id,
       ]);
       $menu = Menu::where('slug_menu', 'orden')->first();
       $table->insert([
-        'id_rol' => $rol->id_rol,
-        'id_menu' => $menu->id_menu,
+        'id_rol' => $rol->id,
+        'id_menu' => $menu->id,
       ]);
       //Definiendo menus para el UACI
       $rol = Rol::where('slug_rol', 'uaci')->first();
       $menu = Menu::where('slug_menu', 'licitacion')->first();
       $table->insert([
-        'id_rol' => $rol->id_rol,
-        'id_menu' => $menu->id_menu,
+        'id_rol' => $rol->id,
+        'id_menu' => $menu->id,
       ]);
       $menu = Menu::where('slug_menu', 'orden')->first();
       $table->insert([
-        'id_rol' => $rol->id_rol,
-        'id_menu' => $menu->id_menu,
+        'id_rol' => $rol->id,
+        'id_menu' => $menu->id,
       ]);
       $menu = Menu::where('slug_menu', 'solicitud')->first();
       $table->insert([
-        'id_rol' => $rol->id_rol,
-        'id_menu' => $menu->id_menu,
+        'id_rol' => $rol->id,
+        'id_menu' => $menu->id,
       ]);
       //Definiendo menus para el tecnico.
       $rol = Rol::where('slug_rol', 'tecnico')->first();
       $menu = Menu::where('slug_menu', 'solicitud')->first();
       $table->insert([
-        'id_rol' => $rol->id_rol,
-        'id_menu' => $menu->id_menu,
+        'id_rol' => $rol->id,
+        'id_menu' => $menu->id,
       ]);
       $menu = Menu::where('slug_menu', 'orden')->first();
       $table->insert([
-        'id_rol' => $rol->id_rol,
-        'id_menu' => $menu->id_menu,
+        'id_rol' => $rol->id,
+        'id_menu' => $menu->id,
       ]);
       $menu = Menu::where('slug_menu', 'equipo')->first();
       $table->insert([
-        'id_rol' => $rol->id_rol,
-        'id_menu' => $menu->id_menu,
+        'id_rol' => $rol->id,
+        'id_menu' => $menu->id,
       ]);
     }
 }
