@@ -15,4 +15,10 @@ class Menu extends Model
       return $this->belongsToMany('App\Modelos\Rol', 'permiso', 'id_menu', 'id_rol');
     }
 
+    public function items()
+    {
+      # code...
+      return $this->hasMany('App\Modelos\Item', 'menu');
+    }
+
 }
