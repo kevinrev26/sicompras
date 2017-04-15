@@ -11,6 +11,11 @@ class DepartamentoSeeder extends Seeder
      */
     public function run()
     {
-        //
+      $table = DB::table('departamento');
+      $table->insert([
+        'codigo_departamento' => 'GESA',
+        'nombre_departamento' => 'Departamento de Tecnología e Informática',
+        'institucion' => 1,
+      ]);
     }
 }

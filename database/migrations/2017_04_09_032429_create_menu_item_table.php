@@ -15,6 +15,7 @@ class CreateMenuItemTable extends Migration
     {
         //
         Schema::create('menu_item', function ( Blueprint $table ){
+          print "Menu Item\n";
           $table->increments('id');
           $table->string('nombre_item');
           $table->string('ruta');

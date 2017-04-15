@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddSlugMenuColumn extends Migration
+class CreateCatalogoEquipoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class AddSlugMenuColumn extends Migration
      */
     public function up()
     {
-        //
-        Schema::table('menu', function (Blueprint $table) {
-          print "Columna Slug Menu\n";
-          $table->string('slug_menu');
+        Schema::create('catalogo_equipo', function ( Blueprint $table ) {
+          print "Catalago de Equipo\n";
+          $table->increments('id');
+          $table->string('nombre_equipo');
+          $table->string('descripcion_equipo');
+          $table->string('unidad_potencia');
         });
     }
 
@@ -27,8 +29,6 @@ class AddSlugMenuColumn extends Migration
      */
     public function down()
     {
-        Schema::table('menu', function (Blueprint $table) {
-          $table->dropColumn('slug_menu');
-        });
+        //
     }
 }

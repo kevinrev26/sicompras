@@ -15,6 +15,7 @@ class CreatePermisoTable extends Migration
     {
         //
         Schema::create('permiso', function (Blueprint $table){
+          print "Permiso\n";
           $table->integer('id_rol')->unsigned();
           $table->integer('id_menu')->unsigned();
 

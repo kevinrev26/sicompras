@@ -15,6 +15,7 @@ class AddDepartamentoColumn extends Migration
     {
         //
         Schema::table('users', function (Blueprint $table){
+          print "Columna Departamento\n";
           $table->string('departamento');
 
           //Clave foranea

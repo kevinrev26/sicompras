@@ -15,6 +15,7 @@ class AddRolColumn extends Migration
     {
         //Agregando la columna ROL, a la tabla usuers
         Schema::table('users', function (Blueprint $table){
+          print "Columna Rol\n";
           $table->integer('rol')->unsigned()->default(1);
 
           //Clave foranea

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddSlugMenuColumn extends Migration
+class CreateTipoSolicitudTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class AddSlugMenuColumn extends Migration
      */
     public function up()
     {
-        //
-        Schema::table('menu', function (Blueprint $table) {
-          print "Columna Slug Menu\n";
-          $table->string('slug_menu');
+        Schema::create('tipo_solicitud', function ( Blueprint $table ) {
+          print "Tipo de Solicitud\n";
+          $table->increments('id');
+          $table->string('nombre_solicitud');
         });
     }
 
@@ -27,8 +27,6 @@ class AddSlugMenuColumn extends Migration
      */
     public function down()
     {
-        Schema::table('menu', function (Blueprint $table) {
-          $table->dropColumn('slug_menu');
-        });
+        //
     }
 }

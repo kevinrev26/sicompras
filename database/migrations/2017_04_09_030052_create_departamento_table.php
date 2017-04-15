@@ -15,6 +15,7 @@ class CreateDepartamentoTable extends Migration
     {
         //Creando la tabla departamento
         Schema::create('departamento', function (Blueprint $table){
+          print "Departamento\n";
           $table->string('codigo_departamento');
           $table->string('nombre_departamento');
           $table->integer('institucion')->unsigned();
