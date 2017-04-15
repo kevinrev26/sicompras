@@ -2,27 +2,53 @@
 @section('title', 'Usuarios')
 
 @section('content')
-  @foreach ($users as $user)
-    <h1>{{ $user->name }}</h1>
-    <h2>{{ $user->email }}</h2>
-    <h3>{{ $user->role->nombre_rol }}</h3>
-    {{-- @if ($user->role->menus->items)
-      @foreach ($item as $user->role->menus->items)
-        <p> {{$item->nombre_item}}, <a href="{{ $item->ruta }}"></a>  </p>
+  @if (session('message'))
+    <div class="alert alert-success">
+      {{ session('message') }}
+    </div>
+  @endif
+  <table class="table table-stripped table-responsive">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>E-mail</th>
+        <th>Departamento</th>
+        <th>Institución</th>
+        <th>Rol</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach ($users as $user)
+        <tr>
+          <td> {{ $user->name }} </td>
+          <td> {{ $user->email }} </td>
+          <td> {{ $user->depto->getNombre() }} </td>
+          <td> {{ $user->depto->inst->nombre_institucion }} </td>
+          <form action=" {{ url('/users/'. $user->id  ) }}"  method="post">
+            {{ csrf_field() }}
+            <td>
+              <select class="form-control" name="rol">
+                <option value="{{ $user->role->id }}">{{ $user->role->nombre_rol }}</option>
+                @foreach ($roles as $rol)
+                  @if ($rol->id != $user->role->id)
+                    <option value="{{ $rol->id }}"> {{ $rol->nombre_rol }} </option>
+                  @endif
+                @endforeach
+               </select>
+             </td>
+            <td> <button type="submit" class="btn btn-warning"> <span class="glyphicon glyphicon-pencil"></span> </button></td>
+          </form>
+          <td>
+            <form id="eliminar" action="{{ url('/users/'.$user->id)}}" method="post">
+              {{ csrf_field() }}
+              {{ method_field('DELETE') }}
+              <button id="eliminar" type="submit" class="btn btn-danger" name="remove-users">
+                <span class="glyphicon glyphicon-trash"></span>
+              </button>
+            </form>
+          </td>
+        </tr>
       @endforeach
-    @endif --}}
-    @if (count($user->role->menus) > 0)
-      @foreach ($user->role->menus as $menu)
-        @foreach ($menu->items as $item)
-          <p>Item: {{ $item->nombre_item  }}, Enlace: <a href="{{ $item->ruta }}">{{ $item->ruta }}</a></p>
-        @endforeach
-      @endforeach
-    @else
-      <h4>No existe menú asociado.</h4>
-    @endif
-
-
-    <hr />
-  @endforeach
-
+    </tbody>
+  </table>
 @endsection

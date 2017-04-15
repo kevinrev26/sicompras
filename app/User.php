@@ -32,4 +32,10 @@ class User extends Authenticatable
       //return $this->belongsTo('App\Modelos\Rol', 'rol', 'id_rol');
       return $this->belongsTo('App\Modelos\Rol', 'rol', 'id');
     }
+
+    public function depto()
+    {
+      # code...
+      return $this->belongsTo('App\Modelos\Departamento', 'departamento' ,'codigo_departamento');
+    }
 }

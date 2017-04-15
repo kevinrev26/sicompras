@@ -29,6 +29,8 @@
         @section('scripts')
           {{-- JQUERY --}}
           <script src=" {{ asset('js/app.js') }}" ></script>
+          {{-- Bootstrap --}}
+          {{-- <script src=" {{ asset('js/bootstrap.min.js') }}" ></script> --}}
           {{-- VUEJS --}}
           <script src=" {{ asset('js/vue.js') }} "></script>
           {{-- VUE resource --}}

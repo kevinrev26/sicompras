@@ -15,5 +15,11 @@ class Departamento extends Model
       return $this->nombre_departamento;
     }
 
-    
+    public function inst()
+    {
+      # code...
+      return $this->belongsTo('App\Modelos\InstitucionGobierno','institucion');
+    }
+
+
 }
