@@ -29,5 +29,8 @@ Route::get('/equipments', 'Equipo\EquipmentsController@index');
 Route::get('/addequipments', 'Equipo\EquipmentsController@create');
 Route::post('/equipments', 'Equipo\EquipmentsController@store');
 
+/*Solicitudes*/
+Route::get('/addsolicitude', 'Solicitud\SolicitudeController@create');
+
 Route::get('/home', 'HomeController@index');
 Route::get('institutions/{id}/deparments', 'Departamentos\DepartmentsController@listDepartmentsByInstitution');
