@@ -24,5 +24,10 @@ Auth::routes();
 Route::get('/users', 'Usuarios\UsersController@index');
 Route::post('/users/{id}','Usuarios\UsersController@update');
 
+/*Catalogo de equipo*/
+Route::get('/equipments', 'Equipo\EquipmentsController@index');
+Route::get('/addequipments', 'Equipo\EquipmentsController@create');
+Route::post('/equipments', 'Equipo\EquipmentsController@store');
+
 Route::get('/home', 'HomeController@index');
 Route::get('institutions/{id}/deparments', 'Departamentos\DepartmentsController@listDepartmentsByInstitution');
