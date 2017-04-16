@@ -81,6 +81,7 @@
                            <div class="col-md-6 selectContainer">
                              <select class="form-control" name="departamento">
                                <option v-for="d in departamentos" v-bind:value="d.codigo_departamento"> @{{ d.nombre_departamento }} </option>
+                               
                              </select>
                            </div>
                          </div>
