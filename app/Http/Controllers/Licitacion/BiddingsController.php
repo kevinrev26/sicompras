@@ -5,16 +5,20 @@ namespace App\Http\Controllers\Licitacion;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Modelos\Licitacion;
+use App\Servicios\BiddingsService;
+use Auth;
 
 class BiddingsController extends Controller
 {
     //
     //
-    //
-    public function __construct()
+
+    private $biddingsService;
+
+    public function __construct(BiddingsService $biddingsService)
     {
       # code...
-      //$this->middleware('auth');
+      $this->biddingsService = $biddingsService;
     }
 
     public function index()
@@ -22,8 +26,37 @@ class BiddingsController extends Controller
       # code...
       # Filtrar por rol proveedor
       # Filtrar por institucion/uaci
-      return view('licitaciones.index');
 
+      //Verificar si hay alguien logueado
+      if (Auth::check() || Auth::guard('proveedor')->check()) {
+        if (Auth::guard('proveedor')->check()) {
+          return view('licitaciones.index', [
+            'licitaciones' => Licitacion::all()
+          ]);
+        } else {
+          if ((Auth::user()->getRoleSlug() === 'uaci') || (Auth::user()->getRoleSlug() === 'administrador' ) ) {
+
+            if (Auth::user()->getRoleSlug() === 'administrador' ) {
+              return view('licitaciones.index', [
+                'licitaciones' => Licitacion::all()
+              ]);
+            } else {
+              return view('licitaciones.index', [
+                'licitaciones' => $this->biddingsService->filtrarPorInstitucion(Auth::user())
+              ]);
+            }
+
+          } else {
+            return view('errors.403');
+          }
+
+        }
+
+
+      } else {
+        //Retornar vista para permisos insuficientes.
+        return view('errors.403');
+      }
 
     }
 
