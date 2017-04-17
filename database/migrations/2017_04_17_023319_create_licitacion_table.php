@@ -18,7 +18,7 @@ class CreateLicitacionTable extends Migration
           print "Licitacion\n";
           $table->increments('id');
           $table->string('nombre_convocatoria');
-          $table->string('objeto',50);
+          $table->string('objeto');
           $table->string('informacion_adicional');
           $table->string('fuente_financiamiento');
           $table->string('estado',50);

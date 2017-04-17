@@ -38,6 +38,7 @@ Route::post('/solicitude/{id}', 'Solicitud\SolicitudeController@update');
 /*Licitaciones*/
 Route::get('/addbiddings', 'Licitacion\BiddingsController@create');
 Route::post('/biddings', 'Licitacion\BiddingsController@store');
+Route::get('/biddings', 'Licitacion\BiddingsController@index');
 
 
 Route::get('/home', 'HomeController@index');

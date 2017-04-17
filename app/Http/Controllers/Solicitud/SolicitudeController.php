@@ -85,6 +85,6 @@ class SolicitudeController extends Controller
       $s->estado = true;
       $s->save();
 
-      return redirect('/addbiddings')->with('solicitudId', $s->id);
+      return redirect('/addbiddings')->with('solicitudId', $s);
     }
 }
