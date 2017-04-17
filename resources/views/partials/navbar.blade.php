@@ -13,26 +13,39 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      @if (Auth::check())
-        <ul class="nav navbar-nav">
-          @if (count(Auth::user()->role->menus) > 0)
-            @foreach (Auth::user()->role->menus as $menu)
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> {{$menu->nombre_menu}}  <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  @foreach ($menu->items as $item)
-                    <li> <a href="{{ $item->ruta }}"> {{$item->nombre_item}} </a> </li>
-                  @endforeach
-                </ul>
-              </li>
-            @endforeach
-          @else
-            <li> <a href="/"> HOME </a></li>
-          @endif
+      @if (Auth::check() || Auth::guard('proveedor')->check())
+
+        @if (Auth::guard('proveedor')->check())
+          <li> <a href="/"> PROVEEDOR </a></li>
+        @else {{--Check para proveedor--}}
+          <ul class="nav navbar-nav">
+            @if (count(Auth::user()->role->menus) > 0)
+              @foreach (Auth::user()->role->menus as $menu)
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> {{$menu->nombre_menu}}  <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    @foreach ($menu->items as $item)
+                      <li> <a href="{{ $item->ruta }}"> {{$item->nombre_item}} </a> </li>
+                    @endforeach
+                  </ul>
+                </li>
+              @endforeach
+            @else
+              <li> <a href="/"> HOME </a></li>
+            @endif {{-- count para User--}}
+
+        @endif {{--proveedor--}}
           <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                  {{ Auth::user()->name }} - {{ date('l F o') }} <span class="caret"></span> 
-              </a>
+              @if (Auth::check())
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                    {{ Auth::user()->name }} - {{ date('l F o') }} <span class="caret"></span>
+                </a>
+              @else
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                    {{ Auth::guard('proveedor')->user()->name }} - {{ date('l F o') }} <span class="caret"></span>
+                </a>
+              @endif
+
 
               <ul class="dropdown-menu" role="menu">
                   <li>
@@ -49,7 +62,7 @@
               </ul>
           </li>
         </ul>
-      @else
+      @else {{--check ||   --}}
         <ul class="nav navbar-nav navbar-right">
           <li> <a href="/login"> Login </a> </li>
           <li> <a href="/register"> Register </a> </li>
