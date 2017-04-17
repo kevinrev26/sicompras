@@ -14,7 +14,7 @@ class BiddingsController extends Controller
     public function __construct()
     {
       # code...
-      $this->middleware('auth');
+      //$this->middleware('auth');
     }
 
     public function index()
