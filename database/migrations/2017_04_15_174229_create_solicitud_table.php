@@ -30,7 +30,7 @@ class CreateSolicitudTable extends Migration
           $table->primary('id');
 
           $table->foreign('tipo')->references('id')->on('tipo_solicitud');
-          $table->foreign('usuario')->references('id')->on('users');
+          $table->foreign('usuario')->references('id')->on('users')->onDelete('cascade');
 
         });
     }

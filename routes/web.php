@@ -37,6 +37,8 @@ Route::post('/solicitude/{id}', 'Solicitud\SolicitudeController@update');
 
 /*Licitaciones*/
 Route::get('/addbiddings', 'Licitacion\BiddingsController@create');
+Route::post('/biddings', 'Licitacion\BiddingsController@store');
+
 
 Route::get('/home', 'HomeController@index');
 Route::get('institutions/{id}/deparments', 'Departamentos\DepartmentsController@listDepartmentsByInstitution');

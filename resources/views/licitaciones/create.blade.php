@@ -2,9 +2,9 @@
 @section('title','Publicar licitacion')
 
 @section('content')
-  @if (empty($solicitudId))
+  @if (!session('solicitudId'))
     <div class="alert alert-warning">
-      <p>Al parecer no se ha aprobado alguna solicitud, dirígase a la pagina de <a href="/solicitude" >solicitudes</a> para probar una </p>
+      <p>Al parecer no se ha aprobado alguna solicitud, dirígase a la pagina de <a href="/solicitude" >solicitudes</a> para aprobar una </p>
     </div>
   @else
     <h1>Agregar una nueva licitación.</h1>

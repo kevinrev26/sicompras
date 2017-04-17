@@ -20,8 +20,10 @@ class CreateDetalleSolicitudTable extends Migration
 
           $table->primary(['id_solicitud', 'id_equipo']);
 
-          $table->foreign('id_solicitud')->references('id')->on('solicitud');
-          $table->foreign('id_equipo')->references('id')->on('catalogo_equipo');
+          $table->foreign('id_solicitud')->references('id')->on('solicitud')
+                          ->onDelete('cascade');
+          $table->foreign('id_equipo')->references('id')->on('catalogo_equipo')
+                          ->onDelete('cascade');
         });
     }
 

@@ -9,6 +9,13 @@ class BiddingsController extends Controller
 {
     //
     //
+    //
+    public function __construct()
+    {
+      # code...
+      $this->middleware('auth');
+    }
+
     public function create()
     {
       # code...

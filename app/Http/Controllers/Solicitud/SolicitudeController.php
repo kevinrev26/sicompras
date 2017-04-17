@@ -84,8 +84,7 @@ class SolicitudeController extends Controller
       $s = Solicitud::find($id);
       $s->estado = true;
       $s->save();
-      return view('licitaciones.create',[
-        'solicitudId' => $s->id
-      ]);
+
+      return redirect('/addbiddings')->with('solicitudId', $s->id);
     }
 }

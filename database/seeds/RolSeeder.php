@@ -37,5 +37,10 @@ class RolSeeder extends Seeder
           'slug_rol' => 'tecnico',
           'descripcion_rol' => 'Este rol se encarga de gestionar los equipos en un determinado departamento.',
         ]);
+        $table->insert([
+          'nombre_rol' => 'Proveedor',
+          'slug_rol' => 'proveedor',
+          'descripcion_rol' => 'Entidad a quien se le compran los equipos de alto consumo eléctrico.'
+        ]);
     }
 }

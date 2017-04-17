@@ -81,5 +81,6 @@ class PermisoSeeder extends Seeder
         'id_rol' => $rol->id,
         'id_menu' => $menu->id,
       ]);
+      
     }
 }
