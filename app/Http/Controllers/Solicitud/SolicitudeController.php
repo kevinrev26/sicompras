@@ -74,7 +74,18 @@ class SolicitudeController extends Controller
         }
         return redirect('/solicitude')->with('message','Se ha agregado la solicitud numero: '.$nuevo->id);
       }
-      #
 
+
+    }
+
+    public function update($id)
+    {
+      # code...
+      $s = Solicitud::find($id);
+      $s->estado = true;
+      $s->save();
+      return view('licitaciones.create',[
+        'solicitudId' => $s->id
+      ]);
     }
 }

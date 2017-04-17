@@ -38,4 +38,9 @@ class User extends Authenticatable
       # code...
       return $this->belongsTo('App\Modelos\Departamento', 'departamento' ,'codigo_departamento');
     }
+
+    public function getRoleSlug()
+    {
+      return $this->role->slug_rol;
+    }
 }

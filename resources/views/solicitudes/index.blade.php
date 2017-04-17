@@ -26,7 +26,20 @@
             <td>{{ $solicitud->id }}</td>
             <td>{{ $solicitud->cantidad }}</td>
             <td>{{ $solicitud->precio_estimado }} $</td>
-            <td>{{ $solicitud->estado ? 'APROBADA' : 'PENDIENTE' }} </td>
+            <td>
+              @if ($solicitud->estado)
+                <h3> <span class="label label-default">APROBADA</span> </h3>
+              @else
+                @if (Auth::user()->getRoleSlug() === 'uaci')
+                  <form action="{{url('/solicitude/'.$solicitud->id)}}" method="post">
+                    {{ csrf_field() }}
+                    <button type="submit" class="btn btn-info">PENDIENTE</button>
+                  </form>
+                @else
+                  <h4> <span class="label label-warning">PENDIENTE</span> </h4>
+                @endif
+              @endif
+            </td>
           <tr>
         @endforeach
       </tbody>
