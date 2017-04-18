@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Licitacion;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Modelos\Licitacion;
+use App\Modelos\Oferta;
 use App\Servicios\BiddingsService;
 use Auth;
 
@@ -60,6 +61,14 @@ class BiddingsController extends Controller
 
     }
 
+
+    public function show($id)
+    {
+      return view('licitaciones.show',[
+        'licitacion' => Licitacion::find($id)
+      ]);
+    }
+
     public function create()
     {
       # code...
@@ -81,5 +90,12 @@ class BiddingsController extends Controller
       $nueva->solicitud = $req->input('solicitud');
       $nueva->save();
       return redirect('/biddings')->with('message', 'Se ha agregado la licitación a los registros');
+    }
+
+    public function showOffers($id)
+    {
+      return view('ofertas.index', [
+        'ofertas' => Oferta::where('licitacion', $id)->get()
+      ]);
     }
 }

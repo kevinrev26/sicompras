@@ -43,6 +43,8 @@ Route::group(['middleware' => ['web']], function(){
   Route::get('/addbiddings', 'Licitacion\BiddingsController@create');
   Route::post('/biddings', 'Licitacion\BiddingsController@store');
   Route::get('/biddings', 'Licitacion\BiddingsController@index');
+  Route::get('/biddings/{id}', 'Licitacion\BiddingsController@show');
+    Route::get('/biddings/{id}/offers', 'Licitacion\BiddingsController@showOffers');
 
   /*Proveedores*/
   Route::get('/proveedor/login', 'Proveedor\LoginController@showloginform');

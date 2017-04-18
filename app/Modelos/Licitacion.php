@@ -14,4 +14,7 @@ class Licitacion extends Model
     {
       return $this->belongsTo('App\User','usuario','id');
     }
+
+
+    
 }

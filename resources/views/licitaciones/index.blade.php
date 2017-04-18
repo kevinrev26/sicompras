@@ -30,6 +30,11 @@
                   <td> {{ $licitacion->nombre_convocatoria }} </td>
                   <td> {{ $licitacion->objeto }} </td>
                   <td> {{ $licitacion->tipo_licitacion }} </td>
+                  <td>
+                    <a href="{{url('/biddings/'.$licitacion->id)}}">
+                      <button class="btn btn-primary">Ver detalles</button>
+                    </a>
+                  </td>
                 </tr>
               @endforeach
             </tbody>
