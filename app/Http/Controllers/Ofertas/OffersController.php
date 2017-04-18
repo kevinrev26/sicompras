@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Ofertas;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Modelos\Oferta;
+use App\Modelos\Licitacion;
 
 class OffersController extends Controller
 {
@@ -32,5 +33,15 @@ class OffersController extends Controller
       //return var_dump($nueva);
       $nueva->save();
       return redirect('/biddings')->with('message', 'Se ha agreado la oferta.');
+    }
+
+    public function createPurchaseOrder($id)
+    {
+      $o = Oferta::find($id);
+
+      $l = Licitacion::find($o->licitacion);
+      $l->estado = 'FINALIZADA';
+      $l->save();
+      return redirect('/pruchaseorders/create')->with('oferta', $id);
     }
 }

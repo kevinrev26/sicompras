@@ -16,7 +16,7 @@ class CreateOrdenDeCompraTable extends Migration
         Schema::create('orden_de_compra', function (Blueprint $table) {
             print "Orden de compra\n";
             $table->increments('id');
-            $table->date('fecha');
+            $table->string('fecha');
             $table->boolean('tecnico');
             $table->boolean('uaci');
             $table->boolean('jefe');

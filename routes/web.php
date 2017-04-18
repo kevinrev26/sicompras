@@ -53,7 +53,10 @@
   Route::post('/offers/{id}/purchaseorders','Ofertas\OffersController@createPurchaseOrder');
 
   /*Ordenes de compra*/
-  
+  Route::get('/pruchaseorders/create', 'Ordenes\PurchaseOrdersController@create');
+  Route::post('/purchaseorders', 'Ordenes\PurchaseOrdersController@store');
+  Route::get('/purchaseorders', 'Ordenes\PurchaseOrdersController@index');
+
 
   /*Proveedores*/
   Route::get('/proveedor/login', 'Proveedor\LoginController@showloginform');
