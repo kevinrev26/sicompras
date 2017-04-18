@@ -98,4 +98,21 @@ class BiddingsController extends Controller
         'ofertas' => Oferta::where('licitacion', $id)->get()
       ]);
     }
+
+    public function update($id)
+    {
+
+      $proveedor = Auth::guard('proveedor')->user();
+      $control = $this->biddingsService->checkRetail($proveedor->id, $id);
+      if ($control) {
+        return redirect('licitaciones.show')->with('aplicada', 'Usted ya ha realizado una oferta por esta licitacion');
+      } else {
+        $licitacion = Licitacion::find($id);
+        //Se puede optimizar
+        $licitacion->estado = 'OFERTADA';
+        $licitacion->save();
+        return redirect('offers/create')->with('id', $id);
+      }
+
+    }
 }

@@ -5,6 +5,7 @@
 namespace App\Servicios;
 
 use App\Modelos\Licitacion;
+use App\Modelos\Oferta;
 
 class BiddingsService
 {
@@ -24,6 +25,21 @@ class BiddingsService
       }
     }
     return $filtrados;
+  }
+
+  public function checkRetail($idProveedor, $idLicitacion)
+  {
+    $aplicada = false;
+
+    $ofertas = Oferta::where('licitacion', $idLicitacion)->get();
+    foreach ($ofertas as $o) {
+      if ( $o->retail->id === $idProveedor ) {
+        $aplicada = true;
+      }
+    }
+
+    return $aplicada;
+
   }
 
 }

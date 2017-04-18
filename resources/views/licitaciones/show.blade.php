@@ -17,11 +17,20 @@
   <h3>Fuente de financiamiento: </h3> {{ $licitacion->fuente_financiamiento }}
   <h3>Identificador: </h3> {{ $licitacion->id }}
   <h3>Estado de la convocatoria: </h3> {{ $licitacion->estado }} <br />
-  @if (Auth::user()->getRoleSlug() === 'uaci')
-    <a href="{{ url('/biddings/'. $licitacion->id . '/offers') }}"> <button class="btn btn-info"> Revisar Ofertas </button></a>
+  @if (Auth::check())
+    @if (Auth::user()->getRoleSlug() === 'uaci')
+      <a href="{{ url('/biddings/'. $licitacion->id . '/offers') }}"> <button class="btn btn-info"> Revisar Ofertas </button></a>
+    @endif
+  @else
+    @if (Auth::guard('proveedor')->check())
+      <form method="post" action="{{ url('/biddings/'.$licitacion->id) }}">
+        {{ csrf_field() }}
+        <button type="submit" class="btn btn-info"> Aplicar a la licitacion </button>
+      </form>
+
+    @endif
   @endif
-  @if (Auth::guard('proveedor')->check())
-    <a href="{{ url('/offers/create') }}"> <button class="btn btn-info"> Aplicar a la licitacion </button></a>
-  @endif
+
+
 
 @endsection

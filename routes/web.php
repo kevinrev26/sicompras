@@ -12,7 +12,7 @@
 */
 
 
-Route::group(['middleware' => ['web']], function(){
+//Route::group(['middleware' => ['web']], function(){
   Route::get('/', function () {
       return view('home');
   });
@@ -44,13 +44,18 @@ Route::group(['middleware' => ['web']], function(){
   Route::post('/biddings', 'Licitacion\BiddingsController@store');
   Route::get('/biddings', 'Licitacion\BiddingsController@index');
   Route::get('/biddings/{id}', 'Licitacion\BiddingsController@show');
-    Route::get('/biddings/{id}/offers', 'Licitacion\BiddingsController@showOffers');
+  Route::post('/biddings/{id}', 'Licitacion\BiddingsController@update');
+  Route::get('/biddings/{id}/offers', 'Licitacion\BiddingsController@showOffers');
+
+  /*Ofertas*/
+  Route::get('/offers/create', 'Ofertas\OffersController@create');
+  Route::post('/offers', 'Ofertas\OffersController@store');
 
   /*Proveedores*/
   Route::get('/proveedor/login', 'Proveedor\LoginController@showloginform');
   Route::post('/proveedor/login','Proveedor\LoginController@login');
 
-});
+//});
 
 
 
