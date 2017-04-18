@@ -13,15 +13,22 @@
           <th> Precio oferta </th>
           <th> Numero licitacion </th>
           <th> Nombre de proveedor </th>
+          <th> Equipo </th>
         </tr>
       </thead>
       <tbody>
         @foreach ($ofertas as $o)
           <tr>
-            <td> {{ $o->precio_oferta }} </td>
+            <td> {{ $o->precio_oferta }} $</td>
             <td> {{ $o->licitacion }} </td>
             <td> {{ $o->retail->name }} </td>
-            {{-- Ver detalles, seleccionar oferta. --}}
+            <td> <img src="{{ asset($o->foto_equipo) }}" width="500" height="400"  /></td>
+            <td>
+              <form method="post" action="{{ url('/offers/'.$o->id .'/purchaseorders') }}">
+                {{ csrf_field() }}
+                <button type="submit" class="btn btn-info" > Seleccionar oferta </button>
+              </form>
+            </td>
           </tr>
         @endforeach
       </tbody>

@@ -50,6 +50,10 @@
   /*Ofertas*/
   Route::get('/offers/create', 'Ofertas\OffersController@create');
   Route::post('/offers', 'Ofertas\OffersController@store');
+  Route::post('/offers/{id}/purchaseorders','Ofertas\OffersController@createPurchaseOrder');
+
+  /*Ordenes de compra*/
+  
 
   /*Proveedores*/
   Route::get('/proveedor/login', 'Proveedor\LoginController@showloginform');

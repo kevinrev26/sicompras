@@ -21,5 +21,15 @@ class ProveedorSeeder extends Seeder
         $nuevo->rol = 6;
         $nuevo->representante = 'Edgar Sanchez';
         $nuevo->save();
+
+        $new = new Proveedor();
+        $new->name = 'Proveedor numero 2';
+        $new->email = 'proveedor2@example.com';
+        $new->password = bcrypt('123456');
+        $new->nit = '06142807931309';
+        $new->tipo_persona = true;
+        $new->rol = 6;
+        $new->representante = 'David Gilmour';
+        $new->save();
     }
 }
