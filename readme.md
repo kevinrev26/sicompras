@@ -1,4 +1,4 @@
-# ASECE-WEB
+# SICOMPRAS
 ---
 ## Contenido
 - [Requisitos](#requisitos)
