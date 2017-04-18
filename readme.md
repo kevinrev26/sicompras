@@ -1,40 +1,118 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+# ASECE-WEB
+---
+## Contenido
+- [Requisitos](#requisitos)
+- [Instalacion](#instalacion)
+  - [Configurando archivo .env](#env)
+  - [Configuracion MariaDB](#MariaDB)
+  - [Instalando Dependencias](#dependencias)
+  - [Migraciones](#migraciones)
+  - [Seeders](#seeders)
+- [Ejecucion](#ejecucion)
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+### Requisitos
+Las siguientes versiones de las herramientas son necesarias:
+```
+Composer 1.2.0, Laravel 5.4, php 7 y MariaDB 10.1
+```
 
-## About Laravel
+Cuando las herramientas anteriores estén instaladas se procede a la instalación y configuración del proyecto.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+**NOTA:** No se recomiendan otras versiones para este projecto.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Instalacion
+Se debe clonar el proyecto para acceder a el, luego se ejecuta en la terminal:
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb combination of simplicity, elegance, and innovation give you tools you need to build any application with which you are tasked.
+```
+$ cd asece-web
+```
+para acceder a la carpeta raíz del proyecto.
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough documentation and video tutorial library of any modern web application framework. The [Laravel documentation](https://laravel.com/docs) is thorough, complete, and makes it a breeze to get started learning the framework.
+#### Configurando archivo .env
+Como se sabe, el archivo .env contiene las variables de entorno que el framework utiliza para la configuración de base de datos, opciones de debugging, etc.
+El repositorio incluye un arhcivo .env.example, que sirve como plantilla para poder modificar los valores a gusto del programador. Se debe renombrar este archivo para que Laravel lo reconozca como tal.
+Si se esta dentro de una terminal Linux:
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 900 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
+```
+mv .env.example .env
+```
+Caso contrario bastará con renombrar el archivo .env.example a .env
+Ahora es necesario abrir el archivo .env en un editor de texto plano, y modificar las siguientes variables:
 
-## Contributing
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=homestead
+DB_USERNAME=homestead
+DB_PASSWORD=secret
+```
+En este caso, las variables a modificar son: DB_USERNAME, DB_DATABASE y DB_PASSWORD. Colocar las credenciales necesarias.
+(Si bien es cierto que la base de datos usada es MariaDB, el driver para conectarse a ella y a MariaDB son el mismo.)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+#### Configuracion MariaDB
+Para poder trabajar con la aplicación se debe configurar un usuario y un passsword para la base de datos MariaDB (Cabe resaltar que puede ser cualquier motor de base de datos soportado por Laravel).
 
-## Security Vulnerabilities
+Para crear un usuario en MariaDB (Todos los comandos se hacen desde la terminal; Si se prefiere se puede crear el usuario, contraseña y la base de datos desde la interfaz gráfica de utilerías como PHPMyAdmin) se ejecuta lo siguiente:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+```
+CREATE USER 'nombre'@'localhost' IDENTIFIED BY 'passsword';
+```
+El comando anterior debe ser ejecutado por un usuario que tenga permisos para crear otros usuarios (root por ejemplo). Se debe tener en cuenta que 'nombre' y 'passsword' deben coincidir con los nombre y passsword proporcionados en el archivo .env.
 
-## License
+Ahora se le deben otorgar permisos para la creación de bases de datos al nuevo usuario creado:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+```
+GRANT ALL PRIVILEGES ON *.* TO 'nombre'@'localhost';
+```
+Luego se loguea con el usuario creado de la siguietne manera:
+
+```
+$ mysql -u nombre -p
+```
+En seguida pedirá la contraseña que debemos escribir. (el signo de dólar al principio del comando es para especificar un usuario dentro de sistemas UNIX sin permisos de super usuario.)
+
+Dentro de la consola de MariaDB, se debe crear la base de datos que utilizará el proyecto:
+```
+CREATE DATABASE 'DATABASE';
+```
+Ahora ya se tiene configurada la base de datos a utilizar.
+
+#### Instalando Dependencias
+Dentro de la carpeta raíz del proyecto se encuentra otra llamada vendor. Dentro de ella se instalan aquellos componentes que el framework necesita para su correcto funcionamiento. Para instalar esos paquetes simplemente se ejecuta, dentro de la carpeta raíz:
+
+```
+$ composer install
+```
+
+#### Migraciones
+Ahora se deben instalar las tablas dentro de la base de datos que utiliza la aplicación. Dentro de Laravel esta tarea es sencilla y se debe ejecutar lo siguiente dentro de la raíz del proyecto:
+
+```
+$ php artisan migrate
+```
+Si no hay errores se puede loguear con el usuario de MariaDB y verificar la existencia de las tablas creadas.
+
+#### Seeders
+Los archivos seeders, son clases dentro de laravel que permiten el llenado de una tabla dentro de una base datos. Los creadores de Laravel pensaron en una forma de dejar de lado los archivos .sql para el trabajo colaborativo y los seeders son una gran ayuda para eliminar completamente los archivos backup de bases de datos.
+Se debe llenar la tabla permisos en primer lugar, se debe ejecutar lo siguiente:
+
+```
+$ php artisan db:seed
+```
+Luego de lo anterior, se tienen insertados algunas instituciones, un administrador cuyas credenciales son, email: admin@example.com y password: admin123; además de dos proveedores: proveedor@example.com, 123456 y proveedor2@example.com, 123456.
+
+
+#### Ejecucion
+Antes de verificar si la aplicación funciona correctamente, se debe registrar las llaves en el archivo .env. Laravel lo maneja automáticamente de la siguiente forma:
+
+```
+$ php artisan key:generate
+```
+
+Si todo ha ido acorde, solamente basta probar la aplicación de la siguiente forma:
+```
+$ php artisan serve
+```
+Se abre el navegador en localhost, para el puerto 8000 y comprobar que todo esta funcionando correctamente.
