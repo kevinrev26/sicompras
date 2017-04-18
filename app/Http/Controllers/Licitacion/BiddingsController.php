@@ -105,7 +105,7 @@ class BiddingsController extends Controller
       $proveedor = Auth::guard('proveedor')->user();
       $control = $this->biddingsService->checkRetail($proveedor->id, $id);
       if ($control) {
-        return redirect('licitaciones.show')->with('aplicada', 'Usted ya ha realizado una oferta por esta licitacion');
+        return redirect('/biddings')->with('aplicada', 'Usted ya ha realizado una oferta por esta licitacion');
       } else {
         $licitacion = Licitacion::find($id);
         //Se puede optimizar

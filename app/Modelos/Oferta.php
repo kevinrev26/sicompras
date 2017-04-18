@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Oferta extends Model
 {
     protected $table = 'oferta';
-
+    public $timestamps = false;
 
     public function bidding()
     {
@@ -17,6 +17,6 @@ class Oferta extends Model
 
     public function retail($value='')
     {
-      return $this->belongsTo('App\Modelos\Provedor','proveedor','id');
+      return $this->belongsTo('App\Modelos\Proveedor','proveedor','id');
     }
 }

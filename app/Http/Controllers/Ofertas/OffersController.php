@@ -25,10 +25,11 @@ class OffersController extends Controller
       $nueva->descripcion_oferta = $req->input('descripcion');
       $nueva->licitacion = $req->input('licitacion');
       $nueva->proveedor = $req->input('proveedor');
-      $imageName = mt_rand(999,999999)."_".time()."_".$req->imagen->getClientOriginalExtension();
+      $imageName = mt_rand(999,999999)."_".time()."_".".".$req->file('imagen')->getClientOriginalExtension();
       $req->imagen->move( public_path('images') ,$imageName);
-      $path = asset('images') . "/" . $imageName;
+      $path = "images". "/" . $imageName;
       $nueva->foto_equipo = $path;
+      //return var_dump($nueva);
       $nueva->save();
       return redirect('/biddings')->with('message', 'Se ha agreado la oferta.');
     }

@@ -72,7 +72,7 @@ class SolicitudeController extends Controller
         foreach ($equipos as $equipo){
           $sol->equipos()->attach($equipo);
         }
-        return redirect('/solicitude')->with('message','Se ha agregado la solicitud numero: '.$nuevo->id);
+        return redirect('/solicitude')->with('message','Se ha agregado la solicitud al sistema.');
       }
 
 
