@@ -30,9 +30,11 @@
               <select class="form-control" name="rol">
                 <option value="{{ $user->role->id }}">{{ $user->role->nombre_rol }}</option>
                 @foreach ($roles as $rol)
+                @if ($rol->nombre_rol != 'Proveedor')
                   @if ($rol->id != $user->role->id)
                     <option value="{{ $rol->id }}"> {{ $rol->nombre_rol }} </option>
                   @endif
+                @endif
                 @endforeach
                </select>
              </td>
