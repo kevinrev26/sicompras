@@ -9,7 +9,15 @@
       {{ session('message') }}
     </div>
   @endif
-  <a class="btn btn-success" role="button" href="{{url('/addsolicitud') }}" >Agregar solicitud</a>
+<!--
+  <form class="form-horizontal form-inline" method="get" action="{{ url('/solicitude') }}">
+     <div class="form-group">
+      <a class="btn btn-success" role="button" href="{{url('/addsolicitud') }}" >Agregar solicitud</a>
+         <input type="text" class="form-control" name = "search" placeholder="Nombre de autor" >
+       </div>
+       <button type="submit" class="btn btn-default">Buscar</button>
+  </form>
+-->
   @if (count($solicitudes)>0)
     <table class="table table-stripped table-responsive">
       <thead>
@@ -18,6 +26,8 @@
           <th> Cantidad </th>
           <th> Precio Estimado </th>
           <th> Estado </th>
+          <th> Autor </th>
+          <th> Institución </th>
         </tr>
       </thead>
       <tbody>
@@ -31,15 +41,18 @@
                 <h3> <span class="label label-default">APROBADA</span> </h3>
               @else
                 @if (Auth::user()->getRoleSlug() === 'uaci')
-                  <form action="{{url('/solicitude/'.$solicitud->id)}}" method="post">
+                <a href="{{url('/solicitude/'.$solicitud->id)}}" class="btn btn-info" method="put">VER</a>
+                <form action="{{url('/solicitude/'.$solicitud->id)}}" method="post">
                     {{ csrf_field() }}
-                    <button type="submit" class="btn btn-info">PENDIENTE</button>
+                    <button type="submit" class="btn btn-info">APROBAR</button>
                   </form>
                 @else
                   <h4> <span class="label label-warning">PENDIENTE</span> </h4>
                 @endif
               @endif
             </td>
+            <td>{{ $solicitud->user->name}} </td>
+             <td>{{ $solicitud->user->depto->inst->nombre_institucion }} </td>
           <tr>
         @endforeach
       </tbody>

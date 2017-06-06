@@ -37,6 +37,7 @@
   Route::get('/addsolicitud', 'Solicitud\SolicitudeController@create');
   Route::post('/solicitude', 'Solicitud\SolicitudeController@store');
   Route::get('/solicitude', 'Solicitud\SolicitudeController@index');
+  Route::get('/solicitude/{id}', 'Solicitud\SolicitudeController@show');
   Route::post('/solicitude/{id}', 'Solicitud\SolicitudeController@update');
 
   /*Licitaciones*/

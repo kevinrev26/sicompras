@@ -7,26 +7,57 @@ use App\Http\Controllers\Controller;
 use App\Modelos\CatalogoEquipo;
 use App\Modelos\TipoSolicitud;
 use App\Modelos\Solicitud;
+use App\Servicios\SolicitudesService;
+use Auth;
 
 class SolicitudeController extends Controller
 {
     //
     //
     //
-    public function __construct()
+    private $solicitudesService;
+
+    public function __construct(SolicitudesService $solicitudesService)
     {
       # code...
-      $this->middleware('auth');
+      $this->solicitudesService = $solicitudesService;
     }
 
     public function index()
     {
-      //Filtrar por institucion
+      //Agregar filtro por institucion
+      //Filtrado por autor de solicitud'
+/*
+      $solicitud = Solicitud::all();
+      $search= \Request::get('search');
+      $solicitudes=Solicitud::where('precio_estimado','like','%'.$search.'%')
+      ->orderBy('precio_estimado');
+*/
 
-      return view('solicitudes.index', [
-        'solicitudes' => Solicitud::all(),
-      ]);
+    if ((Auth::user()->getRoleSlug() === 'uaci') || (Auth::user()->getRoleSlug() === 'administrador' ) || (Auth::user()->getRoleSlug() === 'tecnico' ) ) {
+
+      if (Auth::user()->getRoleSlug() === 'administrador' ) {
+        return view('solicitudes.index', [
+          'solicitudes' => Solicitud::all()
+        ]);
+      } else {
+
+        if (Auth::user()->getRoleSlug() === 'tecnico' ) {
+          return view('solicitudes.index', [
+            'solicitudes' => $this->solicitudesService->filtrarSolicitudPorTecnico(Auth::user())
+          ]);
+        }else{
+
+          return view('solicitudes.index', [
+            'solicitudes' => $this->solicitudesService->filtrarSolicitudPorInstitucion(Auth::user())
+                    ]);
+             }
+
     }
+  }else {
+    return view('errors.403');
+  }
+}
 
     public function create()
     {
@@ -86,5 +117,12 @@ class SolicitudeController extends Controller
       $s->save();
 
       return redirect('/addbiddings')->with('solicitudId', $s);
+    }
+
+    public function show($id)
+    {
+      return view('solicitudes.show',[
+        'solicitud' => Solicitud::find($id)
+      ]);
     }
 }
