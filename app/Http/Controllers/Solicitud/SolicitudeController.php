@@ -47,6 +47,7 @@ class SolicitudeController extends Controller
         return redirect('/addsolicitude')->withErrors(['No se ha agregado ningun equipo a la solicitud.' ]);
       } else {
         $valores = array_map('intval', $req->input('equipos'));
+
         $nuevo = new Solicitud();
         $nuevo->id = intval($req->input('id'));
 

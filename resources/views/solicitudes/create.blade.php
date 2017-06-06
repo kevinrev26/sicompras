@@ -13,7 +13,7 @@
           </ul>
         </div>
       @endif
-      <form class="form-horizontal" method="post" action="{{ url('/solicitude') }}">
+      <form class="form-horizontal" method="post" action="{{ url('/solicitude') }} ">
         {{ csrf_field() }}
 
         <div class="form-group">
@@ -69,17 +69,33 @@
           <div class="panel-heading">
             Equipos agregados a la solicitud
           </div>
+          @if (count($equipos) > 0)
           <div class="panel-body">
             <p v-for="e in equipments">@{{ e.nombre}} <span class="glyphicon glyphicon-remove"  v-on:click="removeEquip( e.id )" ></span>
-              <input type="hidden" name="equipos[]" v-bind:value="e.id" />
+              <input type="hidden" name="equipos[]" v-bind:value="e.id"/>
             </p>
           </div>
+          @else
+          <div class="panel-body">
+            <p >
+              No hay equipos en el catalogo. No se puede crear la orden
+            </p>
+          </div>
+          @endif
         </div>
+        @if (count($equipos) > 0)
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-default">Agregar solicitud</button>
+            <button type="submit" class="btn btn-default"  v-on:click="checkEquipo($e)">Agregar solicitud</button>
           </div>
         </div>
+        @else
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default" disabled="true">Agregar solicitud</button>
+          </div>
+        </div>
+        @endif
       </form>
 
     </div>
@@ -102,6 +118,7 @@
             @endif
           </div>
         </div>
+        @if (count($equipos) > 0)
         <div class="form-group">
           <div class="col-md-6 col-md-offset-4">
               <button type="submit" class="btn btn-success">
@@ -109,6 +126,15 @@
               </button>
           </div>
         </div>
+        @else
+        <div class="form-group">
+          <div class="col-md-6 col-md-offset-4">
+              <button type="submit" class="btn btn-success" disabled="true">
+                  Agregar equipos
+              </button>
+          </div>
+        </div>
+        @endif
       </form>
     </div>
 

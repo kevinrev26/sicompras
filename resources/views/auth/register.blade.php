@@ -80,8 +80,13 @@
                            <label class="col-md-4 control-label">Departamento</label>
                            <div class="col-md-6 selectContainer">
                              <select class="form-control" name="departamento">
-                               <option v-for="d in departamentos" v-bind:value="d.codigo_departamento"> @{{ d.nombre_departamento }} </option>
-                               
+
+                              @foreach ($departamentos as $departamento)
+                                  <option value="{{ $departamento->codigo_departamento }}">
+                                    {{ $departamento->nombre_departamento }}
+                                  </option>
+                              @endforeach
+
                              </select>
                            </div>
                          </div>
