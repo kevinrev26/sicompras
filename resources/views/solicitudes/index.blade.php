@@ -41,11 +41,7 @@
                 <h3> <span class="label label-default">APROBADA</span> </h3>
               @else
                 @if (Auth::user()->getRoleSlug() === 'uaci')
-                <a href="{{url('/solicitude/'.$solicitud->id)}}" class="btn btn-info" method="put">VER</a>
-                <form action="{{url('/solicitude/'.$solicitud->id)}}" method="post">
-                    {{ csrf_field() }}
-                    <button type="submit" class="btn btn-info">APROBAR</button>
-                  </form>
+                <a href="{{url('/solicitude/'.$solicitud->id)}}" class="btn btn-info" method="put">VER DETALLES</a>
                 @else
                   <h4> <span class="label label-warning">PENDIENTE</span> </h4>
                 @endif
