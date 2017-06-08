@@ -34,7 +34,9 @@
         @foreach ($solicitudes as $solicitud)
           <tr>
             <td>{{ $solicitud->id }}</td>
-            <td>{{ $solicitud->pivot->cantidad }}</td>
+            {{-- <td>{{ $solicitud->pivot->cantidad }}</td> --}}
+            <td>DEBUG</td>
+            {{--La propiedad pivot, la posee el catalogo de equipos --}}
             <td>{{ $solicitud->precio_estimado }} $</td>
             <td>
               @if ($solicitud->estado)

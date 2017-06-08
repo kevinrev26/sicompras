@@ -21,6 +21,11 @@ class OffersController extends Controller
     {
       # code...
       # Validar la entrada
+      $this->validate($req,[
+        'imagen' => 'required|image'
+      ]);
+      #
+      #
       $nueva = new Oferta();
       $nueva->precio_oferta = $req->input('precio');
       $nueva->descripcion_oferta = $req->input('descripcion');
