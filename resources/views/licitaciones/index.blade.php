@@ -20,6 +20,7 @@
                 <th> Nombre de la convocatoria</th>
                 <th> Objeto de la convocatoria</th>
                 <th> Tipo de cotización</th>
+                <th> Estado </th>
               </tr>
             </thead>
             <tbody>
@@ -30,6 +31,7 @@
                   <td> {{ $licitacion->nombre_convocatoria }} </td>
                   <td> {{ $licitacion->objeto }} </td>
                   <td> {{ $licitacion->tipo_licitacion }} </td>
+                  <td> {{ $licitacion->estado }} </td>
                   <td>
                     <a href="{{url('/biddings/'.$licitacion->id)}}">
                       <button class="btn btn-primary">Ver detalles</button>

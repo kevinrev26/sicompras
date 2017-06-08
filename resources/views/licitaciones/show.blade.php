@@ -22,7 +22,7 @@
       <a href="{{ url('/biddings/'. $licitacion->id . '/offers') }}"> <button class="btn btn-info"> Revisar Ofertas </button></a>
     @endif
   @else
-    @if (Auth::guard('proveedor')->check())
+    @if (Auth::guard('proveedor')->check() && $licitacion->estado != 'FINALIZADA')
       <form method="post" action="{{ url('/biddings/'.$licitacion->id) }}">
         {{ csrf_field() }}
         <button type="submit" class="btn btn-info"> Aplicar a la licitacion </button>
