@@ -17,6 +17,7 @@ class CreateDetalleSolicitudTable extends Migration
           print "Detalle de Solicitud\n";
           $table->integer('id_solicitud')->unsigned();
           $table->integer('id_equipo')->unsigned();
+          $table->integer('cantidad');
 
           $table->primary(['id_solicitud', 'id_equipo']);
 

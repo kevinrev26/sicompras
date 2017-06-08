@@ -13,7 +13,8 @@ class Solicitud extends Model
     public function equipos()
     {
       # code...
-      return $this->belongsToMany('App\Modelos\CatalogoEquipo', 'detalle_solicitud', 'id_solicitud', 'id_equipo');
+      return $this->belongsToMany('App\Modelos\CatalogoEquipo', 'detalle_solicitud', 'id_solicitud', 'id_equipo')
+      ->withPivot('cantidad');
     }
 
     public function user()

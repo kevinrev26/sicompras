@@ -101,7 +101,7 @@ class SolicitudeController extends Controller
         $llaves = array_map('intval', $valores);
         $equipos = CatalogoEquipo::find($llaves);
         foreach ($equipos as $equipo){
-          $sol->equipos()->attach($equipo);
+          $sol->equipos()->attach($equipo, ['cantidad'=> 5]);
         }
         return redirect('/solicitude')->with('message','Se ha agregado la solicitud al sistema.');
       }
