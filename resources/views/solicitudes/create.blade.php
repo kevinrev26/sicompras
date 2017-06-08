@@ -13,7 +13,7 @@
           </ul>
         </div>
       @endif
-      <form class="form-horizontal" method="post" action="{{ url('/solicitude') }} ">
+      <form class="form-horizontal" method="post" action="{{ url('/solicitude') }} " v-on:submit="checkEquip">
         {{ csrf_field() }}
 
         <div class="form-group">
@@ -86,7 +86,7 @@
         @if (count($equipos) > 0)
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-default"  v-on:click="checkEquipo($e)">Agregar solicitud</button>
+            <button type="submit" class="btn btn-default">Agregar solicitud</button>
           </div>
         </div>
         @else
