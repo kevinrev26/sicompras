@@ -33,7 +33,7 @@
   Route::get('/addequipments', 'Equipo\EquipmentsController@create');
   Route::post('/equipments', 'Equipo\EquipmentsController@store');
 
-  //Route::get('/equipments/search', 'Equipo\EquipmentsController@search');
+  Route::get('/equipments/search', 'Equipo\EquipmentsController@search');
 
   /*Solicitudes*/
   Route::get('/addsolicitud', 'Solicitud\SolicitudeController@create');
@@ -41,7 +41,7 @@
   Route::get('/solicitude', 'Solicitud\SolicitudeController@index');
   Route::get('/solicitude/{id}', 'Solicitud\SolicitudeController@show');
   Route::post('/solicitude/{id}', 'Solicitud\SolicitudeController@update');
-  //Route::get('/solicitude/search', 'Solicitud\SolicitudeController@search');
+  Route::get('/solicitude/search', 'Solicitud\SolicitudeController@search');
 
   /*Licitaciones*/
   Route::get('/addbiddings', 'Licitacion\BiddingsController@create');
@@ -50,19 +50,19 @@
   Route::get('/biddings/{id}', 'Licitacion\BiddingsController@show');
   Route::post('/biddings/{id}', 'Licitacion\BiddingsController@update');
   Route::get('/biddings/{id}/offers', 'Licitacion\BiddingsController@showOffers');
-  //Route::get('/biddings/search', 'Licitacion\BiddingsController@search');
+  Route::get('/biddings/search', 'Licitacion\BiddingsController@search');
 
   /*Ofertas*/
   Route::get('/offers/create', 'Ofertas\OffersController@create');
   Route::post('/offers', 'Ofertas\OffersController@store');
   Route::post('/offers/{id}/purchaseorders','Ofertas\OffersController@createPurchaseOrder');
-  //Route::get('/offers/search', 'Ofertas\OffersController@search');
+  Route::get('/offers/search', 'Ofertas\OffersController@search');
 
   /*Ordenes de compra*/
   Route::get('/pruchaseorders/create', 'Ordenes\PurchaseOrdersController@create');
   Route::post('/purchaseorders', 'Ordenes\PurchaseOrdersController@store');
   Route::get('/purchaseorders', 'Ordenes\PurchaseOrdersController@index');
-  //Route::get('/purchaseorders/search', 'Ordenes\PurchaseOrdersController@search');
+  Route::get('/purchaseorders/search', 'Ordenes\PurchaseOrdersController@search');
 
 
   /*Proveedores*/

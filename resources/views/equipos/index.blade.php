@@ -9,6 +9,25 @@
     </div>
   @endif
   <a class="btn btn-success" role="button" href="{{url('/addequipments') }}" >Agregar equipo</a>
+
+
+
+  <div id="filtros">
+    <form class="form-inline" method="GET" action="{{ url('/equipments/search') }}" >
+      <div class="form-group">
+        <label for="nombre">Nombre de equipo: </label>
+        <input type="text" class="form-control" id="nombre" name="nombre" />
+
+      </div>
+      <div class="form-group">
+        <label for="unidad">Unidad de potencia: </label>
+        <input type="text" class="form-control" id="unidad" name="unidad" />
+        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search">Buscar</span></button>
+      </div>
+
+    </form>
+  </div>
+
   @if (count($equipos)>0)
     <table class="table table-stripped table-responsive">
       <thead>

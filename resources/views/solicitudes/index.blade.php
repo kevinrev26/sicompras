@@ -9,15 +9,31 @@
       {{ session('message') }}
     </div>
   @endif
-<!--
-  <form class="form-horizontal form-inline" method="get" action="{{ url('/solicitude') }}">
-     <div class="form-group">
-      <a class="btn btn-success" role="button" href="{{url('/addsolicitud') }}" >Agregar solicitud</a>
-         <input type="text" class="form-control" name = "search" placeholder="Nombre de autor" >
-       </div>
-       <button type="submit" class="btn btn-default">Buscar</button>
-  </form>
--->
+  <div id="filtros">
+    <form class="form-inline" method="GET" action="{{ url('/solicitude/search') }}" >
+      <div class="form-group">
+        <label for="numero">Numero de solicitud: </label>
+        <input type="text" class="form-control" id="numero" name="numero" />
+
+      </div>
+      <div class="form-group">
+        <label for="total">Total de la solicitud: </label>
+        <input type="text" class="form-control" id="total" name="total" />
+
+      </div>
+      <div class="form-group">
+        <label for="lugar">Lugar de entrega:  </label>
+        <input type="text" class="form-control" id="lugar" name="lugar" />
+
+      </div>
+      <div class="form-group">
+        <label for="estado">Estado de la solicitud: </label>
+        <input type="text" class="form-control" id="estado" name="estado" />
+        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search">Buscar</span></button>
+      </div>
+
+    </form>
+  </div>
   @if (count($solicitudes)>0)
     <table class="table table-stripped table-responsive">
       <thead>

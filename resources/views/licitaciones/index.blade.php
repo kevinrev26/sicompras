@@ -7,6 +7,23 @@
       {{ session('message') }}
     </div>
   @endif
+
+  <div id="filtros">
+    <form class="form-inline" method="GET" action="{{ url('/biddings/search') }}" >
+      <div class="form-group">
+        <label for="id">Identificador (id): </label>
+        <input type="text" class="form-control" id="id" name="id" />
+
+      </div>
+      <div class="form-group">
+        <label for="titulo">Titulo: </label>
+        <input type="text" class="form-control" id="titulo" name="titulo" />
+        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search">Buscar</span></button>
+      </div>
+
+    </form>
+  </div>
+
   <h1>Licitaciones.</h1>
     @if (count($licitaciones)>0)
       <div class="panel panel-default">

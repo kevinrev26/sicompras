@@ -6,6 +6,23 @@
       {{ session('message') }}
     </div>
   @endif
+
+  <div id="filtros">
+    <form class="form-inline" method="GET" action="{{ url('/offers/search') }}" >
+      <div class="form-group">
+        <label for="precio">Precio de la oferta: </label>
+        <input type="text" class="form-control" id="precio" name="precio" />
+
+      </div>
+      <div class="form-group">
+        <label for="proveedor">Proveedor: </label>
+        <input type="text" class="form-control" id="proveedor" name="proveedor" />
+        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search">Buscar</span></button>
+      </div>
+
+    </form>
+  </div>
+
   @if (count($ofertas)>0)
     <table class="table table-stripped table-responsive">
       <thead>
