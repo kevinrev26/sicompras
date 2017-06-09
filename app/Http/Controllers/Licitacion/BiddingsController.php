@@ -115,4 +115,9 @@ class BiddingsController extends Controller
       }
 
     }
+
+    public function search(Request $filters)
+    {
+      # code...
+    }
 }

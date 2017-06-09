@@ -33,4 +33,9 @@ class PurchaseOrdersController extends Controller
       return redirect('/purchaseorders')->with('message','Nueva orden de compra agregada');
 
     }
+
+    public function search(Request $filters)
+    {
+      # code...
+    }
 }

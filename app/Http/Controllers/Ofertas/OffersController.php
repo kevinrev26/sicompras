@@ -49,4 +49,9 @@ class OffersController extends Controller
       $l->save();
       return redirect('/pruchaseorders/create')->with('oferta', $id);
     }
+
+    public function search(Request $filters)
+    {
+      # code...
+    }
 }

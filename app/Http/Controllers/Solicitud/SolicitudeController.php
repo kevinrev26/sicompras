@@ -125,4 +125,9 @@ class SolicitudeController extends Controller
         'solicitud' => Solicitud::find($id)
       ]);
     }
+
+    public function search(Request $filters)
+    {
+      # code...
+    }
 }

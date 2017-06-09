@@ -38,4 +38,9 @@ class EquipmentsController extends Controller
       return redirect('/equipments')->with('message', 'Se ha agregado el equipo: ' . $nuevo->nombre_equipo . " al catálogo");
 
     }
+
+    public function search(Request $filters)
+    {
+      # code...
+    }
 }
