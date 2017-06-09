@@ -13,13 +13,13 @@ class CreateTableSolictudMantenimiento extends Migration
      */
     public function up()
     {
-      
+
 
       Schema::create('solicitud_mantenimiento', function(Blueprint $table){
         print "Solicitud de Mantenimiento\n";
         $table->integer('id_sol_mant')->unsigned();
         $table->float('presupuesto',8,2);
-        $table->timestamps('fecha_creacion');
+        $table->dateTime('fecha_creacion');
         $table->string('equipo');
         $table->integer('usuario')->unsigned();
 

@@ -38,6 +38,10 @@
   Route::post('/solicitude', 'Solicitud\SolicitudeController@store');
   Route::get('/solicitude', 'Solicitud\SolicitudeController@index');
   Route::post('/solicitude/{id}', 'Solicitud\SolicitudeController@update');
+  /*Solicitudes de Mantenimiento*/
+  Route::get('/solicitud', 'Mantenimiento\SolicitudMantenimientoController@index');
+  Route::post('/solicitud', 'Mantenimiento\SolicitudMantenimientoController@store');
+  Route::get('/addsolicitudMantenimiento', 'Mantenimiento\SolicitudMantenimientoController@create');
 
   /*Licitaciones*/
   Route::get('/addbiddings', 'Licitacion\BiddingsController@create');
