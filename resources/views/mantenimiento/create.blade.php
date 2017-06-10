@@ -13,7 +13,7 @@
           </ul>
         </div>
       @endif
-      <form class="form-horizontal" method="post" action="{{ url('/solicitud') }} " v-on:submit="checkEquip">
+      <form class="form-horizontal" method="post" action="{{ url('/solicitud') }} ">
         {{ csrf_field() }}
 
         <div class="form-group">
@@ -29,7 +29,29 @@
           </div>
         </div>
         <input type="hidden" name="usuario" value="{{ Auth::id() }}" />
-        <div class="panel panel-default">
+        <div class="form-group">
+          <label class="control-label col-md-4 ">Equipo</label>
+          <div class="selectContainer col-md-6 ">
+            @if (count($equipos)>0)
+              <select name="equipos" v-model="equipo">
+                  <option value="">Seleccione un equipo</option>
+                @foreach ($equipos as $equipo)
+                  <option value="{{ $equipo->inv_equipo }}"> {{$equipo->inv_equipo  }} </option>
+                @endforeach
+              </select>
+
+            @else
+              <h2>No hay equipos agregados en este momento</h2>
+            @endif
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default">Agregar solicitud</button>
+          </div>
+        </div>
+
+        <!-- <div class="panel panel-default">
           <div class="panel-heading">
             Equipos agregados a la solicitud
           </div>
@@ -59,12 +81,12 @@
             <button type="submit" class="btn btn-default" disabled="true">Agregar solicitud</button>
           </div>
         </div>
-        @endif
+        @endif -->
       </form>
 
     </div>
 
-    <div class="col-md-4">
+    <!-- <div class="col-md-4">
       <form class="form-horizontal" v-on:submit="addEquip">
         <div class="form-group">
           <label class="control-label col-md-4 ">Equipo</label>
@@ -100,7 +122,7 @@
         </div>
         @endif
       </form>
-    </div>
+    </div> -->
 
 
   </div>

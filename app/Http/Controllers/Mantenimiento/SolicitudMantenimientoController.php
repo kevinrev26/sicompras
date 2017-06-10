@@ -41,7 +41,7 @@ class SolicitudMantenimientoController extends Controller
     public function store(Request $req)
     {
       # code...
-      if (!$req->input('equipo')) {
+      if (!$req->input('equipos')) {
         return redirect('/addsolicitudMantenimiento')->withErrors(['No se ha agregado ningún equipo a la solicitud.' ]);
       } else {
         //$valores = array_map('intval', $req->input('equipos'));
@@ -57,7 +57,7 @@ class SolicitudMantenimientoController extends Controller
         $nuevo->fecha_creacion = new DateTime("now");
         $nuevo->usuario = intval($req->input('usuario'));
         //$llaves = array_map(null, $valores);
-        $llave = $req->input('equipo');
+        $llave = $req->input('equipos');
         $nuevo->equipo = $llave;
         $nuevo->save();
         /*
@@ -71,7 +71,7 @@ class SolicitudMantenimientoController extends Controller
         // foreach ($equipos as $equipo){
         //   $sol->equipos()->attach($equipo);
         // }
-        return redirect('/mantenimiento')->with('message','Se ha agregado la solicitud al sistema.');
+        return redirect('/solicitud')->with('message','Se ha agregado la solicitud al sistema.');
       }
 
 

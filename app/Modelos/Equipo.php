@@ -12,6 +12,6 @@ class Equipo extends Model
     public function solicitudes()
     {
       # code...
-      return $this->belongsToMany('App\Modelos\SolicitudMantenimiento', 'id_solicitud');
+      return $this->belongsTo('App\Modelos\SolicitudMantenimiento', 'id_solicitud');
     }
 }
