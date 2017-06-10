@@ -41,7 +41,14 @@
   Route::get('/solicitude', 'Solicitud\SolicitudeController@index');
   Route::get('/solicitude/{id}', 'Solicitud\SolicitudeController@show');
   Route::post('/solicitude/{id}', 'Solicitud\SolicitudeController@update');
+
   Route::get('/solicitude/search', 'Solicitud\SolicitudeController@search');
+
+  /*Solicitudes de Mantenimiento*/
+  Route::get('/solicitud', 'Mantenimiento\SolicitudMantenimientoController@index');
+  Route::post('/solicitud', 'Mantenimiento\SolicitudMantenimientoController@store');
+  Route::get('/addsolicitudMantenimiento', 'Mantenimiento\SolicitudMantenimientoController@create');
+
 
   /*Licitaciones*/
   Route::get('/addbiddings', 'Licitacion\BiddingsController@create');

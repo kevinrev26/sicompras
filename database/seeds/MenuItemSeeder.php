@@ -44,8 +44,13 @@ class MenuItemSeeder extends Seeder
         ]);
         $menu = Menu::where('slug_menu', 'solicitud')->first();
         $table->insert([
-          'nombre_item' => 'Agregar solicitud',
+          'nombre_item' => 'Agregar solicitud de Compra',
           'ruta' => '/addsolicitud',
+          'menu' => $menu->id,
+        ]);
+        $table->insert([
+          'nombre_item' => 'Agregar solicitud de Mantenimiento',
+          'ruta' => '/addsolicitudMantenimiento',
           'menu' => $menu->id,
         ]);
         $table->insert([

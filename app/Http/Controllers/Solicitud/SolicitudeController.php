@@ -75,16 +75,22 @@ class SolicitudeController extends Controller
       # code...
       # Validar precio estimado
       if (!$req->input('equipos')) {
-        return redirect('/addsolicitude')->withErrors(['No se ha agregado ningun equipo a la solicitud.' ]);
+        return redirect('/addsolicitud')->withErrors(['No se ha agregado ningun equipo a la solicitud.' ]);
       } else {
         $valores = array_map('intval', $req->input('equipos'));
+
         $nuevo = new Solicitud();
         $nuevo->id = intval($req->input('id'));
 
         $nuevo->unidad_medida = strtoupper($req->input('unidad'));
         $nuevo->cantidad = count($valores);
         $nuevo->especificaciones_tecnicas = $req->input('especificaciones');
-        $nuevo->precio_estimado = floatval($req->input('precio'));
+        if ($req->input('precio') <= 0.00){
+          return redirect('/addsolicitud')->withErrors(['El precio debe de ser un número real mayor que cero. No se admiten caracteres.']);
+        }
+        else{
+          $nuevo->precio_estimado = floatval($req->input('precio'));
+        }
         $nuevo->forma_entrega = strtoupper($req->input('forma'));
         $nuevo->lugar_entrega = strtoupper($req->input('lugar'));
         $nuevo->estado = false;

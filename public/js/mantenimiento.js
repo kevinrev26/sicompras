@@ -37,6 +37,10 @@ let vm = new Vue({
         e.preventDefault();
         alert("No se han agregado equipos");
       }
+      if (this.equipments.length > 1){
+        e.preventDefault();
+        alert("La Solicitud de Mantenimiento solo admite un equipo");
+      }
       }
     }
   }

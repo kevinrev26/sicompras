@@ -24,12 +24,10 @@ class CreateSolicitudTable extends Migration
           $table->string('lugar_entrega',50);
           $table->boolean('estado');
           //Foraneas
-          $table->integer('tipo')->unsigned();
           $table->integer('usuario')->unsigned();
           //llave primaria
           $table->primary('id');
 
-          $table->foreign('tipo')->references('id')->on('tipo_solicitud');
           $table->foreign('usuario')->references('id')->on('users')->onDelete('cascade');
 
         });
