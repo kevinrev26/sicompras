@@ -15,7 +15,7 @@ class Oferta extends Model
       return $this->belongsTo('App\Modelos\Licitacion','licitacion','id');
     }
 
-    public function retail($value='')
+    public function retail()
     {
       return $this->belongsTo('App\Modelos\Proveedor','proveedor','id');
     }

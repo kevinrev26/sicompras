@@ -94,7 +94,7 @@ class SolicitudeController extends Controller
         $nuevo->forma_entrega = strtoupper($req->input('forma'));
         $nuevo->lugar_entrega = strtoupper($req->input('lugar'));
         $nuevo->estado = false;
-        $nuevo->tipo = intval($req->input('tipo'));
+        //$nuevo->tipo = intval($req->input('tipo'));
         $nuevo->usuario = intval($req->input('usuario'));
         //return var_dump($valores);
         $nuevo->save();

@@ -81,7 +81,7 @@ class RegisterController extends Controller
       # code...
       #
       $instituciones = InstitucionGobierno::all();
-      $departamentos = Departamento::all();
-      return view('auth.register', ['instituciones' => $instituciones, 'departamentos' => $departamentos]);
+      //$departamentos = Departamento::all();
+      return view('auth.register', ['instituciones' => $instituciones]);
     }
 }
