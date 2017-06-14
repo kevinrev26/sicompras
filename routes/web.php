@@ -76,6 +76,16 @@
   Route::get('/proveedor/login', 'Proveedor\LoginController@showloginform');
   Route::post('/proveedor/login','Proveedor\LoginController@login');
 
+  /*Compras*/
+  Route::get('/purchases', 'Compras\PurchasesController@index');
+  Route::post('/purchases', 'Compras\PurchasesController@store');
+  Route::get('/createpurchase','Compras\PurchasesController@create');
+
+  /*Inventario de Equipos*/
+  Route::get('/stockequipments', 'Equipo\StockEquipmentsController@index');
+  Route::post('/stockequipments', 'Equipo\StockEquipmentsController@store');
+  Route::get('/create-stockequipments', 'Equipo\StockEquipmentsController@create');
+
 //});
 
 

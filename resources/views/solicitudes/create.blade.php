@@ -52,18 +52,6 @@
             <input type="text" class="form-control" name="lugar" placeholder="En la institución" required>
           </div>
         </div>
-        <div class="form-group">
-          <label class="control-label col-sm-2" for="numero">Tipo de solicitud:</label>
-          <div class="col-sm-10">
-            <select class="form-control" name="tipo">
-              @foreach ($tipos as $tipo)
-                <option value="{{ $tipo->id }}">
-                  {{ $tipo->nombre_solicitud }}
-                </option>
-              @endforeach
-            </select>
-          </div>
-        </div>
         <input type="hidden" name="usuario" value="{{ Auth::id() }}" />
         <div class="panel panel-default">
           <div class="panel-heading">
