@@ -42,17 +42,6 @@ class EquipmentsController extends Controller
 
     public function search(Request $filters)
     {
-      // $data = [
-      //   'nombre' => $filters->input('nombre'),
-      //   'unidad' => $filters->input('unidad')
-      // ];
-      // return var_dump($data);
-      /*
-      * Se debe validar la existencia de los parametros.
-      * Ejecutar el procedimiento
-      * Y devolver a la misma vista pero con la data extraida del procedimiento
-      * almacenado.
-       */
        $name = $filters->input('nombre');
        $unit = $filters->input('unidad');
        $data = DB::select('CALL getEquipments(?,?)', array($name, $unit));
