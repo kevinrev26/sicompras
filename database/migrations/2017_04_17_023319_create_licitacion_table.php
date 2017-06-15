@@ -22,15 +22,16 @@ class CreateLicitacionTable extends Migration
           $table->string('informacion_adicional');
           $table->string('fuente_financiamiento');
           $table->string('estado',50);
-          $table->string('tipo_licitacion');
+          $table->integer('solicitud')->unsigned();
+          //$table->string('tipo_licitacion');
 
           //foreaneas
           $table->integer('usuario')->unsigned();
-          $table->integer('solicitud')->unsigned();
+
 
           $table->foreign('usuario')->references('id')->on('users')->onDelete('cascade');
-          $table->foreign('solicitud')->references('id')->on('solicitud')
-                          ->onDelete('cascade');
+          // //$table->foreign('solicitud')->references('id')->on('solicitud')
+          //                 ->onDelete('cascade');
         });
     }
 
@@ -41,6 +42,6 @@ class CreateLicitacionTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('licitacion');
     }
 }
