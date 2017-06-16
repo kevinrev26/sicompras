@@ -8,6 +8,7 @@ class SolicitudMantenimiento extends Model
 {
     protected $table = 'solicitud_mantenimiento';
     public $timestamps = false;
+    private $tipo = 'mantenimiento';
 
 
     public function equipos()
@@ -19,5 +20,10 @@ class SolicitudMantenimiento extends Model
     public function user()
     {
       return $this->belongsTo('App\User', 'usuario', 'id');
+    }
+
+    public function getTipo()
+    {
+      return $this->tipo;
     }
 }

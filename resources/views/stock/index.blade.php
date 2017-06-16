@@ -45,6 +45,7 @@
             <td>{{ $equipo->marca }}</td>
             <td>{{ $equipo->modelo }}</td>
             <td>{{ $equipo->precio_equipo }}</td>
+            <td> <a href="{{url('/stocks/'. $equipo->id_equipo .'/binnacles')}}"><button class="btn btn-primary">Ver Mantenimientos</button></a> </td>
           <tr>
         @endforeach
       </tbody>

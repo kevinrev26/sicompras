@@ -38,4 +38,10 @@ class EmployeesController extends Controller
       $emp->delete();
       return redirect('/'.$proveedor.'/employees')->with('message', 'Se ha eliminado el empleado: ' . $nombre);
     }
+
+    public function getEmployees($id)
+    {
+      return response()->json(Empleado::where('proveedor',$id)
+                              ->orderby('nombre_completo','asc')->get());
+    }
 }

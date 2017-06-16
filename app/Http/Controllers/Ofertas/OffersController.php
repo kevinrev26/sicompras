@@ -47,7 +47,13 @@ class OffersController extends Controller
       $l = Licitacion::find($o->licitacion);
       $l->estado = 'FINALIZADA';
       $l->save();
-      return redirect('/pruchaseorders/create')->with('oferta', $id);
+      if($l->solicitude->getTipo() === 'compra'){
+        return redirect('/pruchaseorders/create')->with('oferta', $id);
+      } else {
+        /*Creacion de contratos...*/
+        return redirect('/');
+      }
+
     }
 
     public function search(Request $filters)

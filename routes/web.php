@@ -80,6 +80,7 @@
   //Route::get('/employees-create','Empleados\EmployeesController@create');
   Route::post('/employees','Empleados\EmployeesController@store');
   Route::post('employees/{id}', 'Empleados\EmployeesController@destroy');
+  Route::get('/api/{id}/employees','Empleados\EmployeesController@getEmployees');
 
 
   /*Compras*/
@@ -91,6 +92,8 @@
   Route::get('/stockequipments', 'Equipo\StockEquipmentsController@index');
   Route::post('/stockequipments', 'Equipo\StockEquipmentsController@store');
   Route::get('/create-stockequipments', 'Equipo\StockEquipmentsController@create');
+  Route::get('/stocks/{id}/binnacles', 'Bitacora\BinnacleController@index');
+  Route::post('/stocks/{id}/binnacles', 'Bitacora\BinnacleController@store');
 
 //});
 

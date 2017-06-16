@@ -19,12 +19,14 @@ class BitacoraMantenimiento extends Migration
           $table->string('descripcion_mantenimiento');
           $table->string('imagen');
           $table->integer('usuario')->unsigned();
-          $table->integer('tipo_mantenimiento')->unsigned();
+          $table->string('tipo_mantenimiento');
           $table->integer('empleado')->unsigned();
+          $table->integer('equipo')->unsigned();
 
           $table->foreign('usuario')->references('id')->on('users');
-          $table->foreign('tipo_mantenimiento')->references('id')->on('tipo_mantenimiento');
+          //$table->foreign('tipo_mantenimiento')->references('id')->on('tipo_mantenimiento');
           $table->foreign('empleado')->references('id')->on('empleado');
+          $table->foreign('equipo')->references('id_equipo')->on('equipo');
         });
     }
 

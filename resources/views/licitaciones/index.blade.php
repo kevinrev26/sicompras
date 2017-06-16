@@ -36,7 +36,6 @@
                 <th> Código</th>
                 <th> Nombre de la convocatoria</th>
                 <th> Objeto de la convocatoria</th>
-                <th> Tipo de cotización</th>
                 <th> Estado </th>
               </tr>
             </thead>
