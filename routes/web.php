@@ -63,6 +63,8 @@
   Route::get('/proveedor/login', 'Proveedor\LoginController@showloginform');
   Route::post('/proveedor/login','Proveedor\LoginController@login');
 
+  /* Bitacora de licitaciones */
+  Route::get('/bitacorabiddings', 'Licitacion\BitacoraBiddingsController@bitacora');
 //});
 
 
