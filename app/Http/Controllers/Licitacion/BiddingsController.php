@@ -85,7 +85,7 @@ class BiddingsController extends Controller
       $nueva->informacion_adicional = $req->input('informacion');
       $nueva->fuente_financiamiento = $req->input('fuente');
       $nueva->estado = 'PUBLICADA';
-      $nueva->tipo_licitacion = $req->input('tipo');
+      //$nueva->tipo_licitacion = $req->input('tipo');
       $nueva->usuario = $req->input('usuario');
       $nueva->solicitud = $req->input('solicitud');
       $nueva->save();

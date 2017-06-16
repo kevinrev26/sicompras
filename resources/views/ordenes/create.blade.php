@@ -25,15 +25,15 @@
               <label class="control-label col-sm-2">Fecha de entrega: </label>
               <input name="fecha-entrega" type="date" placeholder="dd/MM/YYYY" required />
             </div>
-            <div class="form-group">
+            {{-- <div class="form-group">
               <ul>
-                @foreach ($oferta->bidding->solicitud->equipos as $equipo)
+                @foreach ($oferta->bidding->solicitude->equipos as $equipo)
                   <li>
                     {{$equipo->nombre_equipo}}
                   </li>
                 @endforeach
               </ul>
-            </div>
+            </div> --}}
               <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                   <button type="submit" class="btn btn-default">Agregar Orden de compra</button>

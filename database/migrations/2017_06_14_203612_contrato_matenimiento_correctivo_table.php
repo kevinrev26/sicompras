@@ -16,7 +16,7 @@ class ContratoMatenimientoCorrectivoTable extends Migration
         Schema::create('contrato_matenimiento_correctivo', function(Blueprint $table){
           $table->increments('id');
           $table->decimal('monto',12,2);
-          $table->string('fecha_ejecución');
+          $table->string('fecha_ejecucion');
           $table->boolean('finalizado');
           $table->integer('equipo')->unsigned();
           $table->integer('usuario')->unsigned();

@@ -122,7 +122,7 @@ class SolicitudeController extends Controller
       $s->estado = true;
       $s->save();
 
-      return redirect('/addbiddings')->with('solicitudId', $s);
+      return redirect('/addbiddings')->with('solicitudId', $id);
     }
 
     public function show($id)

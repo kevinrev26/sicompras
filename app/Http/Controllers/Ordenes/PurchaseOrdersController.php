@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Modelos\OrdenCompra;
 use App\Modelos\Oferta;
+use App\Modelos\Solicitud;
 
 class PurchaseOrdersController extends Controller
 {
@@ -38,10 +39,11 @@ class PurchaseOrdersController extends Controller
       $nueva->oferta = $req->input('oferta');
       $nueva->fecha_entrega = $req->input('fecha-entrega');
       $nueva->save();
-
-      //Asignar equipos
       $oferta = Oferta::find($req->input('oferta'));
-      foreach($oferta->bidding->solicitude->equipos as $equipo){
+      $solicitud = Solicitud::find($oferta->bidding->solicitud);
+      //Asignar equipos
+
+      foreach($solicitud->equipos as $equipo){
         $nueva->equipos()->attach($equipo);
 
       }
