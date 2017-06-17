@@ -48,6 +48,7 @@
   Route::get('/solicitud', 'Mantenimiento\SolicitudMantenimientoController@index');
   Route::post('/solicitud', 'Mantenimiento\SolicitudMantenimientoController@store');
   Route::get('/addsolicitudMantenimiento', 'Mantenimiento\SolicitudMantenimientoController@create');
+  Route::post('/updatesolicitude/{id}','Mantenimiento\SolicitudMantenimientoController@update');
 
 
   /*Licitaciones*/
@@ -64,6 +65,8 @@
   Route::post('/offers', 'Ofertas\OffersController@store');
   Route::post('/offers/{id}/purchaseorders','Ofertas\OffersController@createPurchaseOrder');
   Route::get('/offers/search', 'Ofertas\OffersController@search');
+  Route::get('/offers/{id}/contracts','Contrato\CorrectiveContractsController@create');
+  Route::post('/offers/{id}/contracts', 'Contrato\CorrectiveContractsController@store');
 
   /*Ordenes de compra*/
   Route::get('/pruchaseorders/create', 'Ordenes\PurchaseOrdersController@create');
@@ -75,6 +78,29 @@
   /*Proveedores*/
   Route::get('/proveedor/login', 'Proveedor\LoginController@showloginform');
   Route::post('/proveedor/login','Proveedor\LoginController@login');
+  //Empleados del proveedor.
+  Route::get('/{id}/employees','Empleados\EmployeesController@index');
+  //Route::get('/employees-create','Empleados\EmployeesController@create');
+  Route::post('/employees','Empleados\EmployeesController@store');
+  Route::post('employees/{id}', 'Empleados\EmployeesController@destroy');
+  Route::get('/api/{id}/employees','Empleados\EmployeesController@getEmployees');
+
+
+  /*Compras*/
+  Route::get('/purchases', 'Compras\PurchasesController@index');
+  Route::post('/purchases', 'Compras\PurchasesController@store');
+  Route::get('/createpurchase','Compras\PurchasesController@create');
+
+  /*Inventario de Equipos*/
+  Route::get('/stockequipments', 'Equipo\StockEquipmentsController@index');
+  Route::post('/stockequipments', 'Equipo\StockEquipmentsController@store');
+  Route::get('/create-stockequipments', 'Equipo\StockEquipmentsController@create');
+  Route::get('/stocks/{id}/binnacles', 'Bitacora\BinnacleController@index');
+  Route::post('/stocks/{id}/binnacles', 'Bitacora\BinnacleController@store');
+
+  //Contratos
+  Route::get('/correctivecontracts', 'Contrato\CorrectiveContractsController@index');
+  Route::post('/correctivecontracts/{id}', 'Mantenimiento\SolicitudMantenimientoController@update');
 
   /*Procedimientos*/
   Route::get('/avanzada', 'AdministracionAvanzada\StoreProcedureController@index');

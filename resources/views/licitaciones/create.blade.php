@@ -19,7 +19,7 @@
     @endif
 
     <div class="panel panel-default">
-      <div class="panel-heading">Nueva licitación, {{ session('solicitudId')->user->depto->inst->nombre_institucion  }}</div>
+      <div class="panel-heading">Nueva licitación  }}</div>
       <div class="panel-body">
         <form class="form-horizontal" method="post" action="{{ url('/biddings') }}">
           {{ csrf_field() }}
@@ -54,7 +54,7 @@
               </div>
             </div>
             <input type="hidden" name="usuario" value="{{ Auth::id() }}" />
-            <input type="hidden" name="solicitud" value="{{ session('solicitudId')->id }}" />
+            <input type="hidden" name="solicitud" value="{{ session('solicitudId') }}" />
             <div class="form-group">
               <div class="col-sm-offset-2 col-sm-10">
                 <button type="submit" class="btn btn-default">Agregar licitacion</button>

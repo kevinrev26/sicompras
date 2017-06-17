@@ -34,17 +34,18 @@
               <th> Aprobado por el técnico</th>
               <th> Aprobado por el Jefe de institución</th>
               <th> Fecha de entrega</th>
-              <th> Estado </th>
+              <th> Número </th>
             </tr>
           </thead>
           <tbody>
             @foreach ($ordenes as $orden)
               <tr>
-                <td> {{ $orden->usuario->depto->inst->nombre_institucion }} </td>
+                <td> {{ $orden->user->depto->inst->nombre_institucion }} </td>
                 <td> {{ ($orden->uaci ? '<span>Aprobado</span>' : '<span>No Aprobado</span>') }} </td>
                 <td> {{ ($orden->tecnico ? '<span>Aprobado</span>' : '<span>No Aprobado</span>') }} </td>
                 <td> {{ ($orden->jefe ? '<span>Aprobado</span>' : '<span>No Aprobado</span>') }} </td>
                 <td> {{ $orden->fecha_entrega }} </td>
+                <td> {{ $orden->id }} </td>
                 {{-- <td>
                   <a href="{{url('/biddings/'.$licitacion->id)}}">
                     <button class="btn btn-primary">Ver detalles</button>

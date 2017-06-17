@@ -80,10 +80,10 @@ class SolicitudMantenimientoController extends Controller
     public function update($id)
     {
       # code...
-      $s = Solicitud::find($id);
+      /*$s = SolicitudMantenimiento::find($id);
       $s->estado = true;
-      $s->save();
+      $s->save();*/
 
-      return redirect('/addbiddings')->with('solicitudId', $s);
+      return redirect('/addbiddings')->with('solicitudId', $id);
     }
 }

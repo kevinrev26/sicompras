@@ -8,6 +8,7 @@ class Solicitud extends Model
 {
     protected $table = 'solicitud';
     public $timestamps = false;
+    private $tipo = 'compra';
 
 
     public function equipos()
@@ -20,5 +21,10 @@ class Solicitud extends Model
     public function user()
     {
       return $this->belongsTo('App\User', 'usuario', 'id');
+    }
+
+    public function getTipo()
+    {
+      return $this->tipo;
     }
 }

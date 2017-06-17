@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Modelos\Oferta;
 use App\Modelos\Licitacion;
-
+use App\Modelos\Solicitud;
 class OffersController extends Controller
 {
     //
@@ -47,7 +47,14 @@ class OffersController extends Controller
       $l = Licitacion::find($o->licitacion);
       $l->estado = 'FINALIZADA';
       $l->save();
-      return redirect('/pruchaseorders/create')->with('oferta', $id);
+
+      if(Solicitud::find($l->solicitud)){
+        return redirect('/pruchaseorders/create')->with('oferta', $id);
+      } else {
+        /*Creacion de contratos...*/
+        return redirect('/offers/'.$id.'/contracts');
+      }
+
     }
 
     public function search(Request $filters)

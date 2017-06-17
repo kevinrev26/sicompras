@@ -61,12 +61,12 @@ class MenuItemSeeder extends Seeder
         $menu = Menu::where('slug_menu', 'orden')->first();
         $table->insert([
           'nombre_item' => 'Agregar orden de compra',
-          'ruta' => '/addpurchaseorder',
+          'ruta' => '/pruchaseorders/create',
           'menu' => $menu->id,
         ]);
         $table->insert([
           'nombre_item' => 'Buscar orden de compra',
-          'ruta' => '/purchasesorder',
+          'ruta' => '/purchaseorders',
           'menu' => $menu->id,
         ]);
         $menu = Menu::where('slug_menu', 'equipo')->first();
@@ -78,6 +78,27 @@ class MenuItemSeeder extends Seeder
         $table->insert([
           'nombre_item' => 'Buscar en el Catalogo de Equipos',
           'ruta' => '/equipments',
+          'menu' => $menu->id,
+        ]);
+        $table->insert([
+          'nombre_item' => 'Agregar al Inventaro de Equipos',
+          'ruta' => '/create-stockequipments',
+          'menu' => $menu->id,
+        ]);
+        $table->insert([
+          'nombre_item' => 'Ver Inventario de Equipos',
+          'ruta' => '/stockequipments',
+          'menu' => $menu->id,
+        ]);
+        $menu = Menu::where('slug_menu', 'compras')->first();
+        $table->insert([
+          'nombre_item' => 'Buscar compras realizadas',
+          'ruta' => '/purchases',
+          'menu' => $menu->id,
+        ]);
+        $table->insert([
+          'nombre_item' => 'Agregar una nueva compra',
+          'ruta' => '/createpurchase',
           'menu' => $menu->id,
         ]);
 
