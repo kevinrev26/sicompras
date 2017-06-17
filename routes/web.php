@@ -76,6 +76,11 @@
   Route::get('/proveedor/login', 'Proveedor\LoginController@showloginform');
   Route::post('/proveedor/login','Proveedor\LoginController@login');
 
+  /*Procedimientos*/
+  Route::get('/avanzada', 'AdministracionAvanzada\StoreProcedureController@index');
+  Route::get('/resetPurchaseLimit', 'AdministracionAvanzada\StoreProcedureController@resetPurchaseLimit');
+  Route::get('/consultEquipments', 'AdministracionAvanzada\StoreProcedureController@consultEquipments');
+
 //});
 
 
