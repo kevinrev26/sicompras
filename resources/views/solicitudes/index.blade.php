@@ -2,40 +2,73 @@
 
 @section('title', 'Solicitudes en el sistema')
 
+<style>
+@media only screen and (max-width: 767px)  {
+	h1 {
+		font-size:22px !important;
+	}
+}
+</style>
+
 @section('content')
-  <h1>Solicitudes en el sistema.</h1>
+  <h1 style="text-align:center; color:#3097d1;">Solicitudes en el sistema</h1>
+  <br/>
+  
   @if (session('message'))
     <div class="alert alert-success">
       {{ session('message') }}
     </div>
   @endif
-  <div id="filtros">
+  
+  <div id="filtros" class="row">
     <form class="form-inline" method="GET" action="{{ url('/solicitude/search') }}" >
-      <div class="form-group">
-        <label for="numero">Numero de solicitud: </label>
-        <input type="text" class="form-control" id="numero" name="numero" />
-
+      
+	  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 center">
+        <label class="col-sm-4" for="numero">Número de solicitud: </label>
+		<div class="col-sm-8">
+			<input type="text" class="form-control" id="numero" name="numero" />
+		</div>
+	  </div> 
+	  
+	  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 center">
+		<label  class="col-sm-4" for="lugar">Lugar de entrega: </label>
+		<div class="col-sm-8">
+			<input type="text" class="form-control" id="lugar" name="lugar" />
+		</div>
       </div>
-      <div class="form-group">
-        <label for="total">Total de la solicitud: </label>
-        <input type="text" class="form-control" id="total" name="total" />
-
+	  
+	  <br/><br/>
+	  
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 center">
+        <label class="col-sm-4" for="total">Total de la solicitud: </label>
+		<div class="col-sm-8">
+			<input type="text" class="form-control" id="total" name="total" />
+		</div>
+	  </div>
+	  
+	  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 center">
+		<label class="col-sm-4" for="estado">Estado de la solicitud: </label>
+		<div class="col-sm-8">
+			<input type="text" class="form-control" id="estado" name="estado" />
+		</div>
       </div>
-      <div class="form-group">
-        <label for="lugar">Lugar de entrega:  </label>
-        <input type="text" class="form-control" id="lugar" name="lugar" />
-
-      </div>
-      <div class="form-group">
-        <label for="estado">Estado de la solicitud: </label>
-        <input type="text" class="form-control" id="estado" name="estado" />
-        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search">Buscar</span></button>
-      </div>
-
+	  
+	  <br/>
+	  <br/>
+	  
+	  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 center">
+	    <br/>
+		<button type="submit" class="btn btn-default"><i style="color:;" class="fa fa-search" aria-hidden="true"></i> <b>Buscar</b></button>
+	  </div>
+	  
     </form>
   </div>
+  <br/>
+  
   @if (count($solicitudes)>0)
-    <table class="table table-stripped table-responsive">
+	  
+	<div style="overflow-x:auto;">  
+    <table class="table">
       <thead>
         <tr>
           <th> id </th>
@@ -71,12 +104,19 @@
         @endforeach
       </tbody>
     </table>
+	</div>
+	
   @else
-    <div class="alert alert-warning">
-      <strong>Oops!</strong> Parece que no hay solicitudes que mostrar.
-      <p>
-        Puede agregar una nueva solicitud. <a class="btn btn-info" role="button" href="{{ url('/addsolicitud') }}">NUEVO</a>
-      </p>
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 center">
+	<br/>
+	<p class="alertass"><i style="color:rgba(210, 131, 30, 0.93);" class="fa fa-exclamation-triangle" aria-hidden="true"></i> <strong>¡Oops!</strong> Parece que no hay solicitudes que mostrar, puede agregar una nueva solicitud.</p>
+	<br/>
+	</div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 center">
+      <p><a class="btn btn-success" role="button" href="{{ url('/addsolicitud') }}">NUEVO</a></p>
+	  <br/>
     </div>
   @endif
 

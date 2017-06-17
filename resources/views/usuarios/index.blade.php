@@ -7,18 +7,22 @@
       {{ session('message') }}
     </div>
   @endif
-  <table class="table table-stripped table-responsive">
+  
+  <div style="overflow-x:auto;">
+  <table class="table"> <!-- table-stripped table-responsive -->
     <thead>
-      <tr>
-        <th>Nombre</th>
-        <th>E-mail</th>
-        <th>Departamento</th>
-        <th>Institución</th>
-        <th>Rol</th>
+      <tr style="color:#3097d1;">
+        <th style="text-align:center;">Nombre</th>
+        <th style="text-align:center;">E-mail</th>
+        <th style="text-align:center;">Departamento</th>
+        <th style="text-align:center;">Institución</th>
+        <th style="text-align:center;">Rol</th>
       </tr>
     </thead>
+	
     <tbody>
       @foreach ($users as $user)
+	  
         <tr>
           <td> {{ $user->name }} </td>
           <td> {{ $user->email }} </td>
@@ -52,5 +56,7 @@
         </tr>
       @endforeach
     </tbody>
+	
   </table>
+  </div>
 @endsection

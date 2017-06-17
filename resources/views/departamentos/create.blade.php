@@ -2,7 +2,6 @@
 
 @section('title','Agregar un nuevo departamento')
 
-
 @section('content')
   <h1>Nuevo departamento.</h1>
   @if (count($errors) > 0)

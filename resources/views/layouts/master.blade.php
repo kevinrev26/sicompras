@@ -1,4 +1,3 @@
-
 <html>
     <head>
 
@@ -10,7 +9,7 @@
       <meta name="csrf-token" content="{{ csrf_token() }}">
       <!-- Styles -->
       <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+	  <link href="{{ asset('css/font-awesome-4.7.0/css/font-awesome.min.css') }}" rel="stylesheet">
       <!-- Scripts -->
       <script>
           window.Laravel = {!! json_encode([
@@ -20,9 +19,12 @@
       <title>SICOMPRAS - @yield('title')</title>
     </head>
     <body>
-        @include('partials.navbar')
-
-        <div class="container">
+        @include('partials.navbar')  
+		
+		<img src="images/backg2.jpg" alt="" width="100%" height="auto" style="margin-top: -22px;"/>
+		<br/>
+		<br/>
+        <div class="container"> <!-- style="height:450px;" -->
             @yield('content')
         </div>
 
@@ -37,4 +39,23 @@
           <script src=" {{ asset('js/vue-resource.min.js') }} "></script>
         @show
     </body>
+	
+	<footer style="background-color: #fff;">
+		<div class="container">
+				<div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
+					<p>
+						<a href="#" title="Ver"><strong>Términos y condiciones de uso</strong></a> |
+						<a href="#" title="Ver"><strong>Politícas de privacidad</strong></a>
+						<br>
+						<strong>© 2017. Derechos reservados.</strong>
+					</p>
+				</div>
+				<div id="bottom" class="col-xs-12 col-sm-4 col-md-4 col-lg-6" style="float: right;">
+					<p>
+					<a style="float: right;" href="#" title="Ir a">Powered by <strong>BAD-115 Group#2</strong></a>
+					</p>
+				</div>
+		</div>
+	</footer>
+	
 </html>

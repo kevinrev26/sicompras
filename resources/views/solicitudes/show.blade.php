@@ -4,8 +4,8 @@
 
 <div class="container">
 
-
   <div class="row">
+  
                <div class="col-md-8">
                  <h2>Solicitud No. {{ $solicitud->id }}</h2>
                   <p><h4>Especificaciones de equipo solicitado</h4></p>
@@ -30,6 +30,7 @@
 
                  @endif
               </div>
+			  
               <div class="col-md-4">
                 <div class="well">
                   <dl class="dl-horizontal">
@@ -41,6 +42,7 @@
                  </dl>
                </div>
              </div>
+			 
          </div>
 </div>
 

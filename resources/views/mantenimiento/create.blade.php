@@ -1,9 +1,22 @@
 @extends('layouts.master')
 @section('title', 'Crear solicitud')
+
+<style>
+@media only screen and (max-width: 767px)  {
+	h1 {
+		font-size:22px !important;
+	}
+}
+</style>
+
 @section('content')
   <div id="solicitudes" class="row">
 
-    <div class="col-md-4">
+	<div class="col-xs-12 col-sm-2 col-md-3 col-lg-3">
+	</div>
+	
+    <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6">
+	<br/>
       @if (count($errors) > 0)
         <div class="alert alert-danger">
           <ul>
@@ -13,25 +26,29 @@
           </ul>
         </div>
       @endif
+	  
       <form class="form-horizontal" method="post" action="{{ url('/solicitud') }} ">
         {{ csrf_field() }}
 
         <div class="form-group">
-          <label class="control-label col-sm-2" for="id">Número de solicitud:</label>
-          <div class="col-sm-10">
+          <label class="control-label col-sm-4" for="id">Número de solicitud: <span class="asterisk">*</span></label>
+          <div class="col-sm-8">
             <input type="number" class="form-control" name="id" min="1" max="10000" placeholder="{{ random_int(1,10000) }}" required>
           </div>
         </div>
+		
         <div class="form-group">
-          <label class="control-label col-sm-2" for="precio">Presupuesto estimado:</label>
-          <div class="col-sm-10">
+          <label class="control-label col-sm-4" for="precio">Presupuesto estimado: <span class="asterisk">*</span></label>
+          <div class="col-sm-8">
             <input type="text" class="form-control" name="presupuesto"  placeholder="100.45" required>
           </div>
         </div>
+		
         <input type="hidden" name="usuario" value="{{ Auth::id() }}" />
-        <div class="form-group">
-          <label class="control-label col-md-4 ">Equipo</label>
-          <div class="selectContainer col-md-6 ">
+        
+		<div class="form-group">
+          <label class="control-label col-sm-4 ">Equipo</label>
+          <div class="selectContainer col-sm-8 ">
             @if (count($equipos)>0)
               <select name="equipos" v-model="equipo">
                   <option value="">Seleccione un equipo</option>
@@ -41,15 +58,17 @@
               </select>
 
             @else
-              <h2>No hay equipos agregados en este momento</h2>
+			  <p class="alertass"><i style="color:rgba(210, 131, 30, 0.93);" class="fa fa-exclamation-triangle" aria-hidden="true"></i> ¡No hay equipos agregados en este momento!</p>
             @endif
           </div>
         </div>
+		
         <div class="form-group">
-          <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-default">Agregar solicitud</button>
+          <div class="col-sm-12 center">
+            <button type="submit" class="btn btn-success">Agregar solicitud</button>
           </div>
         </div>
+		<br/>
 
         <!-- <div class="panel panel-default">
           <div class="panel-heading">
@@ -85,6 +104,9 @@
       </form>
 
     </div>
+	
+	<div class="col-xs-12 col-sm-2 col-md-3 col-lg-3">
+	</div>
 
     <!-- <div class="col-md-4">
       <form class="form-horizontal" v-on:submit="addEquip">

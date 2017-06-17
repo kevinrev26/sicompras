@@ -3,9 +3,11 @@
 
 @section('content')
   @if (!session('solicitudId'))
-    <div class="alert alert-warning">
-      <p>Al parecer no se ha aprobado alguna solicitud, dirígase a la pagina de <a href="/solicitude" >solicitudes</a> para aprobar una </p>
-    </div>
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 center">
+	<br/>
+	<p class="alertass"><i style="color:rgba(210, 131, 30, 0.93);" class="fa fa-exclamation-triangle" aria-hidden="true"></i> ¡Al parecer no se ha aprobado alguna solicitud, dirígase a la página de <a href="/solicitude" >solicitudes</a> para aprobar una! </p>
+	<br/>
+	</div>
   @else
 
     @if (count($errors) > 0)
@@ -19,7 +21,7 @@
     @endif
 
     <div class="panel panel-default">
-      <div class="panel-heading">Nueva licitación  }}</div>
+      <div class="panel-heading">Nueva licitación, {{ session('solicitudId')->user->depto->inst->nombre_institucion  }</div>
       <div class="panel-body">
         <form class="form-horizontal" method="post" action="{{ url('/biddings') }}">
           {{ csrf_field() }}
@@ -54,7 +56,7 @@
               </div>
             </div>
             <input type="hidden" name="usuario" value="{{ Auth::id() }}" />
-            <input type="hidden" name="solicitud" value="{{ session('solicitudId') }}" />
+            <input type="hidden" name="solicitud" value="{{ session('solicitudId')->id }}" />
             <div class="form-group">
               <div class="col-sm-offset-2 col-sm-10">
                 <button type="submit" class="btn btn-default">Agregar licitacion</button>

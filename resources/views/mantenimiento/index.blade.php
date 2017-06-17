@@ -25,12 +25,6 @@
             <td>{{ $solicitud->id_sol_mant }}</td>
             <td>{{ $solicitud->presupuesto }}</td>
             <td>{{ $solicitud->fecha_creacion }} $</td>
-            <td>
-              <form action="{{url('/updatesolicitude/'.$solicitud->id_sol_mant)}}" method="post">
-                  {{ csrf_field() }}
-                  <button type="submit" class="btn btn-info">Generar licitacion</button>
-                </form>
-            </td>
             <!-- <td>
               @if ($solicitud->estado)
                 <h3> <span class="label label-default">APROBADA</span> </h3>
