@@ -81,6 +81,11 @@ class PermisoSeeder extends Seeder
         'id_rol' => $rol->id,
         'id_menu' => $menu->id,
       ]);
-      
+      $menu = Menu::where('slug_menu', 'compras')->first();
+      $table->insert([
+        'id_rol' => $rol->id,
+        'id_menu' => $menu->id,
+      ]);
+
     }
 }

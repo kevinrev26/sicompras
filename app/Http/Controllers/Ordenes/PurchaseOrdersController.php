@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Ordenes;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Modelos\OrdenCompra;
+use App\Modelos\Oferta;
+use App\Modelos\Solicitud;
 
 class PurchaseOrdersController extends Controller
 {
@@ -12,12 +14,18 @@ class PurchaseOrdersController extends Controller
     public function index()
     {
       # code...
-      return view('ordenes.index');
+      return view('ordenes.index',[
+        'ordenes' => OrdenCompra::all()
+      ]);
     }
 
     public function create()
     {
-      return view('ordenes.create');
+
+      $idOferta = session('oferta');
+      return view('ordenes.create', [
+        'oferta' => Oferta::find($idOferta)
+      ]);
     }
 
     public function store(Request $req)
@@ -29,8 +37,23 @@ class PurchaseOrdersController extends Controller
       $nueva->jefe = false;
       $nueva->usuario = $req->input('usuario');
       $nueva->oferta = $req->input('oferta');
+      $nueva->fecha_entrega = $req->input('fecha-entrega');
       $nueva->save();
+      $oferta = Oferta::find($req->input('oferta'));
+      $solicitud = Solicitud::find($oferta->bidding->solicitud);
+      //Asignar equipos
+
+      foreach($solicitud->equipos as $equipo){
+        $nueva->equipos()->attach($equipo);
+
+      }
+      //$nueva->save();
       return redirect('/purchaseorders')->with('message','Nueva orden de compra agregada');
 
+    }
+
+    public function search(Request $filters)
+    {
+      # code...
     }
 }

@@ -7,6 +7,23 @@
       {{ session('message') }}
     </div>
   @endif
+
+  <div id="filtros">
+    <form class="form-inline" method="GET" action="{{ url('/biddings/search') }}" >
+      <div class="form-group">
+        <label for="id">Identificador (id): </label>
+        <input type="text" class="form-control" id="id" name="id" />
+
+      </div>
+      <div class="form-group">
+        <label for="titulo">Titulo: </label>
+        <input type="text" class="form-control" id="titulo" name="titulo" />
+        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search">Buscar</span></button>
+      </div>
+
+    </form>
+  </div>
+
   <h1>Licitaciones.</h1>
     @if (count($licitaciones)>0)
       <div class="panel panel-default">
@@ -19,7 +36,7 @@
                 <th> Código</th>
                 <th> Nombre de la convocatoria</th>
                 <th> Objeto de la convocatoria</th>
-                <th> Tipo de cotización</th>
+                <th> Estado </th>
               </tr>
             </thead>
             <tbody>
@@ -30,6 +47,7 @@
                   <td> {{ $licitacion->nombre_convocatoria }} </td>
                   <td> {{ $licitacion->objeto }} </td>
                   <td> {{ $licitacion->tipo_licitacion }} </td>
+                  <td> {{ $licitacion->estado }} </td>
                   <td>
                     <a href="{{url('/biddings/'.$licitacion->id)}}">
                       <button class="btn btn-primary">Ver detalles</button>

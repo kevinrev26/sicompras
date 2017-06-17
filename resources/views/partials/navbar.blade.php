@@ -18,6 +18,7 @@
         @if (Auth::guard('proveedor')->check())
           <li> <a href="/biddings"> Licitaciones </a></li>
           <li> <a href="/offers"> Ofertas realizadas </a> </li>
+          <li> <a href="/{{Auth::guard('proveedor')->user()->id}}/employees">Mis empleados</a></li>
         @else {{--Check para proveedor--}}
 
             @if (count(Auth::user()->role->menus) > 0)

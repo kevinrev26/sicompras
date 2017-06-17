@@ -43,4 +43,9 @@ class User extends Authenticatable
     {
       return $this->role->slug_rol;
     }
+
+    public function solicitud()
+    {
+      return $this->hasMany('App\Modelos\Solicitud','usuario'); 
+    }
 }

@@ -38,4 +38,19 @@ class EquipmentsController extends Controller
       return redirect('/equipments')->with('message', 'Se ha agregado el equipo: ' . $nuevo->nombre_equipo . " al catálogo");
 
     }
+
+    public function search(Request $filters)
+    {
+      // $data = [
+      //   'nombre' => $filters->input('nombre'),
+      //   'unidad' => $filters->input('unidad')
+      // ];
+      // return var_dump($data);
+      /*
+      * Se debe validar la existencia de los parametros.
+      * Ejecutar el procedimiento
+      * Y devolver a la misma vista pero con la data extraida del procedimiento
+      * almacenado.
+       */
+    }
 }

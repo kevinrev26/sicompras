@@ -31,6 +31,13 @@ let vm = new Vue({
     },
     removeEquip : function (id) {
       this.equipments.remove(id);
+    },
+    checkEquip: function (e) {
+      if (!this.equipments.length > 0){
+        e.preventDefault();
+        alert("No se han agregado equipos");
+      }
+      }
     }
   }
-});
+);

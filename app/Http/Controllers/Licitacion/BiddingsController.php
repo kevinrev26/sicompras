@@ -85,7 +85,7 @@ class BiddingsController extends Controller
       $nueva->informacion_adicional = $req->input('informacion');
       $nueva->fuente_financiamiento = $req->input('fuente');
       $nueva->estado = 'PUBLICADA';
-      $nueva->tipo_licitacion = $req->input('tipo');
+      //$nueva->tipo_licitacion = $req->input('tipo');
       $nueva->usuario = $req->input('usuario');
       $nueva->solicitud = $req->input('solicitud');
       $nueva->save();
@@ -105,7 +105,7 @@ class BiddingsController extends Controller
       $proveedor = Auth::guard('proveedor')->user();
       $control = $this->biddingsService->checkRetail($proveedor->id, $id);
       if ($control) {
-        return redirect('/biddings')->with('aplicada', 'Usted ya ha realizado una oferta por esta licitacion');
+        return redirect('/biddings')->with('message', 'Usted ya ha realizado una oferta por esta licitacion');
       } else {
         $licitacion = Licitacion::find($id);
         //Se puede optimizar
@@ -114,5 +114,10 @@ class BiddingsController extends Controller
         return redirect('offers/create')->with('id', $id);
       }
 
+    }
+
+    public function search(Request $filters)
+    {
+      # code...
     }
 }

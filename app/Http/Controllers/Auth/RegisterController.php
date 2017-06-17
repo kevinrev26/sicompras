@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Modelos\InstitucionGobierno;
+use App\Modelos\Departamento;
 use Illuminate\Support\Facades\Log;
 
 class RegisterController extends Controller
@@ -80,6 +81,7 @@ class RegisterController extends Controller
       # code...
       #
       $instituciones = InstitucionGobierno::all();
+      //$departamentos = Departamento::all();
       return view('auth.register', ['instituciones' => $instituciones]);
     }
 }

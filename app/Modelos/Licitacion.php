@@ -15,6 +15,10 @@ class Licitacion extends Model
       return $this->belongsTo('App\User','usuario','id');
     }
 
+    public function solicitude()
+    {
+      return $this->user->solicitud;
+    }
 
-    
+
 }

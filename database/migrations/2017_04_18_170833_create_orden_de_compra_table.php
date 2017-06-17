@@ -20,7 +20,7 @@ class CreateOrdenDeCompraTable extends Migration
             $table->boolean('tecnico');
             $table->boolean('uaci');
             $table->boolean('jefe');
-
+            $table->string('fecha_entrega');
             //foreaneas
             $table->integer('usuario')->unsigned();
             $table->integer('oferta')->unsigned();

@@ -13,7 +13,6 @@ class UsersController extends Controller
     //
     public function index()
     {
-      # code...
       return view('usuarios.index', [
         'users' => User::all(),
         'roles' => Rol::all(),
