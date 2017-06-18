@@ -5,7 +5,10 @@ namespace App\Http\Controllers\AdministracionAvanzada;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Log;
-use \DateTime;
+use App\Modelos\Proveedor;
+use App\Modelos\Equipo;
+use App\Modelos\BitacoraMantenimiento;
+use \DB;
 
 class StoreProcedureController extends Controller
 {
@@ -27,12 +30,25 @@ class StoreProcedureController extends Controller
     //   $mensaje = "Límites puestos a cero nuevamente.";
     // }
 
+    //Llamando al Procedimiento que reseteará los totales de los proveedores.
+    DB::select('CALL resetBudget()');
+    $mensaje = "Valores actualizados satisfactoriamente";
     return view('Avanzada.index', ['message' => $mensaje]);
   }
 
   public function consultEquipments(Request $req){
-    $mensaje = 'Esta otra función tambien funciona';
-    return view('Avanzada.index', ['message' => $mensaje]);
+    $data = DB::select('CALL equipmentsMaintenance()');
+    return view('Avanzada.equipments', ['equipments' => $data]);
+  }
+
+  public function consultEmployees(Request $req){
+    $data = DB::select('CALL employeesMaintenance()');
+    return view('Avanzada.employees', ['employees' => $data]);
+  }
+
+  public function consultBinnacle(Request $req){
+    $data = BitacoraMantenimiento::all();
+    return view('Avanzada.bitacora', ['bitacora' => $data]);
   }
 
 }

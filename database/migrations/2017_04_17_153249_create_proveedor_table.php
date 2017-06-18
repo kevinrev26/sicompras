@@ -22,6 +22,7 @@ class CreateProveedorTable extends Migration
           $table->string('nit')->unique();
           $table->boolean('tipo_persona');
           $table->string('representante');
+          $table->float('total_acumulado');
           $table->integer('rol')->unsigned()->default(6);
           $table->rememberToken();
           $table->timestamps();

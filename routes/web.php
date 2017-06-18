@@ -106,7 +106,8 @@
   Route::get('/avanzada', 'AdministracionAvanzada\StoreProcedureController@index');
   Route::get('/resetPurchaseLimit', 'AdministracionAvanzada\StoreProcedureController@resetPurchaseLimit');
   Route::get('/consultEquipments', 'AdministracionAvanzada\StoreProcedureController@consultEquipments');
-
+  Route::get('/consultEmployees', 'AdministracionAvanzada\StoreProcedureController@consultEmployees');
+  Route::get('/consultBinnacle', 'AdministracionAvanzada\StoreProcedureController@consultBinnacle');
 //});
 
 

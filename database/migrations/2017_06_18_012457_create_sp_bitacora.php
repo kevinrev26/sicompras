@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSpEmployeesMaintenance extends Migration
+class CreateSpBitacora extends Migration
 {
     /**
      * Run the migrations.
@@ -14,10 +14,10 @@ class CreateSpEmployeesMaintenance extends Migration
     public function up()
     {
       $sql = <<<FinFunc
-      CREATE PROCEDURE employeesMaintenance()
-      BEGIN
-        Select fecha_mantenimiento, nombre_completo, descripcion_mantenimiento, inv_equipo From empleado, bitacora_mantenimiento, equipo where bitacora_mantenimiento.equipo = equipo.id_equipo AND empleado.id = bitacora_mantenimiento.empleado;
-      END;
+        CREATE PROCEDURE consultaBitacora(IN _fecha VARCHAR(50))
+        BEGIN
+        SELECT * FROM bitacora_mantenimiento WHERE fecha_mantenimiento >= _fecha;
+        END;
 FinFunc;
       DB::connection()->getPdo()->exec($sql);
     }

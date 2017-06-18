@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSpEmployeesMaintenance extends Migration
+class CreateSpEquipmentsMaintenance extends Migration
 {
     /**
      * Run the migrations.
@@ -14,10 +14,10 @@ class CreateSpEmployeesMaintenance extends Migration
     public function up()
     {
       $sql = <<<FinFunc
-      CREATE PROCEDURE employeesMaintenance()
-      BEGIN
-        Select fecha_mantenimiento, nombre_completo, descripcion_mantenimiento, inv_equipo From empleado, bitacora_mantenimiento, equipo where bitacora_mantenimiento.equipo = equipo.id_equipo AND empleado.id = bitacora_mantenimiento.empleado;
-      END;
+        CREATE PROCEDURE equipmentsMaintenance()
+        BEGIN
+        SELECT inv_equipo, nombre_equipo, tipo_mantenimiento FROM equipo, bitacora_mantenimiento, catalogo_equipo where equipo.id_equipo = bitacora_mantenimiento.equipo AND equipo.id_catalogo = catalogo_equipo.id
+        END;
 FinFunc;
       DB::connection()->getPdo()->exec($sql);
     }

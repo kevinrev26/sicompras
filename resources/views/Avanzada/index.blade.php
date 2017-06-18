@@ -13,6 +13,7 @@
               <p>{{ $message }}</p>
               <a href="{{ url('/consultEmployees') }}">Consulta de Empleados con Mantenimientos</a>
               <p>{{ $message }}</p>
+              <a href="{{ url('/consultBinnacle') }}">Consultar la Bitácora de Mantenimientos</a>
             </div>
 
         </div>
