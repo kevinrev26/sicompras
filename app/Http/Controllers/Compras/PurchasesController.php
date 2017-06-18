@@ -6,15 +6,24 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Modelos\Compra;
 use App\Modelos\Proveedor;
-
+use App\Servicios\PurchasesService;
+use Auth;
 
 class PurchasesController extends Controller
 {
+
+    private $service;
+
+    public function __construct(PurchasesService $service)
+    {
+      $this->service = $service;
+    }
+
     public function index()
     {
 
       return view('compras.index', [
-        'compras' => Compra::all()
+        'compras' => $this->service->filtrarPorDepartamento(Auth::user())
       ]);
     }
 
