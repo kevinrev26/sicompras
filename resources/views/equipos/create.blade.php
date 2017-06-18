@@ -13,7 +13,7 @@
   <h1 style="text-align:center; color:#3097d1;">Agregar un nuevo equipo</h1>
   <br/>
   @if (count($errors) > 0)
-    <div class="alert alert-danger">
+    <div class="alert alert-danger center">
       <ul>
         @foreach ($errors->all() as $error)
           <li>{{ $error }}</li>
@@ -32,19 +32,19 @@
 	</div>
 	
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <label class="control-label col-sm-5" for="nombre">Nombre del equipo:</label>
+      <label class="control-label col-sm-5" for="nombre">Nombre del equipo: <span class="asterisk">*</span></label>
       <div class="col-sm-7">
         <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Horno microondas">
 		<br/>
       </div>
 	
-      <label class="control-label col-sm-5" for="descripcion">Descripción del equipo:</label>
+      <label class="control-label col-sm-5" for="descripcion">Descripción del equipo: <span class="asterisk">*</span></label>
       <div class="col-sm-7">
         <textarea class="form-control" name="descripcion" rows="2"></textarea>
 		<br/>
       </div>
 	
-      <label class="control-label col-sm-5" for="unidad">Unidad de Potencia:</label>
+      <label class="control-label col-sm-5" for="unidad">Unidad de Potencia: <span class="asterisk">*</span></label>
       <div class="col-sm-7">
         <select class="form-control" name="unidad">
           <option value="BTU"> BTU </option>

@@ -15,7 +15,7 @@
   <br/>
   
   @if (session('message'))
-    <div class="alert alert-success">
+    <div class="alert alert-success center">
       {{ session('message') }}
     </div>
   @endif
@@ -70,18 +70,18 @@
 	<div style="overflow-x:auto;">  
     <table class="table">
       <thead>
-        <tr>
-          <th> id </th>
-          <th> Cantidad </th>
-          <th> Precio Estimado </th>
-          <th> Estado </th>
-          <th> Autor </th>
-          <th> Institución </th>
+        <tr style="color:#3097d1;">
+          <th style="text-align:center;">id </th>
+          <th style="text-align:center;">Cantidad </th>
+          <th style="text-align:center;">Precio Estimado </th>
+          <th style="text-align:center;">Estado </th>
+          <th style="text-align:center;">Autor </th>
+          <th style="text-align:center;">Institución </th>
         </tr>
       </thead>
       <tbody>
         @foreach ($solicitudes as $solicitud)
-          <tr>
+          <tr style="text-align:center;">
             <td>{{ $solicitud->id }}</td>
             {{-- <td>{{ $solicitud->pivot->cantidad }}</td> --}}
             <td>DEBUG</td>
@@ -89,18 +89,24 @@
             <td>{{ $solicitud->precio_estimado }} $</td>
             <td>
               @if ($solicitud->estado)
-                <h3> <span class="label label-default">APROBADA</span> </h3>
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 center">
+					<p class="alertass" style="color:#3c763d; background-color:rgba(96, 175, 100, 0.52);"><i style="color:rgba(210, 131, 30, 0.93);" class="fa fa-exclamation-triangle" aria-hidden="true"></i> <strong>¡APROBADA!</strong></p>
+				</div>  
               @else
                 @if (Auth::user()->getRoleSlug() === 'uaci')
-                <a href="{{url('/solicitude/'.$solicitud->id)}}" class="btn btn-info" method="put">VER DETALLES</a>
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 center">
+                 <a href="{{url('/solicitude/'.$solicitud->id)}}" class="btn btn-info" method="put">VER DETALLES</a>
+				</div>
                 @else
-                  <h4> <span class="label label-warning">PENDIENTE</span> </h4>
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 center">
+						<p class="alertass" style="color:#31708f; background-color:rgba(239, 171, 74, 0.74);"><i style="color:rgba(210, 131, 30, 0.93);" class="fa fa-exclamation-triangle" aria-hidden="true"></i> <strong>¡PENDIENTE!</strong></p>
+					</div>
                 @endif
               @endif
             </td>
             <td>{{ $solicitud->user->name}} </td>
-             <td>{{ $solicitud->user->depto->inst->nombre_institucion }} </td>
-          <tr>
+            <td>{{ $solicitud->user->depto->inst->nombre_institucion }} </td>
+          </tr>
         @endforeach
       </tbody>
     </table>

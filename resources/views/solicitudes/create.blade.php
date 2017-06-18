@@ -9,7 +9,7 @@
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
       
 	  @if (count($errors) > 0)
-        <div class="alert alert-danger">
+        <div class="alert alert-danger center">
           <ul>
             @foreach ($errors->all() as $error)
               <li>{{ $error }}</li>

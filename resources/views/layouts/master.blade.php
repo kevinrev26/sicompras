@@ -20,8 +20,7 @@
     </head>
     <body>
         @include('partials.navbar')  
-		
-		<img src="images/backg2.jpg" alt="" width="100%" height="auto" style="margin-top: -22px;"/>
+		<img src="{{ asset('images/backg2.jpg') }}" alt="" width="100%" height="auto" style="margin-top: -22px;"/>
 		<br/>
 		<br/>
         <div class="container"> <!-- style="height:450px;" -->

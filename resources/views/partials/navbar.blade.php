@@ -22,7 +22,7 @@ ul.dropdown-menu>li>a{
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/"><img alt="logo" src="images/logo.jpg" width="100" height="auto"/></a>
+      <a class="navbar-brand" href="/"><img alt="logo" src="{{ asset('images/logo.jpg') }}" width="100" height="auto"/></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -30,8 +30,8 @@ ul.dropdown-menu>li>a{
       @if (Auth::check() || Auth::guard('proveedor')->check())
         <ul class="nav navbar-nav mnst">
         @if (Auth::guard('proveedor')->check())
-          <li> <a href="/biddings"> Licitaciones </a></li>
-          <li> <a href="/offers"> Ofertas realizadas </a> </li>
+          <li class="dropdown"> <a href="/biddings"> Licitaciones </a></li>
+          <li class="dropdown"> <a href="/offers"> Ofertas realizadas </a> </li>
         @else {{--Check para proveedor--}}
 
             @if (count(Auth::user()->role->menus) > 0)

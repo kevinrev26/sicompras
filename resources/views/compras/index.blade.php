@@ -1,14 +1,33 @@
 @extends('layouts.master')
 @section('title','Catalogo de equipos')
 
+<style>
+@media only screen and (max-width: 767px)  {
+	h1 {
+		font-size:22px !important;
+	}
+}
+</style>
+
 @section('content')
-  <h1>Compras registradas en el sistema.</h1>
+
+  <h1 style="text-align:center; color:#3097d1; font-weight:bold;">Compras registradas en el sistema</h1>
+  <br/>
+
   @if (session('message'))
     <div class="alert alert-success">
+	<center>
       {{ session('message') }}
+	</center>
     </div>
   @endif
-  <a class="btn btn-success" role="button" href="{{url('/createpurchase') }}" >Agregar una nueva compra</a>
+  
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 center">
+	<br/>
+	<a class="btn btn-success" role="button" href="{{url('/createpurchase') }}" >Agregar una nueva compra</a>
+	<br/>
+  </div>
+
 
 
 
@@ -29,12 +48,12 @@
   </div> --}}
 
   @if (count($compras)>0)
-    <table class="table table-stripped table-responsive">
+	<div style="overflow-x:auto;">
+    <table class="table">
       <thead>
-        <tr>
-          <th>Fecha de compra </th>
-          <th>Proveedor</th>
-
+        <tr style="color:#3097d1;">
+          <th style="text-align:center;">Fecha de compra </th>
+          <th style="text-align:center;">Proveedor</th>
         </tr>
       </thead>
       <tbody>
@@ -42,18 +61,24 @@
           <tr>
             <td>{{ $compra->fecha_compra }}</td>
             <td>{{ $compra->retail->name }}</td>
-
           <tr>
         @endforeach
       </tbody>
     </table>
+	</div>
   @else
-    <div class="alert alert-warning">
-      <strong>Oops!</strong> Parece que no hay compras que mostrar.
-      <p>
-        Puede agregar una nueva compra. <a class="btn btn-info" role="button" href="{{ url('/createpurchase') }}">NUEVA</a>
-      </p>
+	  
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 center">
+	<br/>
+	<p class="alertass"><i style="color:rgba(210, 131, 30, 0.93);" class="fa fa-exclamation-triangle" aria-hidden="true"></i> <strong>¡Oops!</strong> Parece que no hay compras que mostrar, puede agregar una nueva compra.</p>
+	</div>
+	
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 center">
+	  <br/>
+      <p><a class="btn btn-success" role="button" href="{{ url('/createpurchase') }}">NUEVA</a></p>
+	  <br/>
     </div>
+
   @endif
 
 @endsection

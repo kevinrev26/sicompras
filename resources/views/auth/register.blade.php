@@ -7,13 +7,13 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
+                <div class="panel-heading"><h4 style="text-align:center; color:#3097d1; font-weight:bold;">Registro de Usuarios</h1></div>
                 <div class="panel-body">
                     <form  id="departamentos" class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Nombre</label>
+                            <label for="name" class="col-md-4 control-label">Nombre: <span class="asterisk">*</span></label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
@@ -27,7 +27,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">Correo Electrónico</label>
+                            <label for="email" class="col-md-4 control-label">Correo Electrónico: <span class="asterisk">*</span></label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
@@ -41,7 +41,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Contraseña</label>
+                            <label for="password" class="col-md-4 control-label">Contraseña: <span class="asterisk">*</span></label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control" name="password" required>
@@ -55,7 +55,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirmar contraseña</label>
+                            <label for="password-confirm" class="col-md-4 control-label">Confirmar contraseña: <span class="asterisk">*</span></label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
@@ -64,40 +64,42 @@
 
                         @if (count($instituciones) > 0)
                           <div class="form-group">
-                             <label class="col-md-4 control-label">Institucion de Gobierno</label>
+                             <label class="col-md-4 control-label">Institucion de Gobierno: <span class="asterisk">*</span></label>
                              <div class="col-md-6 selectContainer">
                                  <select v-model="identificador" class="form-control" name="institucion">
-
-                                     @foreach ($instituciones as $institucion )
+									 <option disabled selected value> -- selecciona una opción -- </option>
+                                     
+									 @foreach ($instituciones as $institucion )
                                        <option value="{{ $institucion->id }}">
                                           {{ $institucion->nombre_institucion }}
                                        </option>
                                      @endforeach
+									 
                                  </select>
                              </div>
                          </div>
                          <div class="form-group">
-                           <label class="col-md-4 control-label">Departamento</label>
+                           <label class="col-md-4 control-label">Departamento: <span class="asterisk">*</span></label>
                            <div class="col-md-6 selectContainer">
                              <select class="form-control" name="departamento">
-
-                              @foreach ($departamentos as $departamento)
-                                  <option value="{{ $departamento->codigo_departamento }}">
-                                    {{ $departamento->nombre_departamento }}
-                                  </option>
-                              @endforeach
+							 <option disabled selected value> -- selecciona una opción -- </option>
+							 
+							 <option v-for="d in departamentos" v-bind:value="d.codigo_departamento"> @{{ d.nombre_departamento}}</option>
 
                              </select>
                            </div>
                          </div>
                         @else
-                          <h1>No hay instituciones para agregar al usuario, verifique con el administrador</h1>
+						  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 center">
+							<p class="alertass"><i style="color:rgba(210, 131, 30, 0.93);" class="fa fa-exclamation-triangle" aria-hidden="true"></i> ¡No hay instituciones para agregar al usuario, verifique con el administrador!</p>
+						  </div>	
+                          <h1></h1>
                         @endif
 
                         <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 center">
                                 <button type="submit" class="btn btn-primary">
-                                    Registrar
+                                    ¡Registrarse!
                                 </button>
                             </div>
                         </div>

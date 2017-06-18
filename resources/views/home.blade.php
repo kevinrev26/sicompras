@@ -11,12 +11,12 @@
                 <div class="panel-heading"><center><span style="color:#3097d1; font-weight:bold;">¡BIENVENIDO!</span></center></div>
 				
                 <div class="panel-body">
-                  <div class="w3-content w3-display-container">
-					<img alt="" class="mySlides" src="images/slider1.jpg" style="width: 100%;" />
-					<img alt="" class="mySlides" src="images/slider2.jpg" style="width: 100%;" />
-					<img alt="" class="mySlides" src="images/slider3.jpg" style="width: 100%;" />
-					<img alt="" class="mySlides" src="images/slider4.jpg" style="width: 100%;" />
-					<img alt="" class="mySlides" src="images/slider5.jpg" style="width: 100%;" />
+                  <div class="w3-content w3-display-container"> 
+					<img alt="" class="mySlides" src="{{ asset('images/slider1.jpg') }}" style="width: 100%;" />
+					<img alt="" class="mySlides" src="{{ asset('images/slider2.jpg') }}" style="width: 100%;" />
+					<img alt="" class="mySlides" src="{{ asset('images/slider3.jpg') }}" style="width: 100%;" />
+					<img alt="" class="mySlides" src="{{ asset('images/slider4.jpg') }}" style="width: 100%;" />
+					<img alt="" class="mySlides" src="{{ asset('images/slider5.jpg') }}" style="width: 100%;" />
 
 					<!--<button class="w3-button w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
 					<button class="w3-button w3-display-right" onclick="plusDivs(1)">&#10095;</button>-->

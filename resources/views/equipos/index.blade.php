@@ -14,10 +14,11 @@
   <br>
 
   @if (session('message'))
-    <div class="alert alert-success">
+    <div class="alert alert-success center">
       {{ session('message') }}
     </div>
   @endif
+  
   <div class="center">
 	<a class="btn btn-success" role="button" href="{{url('/addequipments') }}" >Agregar equipo</a>
   </div>
@@ -38,10 +39,8 @@
       </div>
 	  
 	  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 center">
-		<br/>
-		<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search">Buscar</span></button>
-		<br/>
-		<br/>
+	    <br/>
+		<button type="submit" class="btn btn-default"><i style="color:;" class="fa fa-search" aria-hidden="true"></i> <b>Buscar</b></button>
 	  </div>
 	  
     </form>
@@ -68,14 +67,19 @@
       </tbody>
     </table>
 	</div>
-  @else  
-    <div class="alert alert-warning center">
-      <p><strong>Oops!</strong> Parece que no hay equipos que mostrar, puede agregar un nuevo equipo.
+  @else 
+	
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 center">
+	<br/>
+	<p class="alertass"><i style="color:rgba(210, 131, 30, 0.93);" class="fa fa-exclamation-triangle" aria-hidden="true"></i> <strong>Oops!</strong> Parece que no hay equipos que mostrar, puede agregar un nuevo equipo.</p>
+	<br/>
+	</div>
+	
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 center">
+      <p><a class="btn btn-success" role="button" href="{{ url('/addequipments') }}">NUEVO</a></p>
 	  <br/>
-	  <br/>	  
-	  <a class="btn btn-info" role="button" href="{{ url('/addequipments') }}">NUEVO</a>
-      </p>
     </div>
+	
   @endif
 
 @endsection

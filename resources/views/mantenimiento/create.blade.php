@@ -18,7 +18,7 @@
     <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6">
 	<br/>
       @if (count($errors) > 0)
-        <div class="alert alert-danger">
+        <div class="alert alert-danger center">
           <ul>
             @foreach ($errors->all() as $error)
               <li>{{ $error }}</li>
@@ -47,19 +47,28 @@
         <input type="hidden" name="usuario" value="{{ Auth::id() }}" />
         
 		<div class="form-group">
-          <label class="control-label col-sm-4 ">Equipo</label>
+          <label class="control-label col-sm-4 ">Equipo: <span class="asterisk">*</span></label>
           <div class="selectContainer col-sm-8 ">
+		  
             @if (count($equipos)>0)
+				
               <select name="equipos" v-model="equipo">
-                  <option value="">Seleccione un equipo</option>
+                  <option disabled selected value>Seleccione un equipo</option>
                 @foreach ($equipos as $equipo)
                   <option value="{{ $equipo->inv_equipo }}"> {{$equipo->inv_equipo  }} </option>
                 @endforeach
               </select>
-
+			  
             @else
+				
+			  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 center">
+			  <br/>	
 			  <p class="alertass"><i style="color:rgba(210, 131, 30, 0.93);" class="fa fa-exclamation-triangle" aria-hidden="true"></i> ¡No hay equipos agregados en este momento!</p>
+			  <br/>
+	          </div>
+			  
             @endif
+			
           </div>
         </div>
 		

@@ -1,15 +1,29 @@
 @extends('layouts.master')
 @section('title','Catalogo de equipos')
 
+<style>
+@media only screen and (max-width: 767px)  {
+	h1 {
+		font-size:22px !important;
+	}
+}
+</style>
+
 @section('content')
-  <h1>Inventario de equipos: Departamento {{ Auth::user()->depto->nombre_departamento }}.</h1>
+  <h1 style="text-align:center; color:#3097d1;">Inventario de equipos: <br/>
+  {{ Auth::user()->depto->nombre_departamento }}.
+  </h1>
+  <br/>
+  
   @if (session('message'))
-    <div class="alert alert-success">
+    <div class="alert alert-success center">
       {{ session('message') }}
     </div>
   @endif
-  <a class="btn btn-success" role="button" href="{{url('/create-stockequipments') }}" >Agregar equipo</a>
-
+  
+  	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 center">
+      <p><a class="btn btn-success" role="button" href="{{url('/create-stockequipments') }}" >Agregar equipo</a></p>
+    </div>
 
 
   {{-- <div id="filtros">
@@ -29,13 +43,14 @@
   </div> --}}
 
   @if (count($equipos)>0)
-    <table class="table table-stripped table-responsive">
+	<div style="overflow-x:auto;">  
+    <table class="table">
       <thead>
-        <tr>
-          <th>Código </th>
-          <th>Marca</th>
-          <th>Modelo </th>
-          <th>Precio </th>
+        <tr style="color:#3097d1;">
+          <th style="text-align:center;">Código </th>
+          <th style="text-align:center;">Marca</th>
+          <th style="text-align:center;">Modelo </th>
+          <th style="text-align:center;">Precio </th>
         </tr>
       </thead>
       <tbody>
@@ -50,13 +65,20 @@
         @endforeach
       </tbody>
     </table>
+	</div>
   @else
-    <div class="alert alert-warning">
-      <strong>Oops!</strong> Parece que no hay equipos que mostrar.
-      <p>
-        Puede agregar un nuevo equipo. <a class="btn btn-info" role="button" href="{{ url('/create-stockequipments') }}">NUEVO</a>
-      </p>
+	  
+	 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 center">
+	  <br/>
+	  <p class="alertass"><i style="color:rgba(210, 131, 30, 0.93);" class="fa fa-exclamation-triangle" aria-hidden="true"></i> <strong>¡Oops!</strong> Parece que no hay equipos que mostrar, puede agregar un nuevo equipo.</p>
+		<br/>
+	 </div>
+	 
+	 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 center">
+      <p><a class="btn btn-success" role="button" href="{{ url('/create-stockequipments') }}">NUEVO</a></p>
+	  <br/>
     </div>
+	
   @endif
 
 @endsection
