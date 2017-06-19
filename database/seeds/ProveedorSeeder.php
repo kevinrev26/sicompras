@@ -33,7 +33,7 @@ class ProveedorSeeder extends Seeder
         $new->rol = 6;
         $new->total_acumulado = 25000.00;
         $new->representante = 'David Gilmour';
-        $nuevo->confiable = false;
+        $new->confiable = false;
         $new->save();
     }
 }

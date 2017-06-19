@@ -33,6 +33,6 @@ FinFunc;
      */
     public function down()
     {
-        //
+        DB::unprepared('DROP TRIGGER IF EXISTS `updateContract`');
     }
 }

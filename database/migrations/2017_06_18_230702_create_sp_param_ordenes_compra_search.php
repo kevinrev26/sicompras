@@ -29,6 +29,6 @@ FinFunc;
      */
     public function down()
     {
-        //
+        DB::unprepared('DROP PROCEDURE IF EXISTS `getOrdenes`');
     }
 }
