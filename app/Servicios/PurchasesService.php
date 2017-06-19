@@ -17,14 +17,14 @@ class PurchasesService
 
   public function filtrarPorDepartamento($tecnico)
   {
-    $filtrados = array();
+    /*$filtrados = array();
     $compras = Compra::all();
     foreach ($compras as $c) {
-      if ( $c->orden->user->departamento === $tecnico->departamento) {
+      if ( $c->orden->user->depto->institucion == $tecnico->depto->institucion) {
         array_push($filtrados, $c);
       }
-    }
-    return $filtrados;
+    }*/
+    //return $compras[0]->orden->user;
 
   }
 

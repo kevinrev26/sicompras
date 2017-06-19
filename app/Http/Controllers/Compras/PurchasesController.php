@@ -23,8 +23,11 @@ class PurchasesController extends Controller
     public function index()
     {
 
+      //return $this->service->filtrarPorDepartamento(Auth::user());
+
       return view('compras.index', [
-        'compras' => $this->service->filtrarPorDepartamento(Auth::user())
+        //'compras' => $this->service->filtrarPorDepartamento(Auth::user())
+        'compras' => Compra::all()
       ]);
     }
 
