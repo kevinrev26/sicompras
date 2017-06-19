@@ -39,5 +39,6 @@ class CreateProveedorTable extends Migration
     public function down()
     {
         Schema::dropIfExists('proveedor');
+        print "Proveedor\n";
     }
 }

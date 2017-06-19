@@ -37,6 +37,7 @@ class BitacoraMantenimiento extends Migration
      */
     public function down()
     {
+        print "Bitacora de Mantenimiento\n";
         Schema::dropIfExists('bitacora_mantenimiento');
     }
 }

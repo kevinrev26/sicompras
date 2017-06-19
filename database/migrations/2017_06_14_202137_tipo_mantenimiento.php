@@ -29,5 +29,6 @@ class TipoMantenimiento extends Migration
     public function down()
     {
         Schema::dropIfExists('tipo_mantenimiento');
+        print "Tipo de Mantenimiento\n";
     }
 }

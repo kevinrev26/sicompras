@@ -30,5 +30,6 @@ class AddSlugMenuColumn extends Migration
         Schema::table('menu', function (Blueprint $table) {
           $table->dropColumn('slug_menu');
         });
+        print "Drop slug menu column\n";
     }
 }

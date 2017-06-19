@@ -32,5 +32,6 @@ class CreateInstitucionTable extends Migration
     {
         //
         Schema::dropIfExists('institucion_gobierno');
+        print "Institucion\n";
     }
 }

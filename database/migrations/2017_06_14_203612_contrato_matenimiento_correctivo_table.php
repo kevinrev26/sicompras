@@ -37,6 +37,8 @@ class ContratoMatenimientoCorrectivoTable extends Migration
      */
     public function down()
     {
+
         Schema::dropIfExists('contrato_matenimiento_correctivo');
+        print "Contrato mantenimiento preventivo\n";
     }
 }

@@ -33,5 +33,6 @@ class AddRolColumn extends Migration
         Schema::table('users', function (Blueprint $table) {
           $table->dropForeign('users_rol_foreign');
         });
+        print "Drop rol column\n";
     }
 }

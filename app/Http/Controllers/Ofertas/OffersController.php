@@ -7,10 +7,18 @@ use App\Http\Controllers\Controller;
 use App\Modelos\Oferta;
 use App\Modelos\Licitacion;
 use App\Modelos\Solicitud;
+use Auth;
 class OffersController extends Controller
 {
     //
     //
+    public function index()
+    {
+      return view('ofertas.mines',[
+        'ofertas' => Oferta::where('proveedor',Auth::guard('proveedor')->user()->id)->get()
+      ]);
+    }
+
     public function create()
     {
       # code...

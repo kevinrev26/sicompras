@@ -62,6 +62,7 @@
 
   /*Ofertas*/
   Route::get('/offers/create', 'Ofertas\OffersController@create');
+  Route::get('/offers','Ofertas\OffersController@index');
   Route::post('/offers', 'Ofertas\OffersController@store');
   Route::post('/offers/{id}/purchaseorders','Ofertas\OffersController@createPurchaseOrder');
   Route::get('/offers/search', 'Ofertas\OffersController@search');

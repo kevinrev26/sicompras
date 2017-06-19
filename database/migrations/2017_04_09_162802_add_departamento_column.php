@@ -35,5 +35,6 @@ class AddDepartamentoColumn extends Migration
         Schema::table('users', function (Blueprint $table) {
           $table->dropForeign('users_departamento_foreign');
         });
+        print "Drop departamento column\n";
     }
 }

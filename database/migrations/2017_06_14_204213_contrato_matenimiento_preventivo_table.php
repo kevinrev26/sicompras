@@ -41,6 +41,7 @@ class ContratoMatenimientoPreventivoTable extends Migration
      */
     public function down()
     {
+        print "Contrato de Mantenimiento Preventivo\n";
         Schema::dropIfExists('contrato_matenimiento_preventivo');
     }
 }

@@ -39,5 +39,6 @@ class CreateTableSolictudMantenimiento extends Migration
     public function down()
     {
         Schema::dropIfExists('solicitud_mantenimiento');
+        print "Solicitud de mantenimiento\n";
     }
 }

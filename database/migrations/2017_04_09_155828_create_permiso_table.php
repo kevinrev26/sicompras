@@ -37,5 +37,6 @@ class CreatePermisoTable extends Migration
     {
         //
         Schema::dropIfExists('permiso');
+        print "Permiso\n";
     }
 }
