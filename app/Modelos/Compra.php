@@ -12,7 +12,7 @@ class Compra extends Model
 
     public function retail()
     {
-      return $this->hasOne('App\Modelos\Proveedor', 'id');
+      return $this->hasOne('App\Modelos\Proveedor', 'id', 'proveedor');
     }
 
     public function orden()
