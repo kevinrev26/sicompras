@@ -20,6 +20,7 @@ class ProveedorSeeder extends Seeder
         $nuevo->tipo_persona = false;
         $nuevo->rol = 6;
         $nuevo->representante = 'Edgar Sanchez';
+        $nuevo->confiable = 1;
         $nuevo->save();
 
         $new = new Proveedor();
@@ -30,6 +31,7 @@ class ProveedorSeeder extends Seeder
         $new->tipo_persona = true;
         $new->rol = 6;
         $new->representante = 'David Gilmour';
+        $nuevo->confiable = 0;
         $new->save();
     }
 }
