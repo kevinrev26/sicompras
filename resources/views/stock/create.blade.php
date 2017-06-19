@@ -18,31 +18,31 @@
     <div class="form-group">
       <label class="control-label col-sm-2" for="codigo">Código del equipo:</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="codigo" name="codigo" placeholder="01112254ab">
+        <input type="text" class="form-control" id="codigo" name="codigo" placeholder="01112254ab" required>
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="marca">Marca del equipo:</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="marca" name="marca" placeholder="Panasonic">
+        <input type="text" class="form-control" id="marca" name="marca" placeholder="Panasonic" required>
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="modelo">Modelo del equipo:</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="modelo" name="modelo" placeholder="AV-115">
+        <input type="text" class="form-control" id="modelo" name="modelo" placeholder="AV-115" required>
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="precio">Precio $:</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="precio" name="precio" placeholder="250.55">
+        <input type="text" class="form-control" id="precio" name="precio" placeholder="250.55" required>
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="catalogo">Catalogo de equipo $:</label>
       <div class="col-sm-10">
-        <select class="form-control" name="catalogo">
+        <select class="form-control" name="catalogo" required>
           @foreach ($catalogos as $catalogo)
               <option value="{{ $catalogo->id }}"> {{$catalogo->nombre_equipo}} </option>
           @endforeach
