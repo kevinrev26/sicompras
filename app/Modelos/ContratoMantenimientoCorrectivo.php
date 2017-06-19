@@ -16,7 +16,7 @@ class ContratoMantenimientoCorrectivo extends Model
 
   public function retail()
   {
-    return $this->hasOne('App\Modelos\Proveedor','proveedor','id');
+    return $this->hasOne('App\Modelos\Proveedor','id','proveedor');
   }
 
 }
