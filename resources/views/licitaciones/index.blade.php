@@ -25,6 +25,9 @@
   </div>
 
   <h1>Licitaciones.</h1>
+  <a href="{{url('/bitacorabiddings/')}}">
+    <button class="btn btn-primary">Ver bitácora</button>
+  </a>
     @if (count($licitaciones)>0)
       <div class="panel panel-default">
         <div class="panel-heading"> Listado de licitaciones.</div>

@@ -79,6 +79,7 @@
   /*Proveedores*/
   Route::get('/proveedor/login', 'Proveedor\LoginController@showloginform');
   Route::post('/proveedor/login','Proveedor\LoginController@login');
+
   //Empleados del proveedor.
   Route::get('/{id}/employees','Empleados\EmployeesController@index');
   //Route::get('/employees-create','Empleados\EmployeesController@create');
@@ -109,6 +110,11 @@
   Route::get('/consultEquipments', 'AdministracionAvanzada\StoreProcedureController@consultEquipments');
   Route::get('/consultEmployees', 'AdministracionAvanzada\StoreProcedureController@consultEmployees');
   Route::get('/consultBinnacle', 'AdministracionAvanzada\StoreProcedureController@consultBinnacle');
+
+
+  /* Bitacora de licitaciones */
+  Route::get('/bitacorabiddings', 'Licitacion\BitacoraBiddingsController@bitacora');
+
 //});
 
 
