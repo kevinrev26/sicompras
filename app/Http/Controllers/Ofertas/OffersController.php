@@ -44,6 +44,9 @@ class OffersController extends Controller
       $path = "images". "/" . $imageName;
       $nueva->foto_equipo = $path;
       //return var_dump($nueva);
+      $licitacion = Licitacion::find($req->input("licitacion"));
+      $licitacion->estado = 'OFERTADA';
+      $licitacion->save();
       $nueva->save();
       return redirect('/biddings')->with('message', 'Se ha agreado la oferta.');
     }
@@ -52,11 +55,12 @@ class OffersController extends Controller
     {
       $o = Oferta::find($id);
 
-      $l = Licitacion::find($o->licitacion);
-      $l->estado = 'FINALIZADA';
-      $l->save();
+       $l = Licitacion::find($o->licitacion);
+      // $l->estado = 'FINALIZADA';
+      // $l->save();
+      $sol = Solicitud::find($l->solicitud);
 
-      if(Solicitud::find($l->solicitud)){
+      if($sol instanceof Solicitud){
         return redirect('/pruchaseorders/create')->with('oferta', $id);
       } else {
         /*Creacion de contratos...*/

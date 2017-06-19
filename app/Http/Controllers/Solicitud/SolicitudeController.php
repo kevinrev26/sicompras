@@ -118,9 +118,9 @@ class SolicitudeController extends Controller
     public function update($id)
     {
       # code...
-      $s = Solicitud::find($id);
-      $s->estado = true;
-      $s->save();
+      //$s = Solicitud::find($id);
+      //$s->estado = true;
+      //$s->save();
 
       return redirect('/addbiddings')->with('solicitudId', $id);
     }

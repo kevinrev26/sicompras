@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class ContratoMantenimientoPreventivo extends Model
 {
-  protected $table = 'contrato_mantenimiento_preventivo';
+  protected $table = 'contrato_matenimiento_preventivo';
   public $timestamps = false;
 }
