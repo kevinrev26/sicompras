@@ -60,7 +60,7 @@
         @foreach ($compras as $compra)
           <tr>
             <td>{{ $compra->fecha_compra }}</td>
-            <td>{{ $compra->retail->name }}</td>
+            
           <tr>
         @endforeach
       </tbody>
