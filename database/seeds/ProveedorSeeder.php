@@ -21,7 +21,7 @@ class ProveedorSeeder extends Seeder
         $nuevo->rol = 6;
         $nuevo->total_acumulado = 0.00;
         $nuevo->representante = 'Edgar Sanchez';
-        $nuevo->confiable = 1;
+        $nuevo->confiable = true;
         $nuevo->save();
 
         $new = new Proveedor();
@@ -33,7 +33,7 @@ class ProveedorSeeder extends Seeder
         $new->rol = 6;
         $new->total_acumulado = 25000.00;
         $new->representante = 'David Gilmour';
-        $nuevo->confiable = 0;
+        $nuevo->confiable = false;
         $new->save();
     }
 }

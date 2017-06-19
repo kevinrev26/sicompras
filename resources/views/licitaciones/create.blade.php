@@ -1,14 +1,6 @@
 @extends('layouts.master')
 @section('title','Publicar licitacion')
-
-@section('content')
-  @if (!session('solicitudId'))
-    <div class="alert alert-warning">
-      <p>Al parecer no se ha aprobado alguna solicitud, dirígase a la pagina de <a href="/solicitude" >solicitudes</a> para aprobar una </p>
-    </div>
-  @else
-
-    @if (count($errors) > 0)
+ @if (count($errors) > 0)
       <div class="alert alert-danger">
         <ul>
           @foreach ($errors->all() as $error)
@@ -17,6 +9,14 @@
         </ul>
       </div>
     @endif
+@section('content')
+  @if (!session('solicitudId'))
+    <div class="alert alert-warning">
+      <p>Al parecer no se ha aprobado alguna solicitud, dirígase a la pagina de <a href="/solicitude" >solicitudes</a> para aprobar una </p>
+    </div>
+  @else
+
+   
 
     <div class="panel panel-default">
       <div class="panel-heading">Nueva licitación  }}</div>

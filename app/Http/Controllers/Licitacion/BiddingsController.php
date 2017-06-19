@@ -97,7 +97,11 @@ class BiddingsController extends Controller
       }
 
 
-      $nueva->save();
+      try{
+        $nueva->save();
+      } catch(\Exception $e){
+         return redirect('/addbiddings')->withErrors(['Las licitaciones se hacen con horarios de oficina.']);
+      }
       return redirect('/biddings')->with('message', 'Se ha agregado la licitación a los registros');
     }
 

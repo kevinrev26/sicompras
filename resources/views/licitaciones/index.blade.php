@@ -45,7 +45,7 @@
             <tbody>
               @foreach ($licitaciones as $licitacion)
                 <tr>
-                  <!-- <td> {{ $licitacion->usuario->departamento->institucion->nombre_institucion }} </td> -->
+                  
                   <td> {{ $licitacion->id }} </td>
                   <td> {{ $licitacion->nombre_convocatoria }} </td>
                   <td> {{ $licitacion->objeto }} </td>

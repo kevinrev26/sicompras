@@ -97,7 +97,11 @@ class SolicitudeController extends Controller
         //$nuevo->tipo = intval($req->input('tipo'));
         $nuevo->usuario = intval($req->input('usuario'));
         //return var_dump($valores);
-        $nuevo->save();
+        try {
+          $nuevo->save();
+        } catch(\Exception $e) {
+           return redirect('/addsolicitud')->withErrors(['El precio no debe ser mayor que 50,000.']);
+        }
         /*
           No comprendo porque al hacer Solicitud::find($nuevo->id), el valor
           retornado es null. Y peor aun, no comprendo porque hay que recuperar

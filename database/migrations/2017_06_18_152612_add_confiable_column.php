@@ -15,7 +15,7 @@ class AddConfiableColumn extends Migration
     {
       Schema::table('proveedor', function (Blueprint $table) {
         print "Columna Confiable\n";
-       $table->boolean('confiable');
+       $table->boolean('confiable')->default(1);
       });
     }
 
