@@ -8,7 +8,7 @@
     </div>
   @endif
 
-  <div id="filtros">
+  <!-- <div id="filtros">
     <form class="form-inline" method="GET" action="{{ url('/biddings/search') }}" >
       <div class="form-group">
         <label for="id">Identificador (id): </label>
@@ -22,7 +22,7 @@
       </div>
 
     </form>
-  </div>
+  </div> -->
 
   <h1>Licitaciones.</h1>
     @if (count($licitaciones)>0)
@@ -32,7 +32,7 @@
           <table class="table table-stripped table-responsive" >
             <thead>
               <tr>
-                <th> Institución</th>
+                <!-- <th> Institución</th> -->
                 <th> Código</th>
                 <th> Nombre de la convocatoria</th>
                 <th> Objeto de la convocatoria</th>
@@ -42,11 +42,10 @@
             <tbody>
               @foreach ($licitaciones as $licitacion)
                 <tr>
-                  <td> {{ $licitacion->user->depto->inst->nombre_institucion }} </td>
+                  <!-- <td> {{ $licitacion->usuario->departamento->institucion->nombre_institucion }} </td> -->
                   <td> {{ $licitacion->id }} </td>
                   <td> {{ $licitacion->nombre_convocatoria }} </td>
                   <td> {{ $licitacion->objeto }} </td>
-                  <td> {{ $licitacion->tipo_licitacion }} </td>
                   <td> {{ $licitacion->estado }} </td>
                   <td>
                     <a href="{{url('/biddings/'.$licitacion->id)}}">

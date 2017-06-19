@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Modelos\OrdenCompra;
 use App\Modelos\Oferta;
 use App\Modelos\Solicitud;
+use \DB;
 
 class PurchaseOrdersController extends Controller
 {
