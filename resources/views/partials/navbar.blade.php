@@ -32,6 +32,7 @@ ul.dropdown-menu>li>a{
         @if (Auth::guard('proveedor')->check())
           <li class="dropdown"> <a href="/biddings"> Licitaciones </a></li>
           <li class="dropdown"> <a href="/offers"> Ofertas realizadas </a> </li>
+          <li> <a href="/{{Auth::guard('proveedor')->user()->id}}/employees">Mis empleados</a></li>
         @else {{--Check para proveedor--}}
 
             @if (count(Auth::user()->role->menus) > 0)

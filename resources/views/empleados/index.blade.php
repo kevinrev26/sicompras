@@ -45,7 +45,7 @@
     
 	<div class="form-group">
          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 center">
-             <button type="submit" class="btn btn-success" disabled="true">Agregar</button>
+             <button type="submit" class="btn btn-success">Agregar</button>
          </div>
     </div>
 	
