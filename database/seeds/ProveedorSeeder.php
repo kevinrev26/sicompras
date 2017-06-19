@@ -19,7 +19,9 @@ class ProveedorSeeder extends Seeder
         $nuevo->nit = '06142607931209';
         $nuevo->tipo_persona = false;
         $nuevo->rol = 6;
+        $nuevo->total_acumulado = 0.00;
         $nuevo->representante = 'Edgar Sanchez';
+        $nuevo->confiable = true;
         $nuevo->save();
 
         $new = new Proveedor();
@@ -29,7 +31,9 @@ class ProveedorSeeder extends Seeder
         $new->nit = '06142807931309';
         $new->tipo_persona = true;
         $new->rol = 6;
+        $new->total_acumulado = 25000.00;
         $new->representante = 'David Gilmour';
+        $new->confiable = false;
         $new->save();
     }
 }

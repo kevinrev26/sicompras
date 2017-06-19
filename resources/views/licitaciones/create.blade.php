@@ -12,6 +12,7 @@
 
     @if (count($errors) > 0)
       <div class="alert alert-danger center">
+
         <ul>
           @foreach ($errors->all() as $error)
             <li>{{ $error }}</li>
@@ -19,6 +20,15 @@
         </ul>
       </div>
     @endif
+    @endif
+@section('content')
+  @if (!session('solicitudId'))
+    <div class="alert alert-warning">
+      <p>Al parecer no se ha aprobado alguna solicitud, dirígase a la pagina de <a href="/solicitude" >solicitudes</a> para aprobar una </p>
+    </div>
+  @else
+
+   
 
     <div class="panel panel-default">
 	
@@ -85,5 +95,6 @@
 	  
     </div>
 	
+  
   @endif
 @endsection

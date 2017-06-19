@@ -43,6 +43,7 @@
         <div class="col-sm-8">
         <input type="text" class="form-control" id="orden" name="orden" placeholder="25">
 		<br/>
+
       </div>
 	
     @if (count($proveedores) > 0)
@@ -50,6 +51,7 @@
          <label class="col-sm-4 control-label">Proveedor:</label>
          <div class="col-sm-8 selectContainer">
              <select class="form-control" name="proveedor">
+
 
                  @foreach ($proveedores as $proveedor )
                    <option value="{{ $proveedor->id }}">

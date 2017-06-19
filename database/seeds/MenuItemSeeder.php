@@ -54,8 +54,13 @@ class MenuItemSeeder extends Seeder
           'menu' => $menu->id,
         ]);
         $table->insert([
-          'nombre_item' => 'Buscar solicitud',
+          'nombre_item' => 'Buscar solicitud de compra',
           'ruta' => '/solicitude',
+          'menu' => $menu->id,
+        ]);
+        $table->insert([
+          'nombre_item' => 'Buscar solicitud de mantenimiento',
+          'ruta' => '/solicitud',
           'menu' => $menu->id,
         ]);
         $menu = Menu::where('slug_menu', 'orden')->first();
@@ -101,7 +106,22 @@ class MenuItemSeeder extends Seeder
           'ruta' => '/createpurchase',
           'menu' => $menu->id,
         ]);
-
+        $menu = Menu::where('slug_menu', 'contratos')->first();
+        $table->insert([
+          'nombre_item' => 'Listar contratos correctivos',
+          'ruta' => '/correctivecontracts',
+          'menu' => $menu->id,
+        ]);
+        $table->insert([
+          'nombre_item' => 'Listar contratos preventivos',
+          'ruta' => '/preventivecontracts',
+          'menu' => $menu->id,
+        ]);
+        $table->insert([
+          'nombre_item' => 'Agregar contratos preventivos',
+          'ruta' => '/add-preventivecontracts',
+          'menu' => $menu->id,
+        ]);
 
     }
 }

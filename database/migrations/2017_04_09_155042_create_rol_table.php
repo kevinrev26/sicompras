@@ -31,5 +31,6 @@ class CreateRolTable extends Migration
     {
         //
         Schema::dropIfExists('rol');
+        print "Rol\n";
     }
 }

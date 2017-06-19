@@ -24,6 +24,7 @@
 
   <form class="form-horizontal" method="POST" action="{{ url('/stockequipments') }}">
     {{ csrf_field() }}
+
     
 	<div class="row">
 	
@@ -64,6 +65,7 @@
       <label class="control-label col-sm-4" for="catalogo">Catalogo de equipo $: <span class="asterisk">*</span></label>
       <div class="col-sm-8">
         <select class="form-control" name="catalogo">
+
           @foreach ($catalogos as $catalogo)
               <option value="{{ $catalogo->id }}"> {{$catalogo->nombre_equipo}} </option>
           @endforeach

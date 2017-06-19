@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 use App\Modelos\OrdenCompra;
 use App\Modelos\Oferta;
 use App\Modelos\Solicitud;
+use \DB;
+use App\Modelos\Licitacion;
+
 
 class PurchaseOrdersController extends Controller
 {
@@ -38,8 +41,13 @@ class PurchaseOrdersController extends Controller
       $nueva->usuario = $req->input('usuario');
       $nueva->oferta = $req->input('oferta');
       $nueva->fecha_entrega = $req->input('fecha-entrega');
-      $nueva->save();
+
       $oferta = Oferta::find($req->input('oferta'));
+      $licitacion = Licitacion::find($oferta->bidding->id);
+      $licitacion->estado = 'FINALIZADA';
+      $licitacion->save();
+      $nueva->save();
+
       $solicitud = Solicitud::find($oferta->bidding->solicitud);
       //Asignar equipos
 
@@ -54,6 +62,9 @@ class PurchaseOrdersController extends Controller
 
     public function search(Request $filters)
     {
-      # code...
+      $fecha = $filters->input('fecha');
+      $id = $filters->input('id');
+      $data = DB::select('CALL getOrdenes(?,?)', array($fecha, $id));
+      return view('ordenes.index', ['ordenes' => $data]);
     }
 }

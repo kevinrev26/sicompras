@@ -27,6 +27,7 @@ class CreateTipoSolicitudTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('tipo_solicitud');
+        print "Tipo de solicitud\n";
     }
 }

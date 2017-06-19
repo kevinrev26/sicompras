@@ -29,6 +29,7 @@ class CreateCatalogoEquipoTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('catalogo_equipo');
+        print "Catalogo de Equipo\n";
     }
 }

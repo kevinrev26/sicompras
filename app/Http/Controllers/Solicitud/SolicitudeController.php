@@ -83,7 +83,7 @@ class SolicitudeController extends Controller
         $nuevo->id = intval($req->input('id'));
 
         $nuevo->unidad_medida = strtoupper($req->input('unidad'));
-        $nuevo->cantidad = count($valores);
+        //$nuevo->cantidad = count($valores);
         $nuevo->especificaciones_tecnicas = $req->input('especificaciones');
         if ($req->input('precio') <= 0.00){
           return redirect('/addsolicitud')->withErrors(['El precio debe de ser un número real mayor que cero. No se admiten caracteres.']);
@@ -97,7 +97,11 @@ class SolicitudeController extends Controller
         //$nuevo->tipo = intval($req->input('tipo'));
         $nuevo->usuario = intval($req->input('usuario'));
         //return var_dump($valores);
-        $nuevo->save();
+        try {
+          $nuevo->save();
+        } catch(\Exception $e) {
+           return redirect('/addsolicitud')->withErrors(['El precio no debe ser mayor que 50,000.']);
+        }
         /*
           No comprendo porque al hacer Solicitud::find($nuevo->id), el valor
           retornado es null. Y peor aun, no comprendo porque hay que recuperar
@@ -118,9 +122,9 @@ class SolicitudeController extends Controller
     public function update($id)
     {
       # code...
-      $s = Solicitud::find($id);
-      $s->estado = true;
-      $s->save();
+      //$s = Solicitud::find($id);
+      //$s->estado = true;
+      //$s->save();
 
       return redirect('/addbiddings')->with('solicitudId', $id);
     }
@@ -134,6 +138,10 @@ class SolicitudeController extends Controller
 
     public function search(Request $filters)
     {
-      # code...
+      $id = $filters->input('numero');
+      $total = $filters->input('total');
+      $lugar = $filters->input('lugar');
+      $data = DB::select('CALL getSolicitudes(?,?,?)', array($id, $total, $lugar));
+      return view('solicitudes.index', ['solicitudes' => $data]);
     }
 }

@@ -22,9 +22,11 @@
     @if (count($contratos)>0)
 		
       <div class="panel panel-default">
+
         <div class="panel-heading"><span style="color:#3097d1; text-align:center;">Listado de licitaciones</span><br/></div>
         <div class="panel-body" style="overflow-x:auto;">
           <table class="table">
+
             <thead>
               <tr style="color:#3097d1;">
                 <th style="text-align:center;">Monto</th>
@@ -50,13 +52,15 @@
       </div>
 	  
     @else
+
 		
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 center">
 		<br/>
-		<p class="alertass"><i style="color:rgba(210, 131, 30, 0.93);" class="fa fa-exclamation-triangle" aria-hidden="true"></i> ¡No hay licitaciones que mostrar!</p>
+		<p class="alertass"><i style="color:rgba(210, 131, 30, 0.93);" class="fa fa-exclamation-triangle" aria-hidden="true"></i>  No hay contratos que mostrar.</p>
 		<br/>
 		</div>
 	  
+
     @endif
 
 

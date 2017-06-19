@@ -30,6 +30,7 @@
 <div class="container">
 
   <div class="row">
+
   
                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                  <h2 style="text-align:center; color:#3097d1;">Solicitud No. {{ $solicitud->id }}</h2>
@@ -42,6 +43,7 @@
                  <p><h4 style="text-align:center;">Especificaciones de entrega</h4></p>
                  <p><b>Lugar de entrega:</b> {{$solicitud->lugar_entrega}}</p>
 				 </div>	
+
                  @if (Auth::user()->getRoleSlug() === 'uaci')
 
                    @if($solicitud->estado===0)

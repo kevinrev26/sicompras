@@ -63,6 +63,9 @@ ul.dropdown-menu>li>a{
 
 
               <ul class="dropdown-menu" role="menu">
+                <li>
+                  <a href="{{ url('/avanzada') }}">Opciones Avanzadas</a>
+                </li>
                   <li>
                       <a href="{{ route('logout') }}"
                           onclick="event.preventDefault();
@@ -74,6 +77,7 @@ ul.dropdown-menu>li>a{
                           {{ csrf_field() }}
                       </form>
                   </li>
+
               </ul>
           </li>
         </ul>

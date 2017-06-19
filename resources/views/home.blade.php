@@ -22,7 +22,7 @@
 					<button class="w3-button w3-display-right" onclick="plusDivs(1)">&#10095;</button>-->
 				  </div>
                 </div>
-				
+
             </div>
         </div>
     </div>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Modelos\Licitacion;
 use App\Modelos\Oferta;
+use App\Modelos\Solicitud;
 use App\Servicios\BiddingsService;
 use Auth;
 
@@ -88,7 +89,19 @@ class BiddingsController extends Controller
       //$nueva->tipo_licitacion = $req->input('tipo');
       $nueva->usuario = $req->input('usuario');
       $nueva->solicitud = $req->input('solicitud');
-      $nueva->save();
+
+      $sol = Solicitud::find($req->input('solicitud'));
+      if($sol instanceof Solicitud){
+        $sol->estado = true;
+        $sol->save();
+      }
+
+
+      try{
+        $nueva->save();
+      } catch(\Exception $e){
+         return redirect('/addbiddings')->withErrors(['Las licitaciones se hacen con horarios de oficina.']);
+      }
       return redirect('/biddings')->with('message', 'Se ha agregado la licitación a los registros');
     }
 
@@ -107,10 +120,10 @@ class BiddingsController extends Controller
       if ($control) {
         return redirect('/biddings')->with('message', 'Usted ya ha realizado una oferta por esta licitacion');
       } else {
-        $licitacion = Licitacion::find($id);
-        //Se puede optimizar
-        $licitacion->estado = 'OFERTADA';
-        $licitacion->save();
+        // $licitacion = Licitacion::find($id);
+        // //Se puede optimizar
+        // $licitacion->estado = 'OFERTADA';
+        // $licitacion->save();
         return redirect('offers/create')->with('id', $id);
       }
 
@@ -118,6 +131,9 @@ class BiddingsController extends Controller
 
     public function search(Request $filters)
     {
-      # code...
+      $id = $filters->input('id');
+      $titulo = $filters->input('titulo');
+      $data = DB::select('CALL getLicitaciones(?,?)', array($id, $titulo));
+      return view('licitaciones.index', ['licitaciones' => $data]);
     }
 }

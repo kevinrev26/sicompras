@@ -40,6 +40,11 @@ class MenuSeeder extends Seeder
           'nombre_menu' => 'Compras',
           'slug_menu' => 'compras'
         ]);
+        $table->insert([
+          'nombre_menu' => 'Contratos',
+          'slug_menu' => 'contratos'
+        ]);
+
 
 
 

@@ -37,5 +37,6 @@ class CreateTableEquipo extends Migration
     public function down()
     {
         Schema::dropIfExists('equipo');
+        print "Equipo\n";
     }
 }

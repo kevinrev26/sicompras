@@ -62,6 +62,7 @@
 
   /*Ofertas*/
   Route::get('/offers/create', 'Ofertas\OffersController@create');
+  Route::get('/offers','Ofertas\OffersController@index');
   Route::post('/offers', 'Ofertas\OffersController@store');
   Route::post('/offers/{id}/purchaseorders','Ofertas\OffersController@createPurchaseOrder');
   Route::get('/offers/search', 'Ofertas\OffersController@search');
@@ -78,6 +79,7 @@
   /*Proveedores*/
   Route::get('/proveedor/login', 'Proveedor\LoginController@showloginform');
   Route::post('/proveedor/login','Proveedor\LoginController@login');
+
   //Empleados del proveedor.
   Route::get('/{id}/employees','Empleados\EmployeesController@index');
   //Route::get('/employees-create','Empleados\EmployeesController@create');
@@ -100,7 +102,22 @@
 
   //Contratos
   Route::get('/correctivecontracts', 'Contrato\CorrectiveContractsController@index');
+  Route::get('/preventivecontracts','Contrato\PreventiveContractsController@index');
+  Route::post('/preventivecontracts','Contrato\PreventiveContractsController@store');
+  Route::get('/add-preventivecontracts','Contrato\PreventiveContractsController@create');
   Route::post('/correctivecontracts/{id}', 'Mantenimiento\SolicitudMantenimientoController@update');
+
+
+  /*Procedimientos*/
+  Route::get('/avanzada', 'AdministracionAvanzada\StoreProcedureController@index');
+  Route::get('/resetPurchaseLimit', 'AdministracionAvanzada\StoreProcedureController@resetPurchaseLimit');
+  Route::get('/consultEquipments', 'AdministracionAvanzada\StoreProcedureController@consultEquipments');
+  Route::get('/consultEmployees', 'AdministracionAvanzada\StoreProcedureController@consultEmployees');
+  Route::get('/consultBinnacle', 'AdministracionAvanzada\StoreProcedureController@consultBinnacle');
+
+
+  /* Bitacora de licitaciones */
+  Route::get('/bitacorabiddings', 'Licitacion\BitacoraBiddingsController@bitacora');
 
 //});
 

@@ -14,6 +14,7 @@ class ContratoMatenimientoPreventivoTable extends Migration
     public function up()
     {
       Schema::create('contrato_matenimiento_preventivo', function(Blueprint $table){
+        print "contrato preventio\n";
         $table->increments('id');
         $table->decimal('monto',12,2);
         $table->string('forma_pago');
@@ -41,6 +42,7 @@ class ContratoMatenimientoPreventivoTable extends Migration
      */
     public function down()
     {
+        print "Contrato de Mantenimiento Preventivo\n";
         Schema::dropIfExists('contrato_matenimiento_preventivo');
     }
 }
