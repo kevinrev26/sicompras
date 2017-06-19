@@ -109,7 +109,7 @@
                   <label class="control-label col-sm-4" for="imagen">Empleado: <span class="asterisk">*</span></label>
                   <div class="col-md-8 selectContainer">
                     <select class="form-control" name="empleado">
-					  <option disabled selected value> -- selecciona una opción -- </option>
+					           <option> -- selecciona una opción -- </option>
                       <option v-for="e in empleados" v-bind:value="e.id"> @{{ e.nombre_completo }} </option>
                     </select>
 					<br/>
