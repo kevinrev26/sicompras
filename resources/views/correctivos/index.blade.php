@@ -41,7 +41,7 @@
                 <tr>
                   <td style="text-align:center;"> {{ $contrato->monto }} </td>
                   <td style="text-align:center;"> {{ $contrato->fecha_ejecucion }} </td>
-                  <td style="text-align:center;"> {{ ($contrato->finalizado) "No" : "Si" }} </td>
+                  <td style="text-align:center;"> {{ ($contrato->finalizado) ? "No" : "Si" }} </td>
                   <td style="text-align:center;"> {{ $contrato->equipment->inv_equipo }} </td>
                   <td style="text-align:center;"> {{ $contrato->retial->name }} </td>
                 </tr>

@@ -42,6 +42,16 @@
             <td style="text-align:center;">{{ $solicitud->id_sol_mant }}</td>
             <td style="text-align:center;">{{ $solicitud->presupuesto }}</td>
             <td style="text-align:center;">{{ $solicitud->fecha_creacion }} $</td>
+            @if(Auth::user()->getRoleSlug() === 'uaci' )
+            <td>
+              <form action="{{url('/updatesolicitude/'.$solicitud->id_sol_mant)}}" method="post">
+                  {{ csrf_field() }}
+                  <button type="submit" class="btn btn-info">Generar licitacion</button>
+                </form>
+            </td>
+            @endif
+
+             
             <!-- <td>
               @if ($solicitud->estado)
                 <h3> <span class="label label-default">APROBADA</span> </h3>

@@ -1,4 +1,4 @@
-<?php
+  <?php
 
 namespace App\Modelos;
 
@@ -11,7 +11,7 @@ class ContratoMantenimientoCorrectivo extends Model
 
   public function equipment()
   {
-    return $this->hasOne('App\Modelos\Equipo','equipo','id_equipo');
+    return $this->hasOne('App\Modelos\Equipo','id_equipo');
   }
 
   public function retail()

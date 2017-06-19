@@ -46,7 +46,7 @@ label {
     @if (Auth::user()->getRoleSlug() === 'uaci')
 	  
      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 center">
-      <a href="{{ url('/biddings/'. $licitacion->id . '/offers') }}"><button class="btn btn-info">NUEVO</button></a>
+      <a href="{{ url('/biddings/'. $licitacion->id . '/offers') }}"><button class="btn btn-info">Ver ofertas</button></a>
 	  <br/>
      </div>
 	 
