@@ -48,7 +48,7 @@
   </div> --}}
 
   @if (count($compras)>0)
-	<div style="overflow-x:auto;">
+	<div>
     <table class="table">
       <thead>
         <tr style="color:#3097d1;">
@@ -60,7 +60,7 @@
         @foreach ($compras as $compra)
           <tr>
             <td>{{ $compra->fecha_compra }}</td>
-            
+            <td>{{ $compra->retail->name }}</td>
           <tr>
         @endforeach
       </tbody>

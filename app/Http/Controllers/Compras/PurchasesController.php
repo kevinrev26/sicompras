@@ -25,8 +25,8 @@ class PurchasesController extends Controller
 
 
       return view('compras.index', [
-        //'compras' => $this->service->filtrarPorDepartamento(Auth::user())
-        'compras' => Compra::all()
+        'compras' => $this->service->filtrarPorDepartamento(Auth::user())
+        //'compras' => Compra::all()
       ]);
     }
 

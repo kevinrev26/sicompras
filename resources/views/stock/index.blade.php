@@ -43,7 +43,7 @@
   </div> --}}
 
   @if (count($equipos)>0)
-	<div style="overflow-x:auto;">  
+	<div>  
     <table class="table">
       <thead>
         <tr style="color:#3097d1;">
