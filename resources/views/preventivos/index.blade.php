@@ -8,7 +8,7 @@
     </div>
   @endif
 
-  <h1>Contratos correctivos.</h1>
+  <h1>Contratos preventivos.</h1>
     @if (count($contratos)>0)
       <div class="panel panel-default">
         <div class="panel-heading"> Listado de Contratos.</div>
@@ -17,20 +17,21 @@
             <thead>
               <tr>
                 <th> Monto</th>
-                <th> Fecha de ejecución</th>
-                <th> Finalizado</th>
-                <th> Equipo</th>
-                <th> Proveedor </th>
+                <th> vigencia</th>
+                <th> Fecha de inicio</th>
+                <th> Fecha Fin</th>
+
+
               </tr>
             </thead>
             <tbody>
               @foreach ($contratos as $contrato)
                 <tr>
                   <td> {{ $contrato->monto }} </td>
-                  <td> {{ $contrato->fecha_ejecucion }} </td>
-                  <td> {{ ($contrato->finalizado) ? "No" : "Si" }} </td>
-                  <td> {{ $contrato->equipment->inv_equipo }} </td>
-                  <td> {{ $contrato->retial->name }} </td>
+                  <td> {{ $contrato->vigencia }} </td>
+                  <td> {{ $contrato->fecha_inicio }} </td>
+                  <td> {{ $contrato->fecha_fin }} </td>
+
                 </tr>
               @endforeach
             </tbody>

@@ -101,7 +101,11 @@
 
   //Contratos
   Route::get('/correctivecontracts', 'Contrato\CorrectiveContractsController@index');
+  Route::get('/preventivecontracts','Contrato\PreventiveContractsController@index');
+  Route::post('/preventivecontracts','Contrato\PreventiveContractsController@store');
+  Route::get('/add-preventivecontracts','Contrato\PreventiveContractsController@create');
   Route::post('/correctivecontracts/{id}', 'Mantenimiento\SolicitudMantenimientoController@update');
+
 
   /*Procedimientos*/
   Route::get('/avanzada', 'AdministracionAvanzada\StoreProcedureController@index');

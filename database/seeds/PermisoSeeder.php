@@ -47,6 +47,16 @@ class PermisoSeeder extends Seeder
         'id_rol' => $rol->id,
         'id_menu' => $menu->id,
       ]);
+      $menu = Menu::where('slug_menu', 'compras')->first();
+      $table->insert([
+        'id_rol' => $rol->id,
+        'id_menu' => $menu->id,
+      ]);
+      $menu = Menu::where('slug_menu', 'contratos')->first();
+      $table->insert([
+        'id_rol' => $rol->id,
+        'id_menu' => $menu->id,
+      ]);
       //Definiendo menus para el UACI
       $rol = Rol::where('slug_rol', 'uaci')->first();
       $menu = Menu::where('slug_menu', 'licitacion')->first();
@@ -64,6 +74,12 @@ class PermisoSeeder extends Seeder
         'id_rol' => $rol->id,
         'id_menu' => $menu->id,
       ]);
+      $menu = Menu::where('slug_menu', 'contratos')->first();
+      $table->insert([
+        'id_rol' => $rol->id,
+        'id_menu' => $menu->id,
+      ]);
+      //Denifiendo menus para el Jefe...
       //Definiendo menus para el tecnico.
       $rol = Rol::where('slug_rol', 'tecnico')->first();
       $menu = Menu::where('slug_menu', 'solicitud')->first();
@@ -82,6 +98,11 @@ class PermisoSeeder extends Seeder
         'id_menu' => $menu->id,
       ]);
       $menu = Menu::where('slug_menu', 'compras')->first();
+      $table->insert([
+        'id_rol' => $rol->id,
+        'id_menu' => $menu->id,
+      ]);
+      $menu = Menu::where('slug_menu', 'contratos')->first();
       $table->insert([
         'id_rol' => $rol->id,
         'id_menu' => $menu->id,
