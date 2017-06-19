@@ -11,12 +11,12 @@ class ContratoMantenimientoCorrectivo extends Model
 
   public function equipment()
   {
-    return $this->hasOne('App\Modelos\Equipo','equipo','id_equipo');
+    return $this->hasOne('App\Modelos\Equipo','id_equipo');
   }
 
   public function retail()
   {
-    return $this->hasOne('App\Modelos\Proveedor','proveedor','id');
+    return $this->hasOne('App\Modelos\Proveedor','id','proveedor');
   }
 
 }
