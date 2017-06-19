@@ -13,6 +13,7 @@ class CreateSpRestartBudgetLimit extends Migration
      */
     public function up()
     {
+      print "Procedimiento 1\n";
       $sql = <<<FinFunc
       CREATE PROCEDURE resetBudget()
       BEGIN

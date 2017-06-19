@@ -14,6 +14,7 @@ class Empleado extends Migration
     public function up()
     {
         Schema::create('empleado', function(Blueprint $table){
+          print "tipo de mantenimiento\n";
           $table->increments('id');
           $table->string('nombre_completo');
           $table->integer('proveedor')->unsigned();

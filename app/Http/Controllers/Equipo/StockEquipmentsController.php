@@ -15,8 +15,9 @@ class StockEquipmentsController extends Controller
   public function index()
   {
     return view('stock.index', [
-      'equipos' => Equipo::where('id_equipo',Auth::user()->departamento)
+      'equipos' => Equipo::where('id_departamento',Auth::user()->departamento)->get()
     ]);
+
   }
 
   public function create()

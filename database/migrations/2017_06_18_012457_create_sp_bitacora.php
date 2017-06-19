@@ -13,6 +13,7 @@ class CreateSpBitacora extends Migration
      */
     public function up()
     {
+      print "Procedimiento 4\n";
       $sql = <<<FinFunc
         CREATE PROCEDURE consultaBitacora(IN _fecha VARCHAR(50))
         BEGIN

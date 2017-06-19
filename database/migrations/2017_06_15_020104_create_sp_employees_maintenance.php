@@ -13,6 +13,7 @@ class CreateSpEmployeesMaintenance extends Migration
      */
     public function up()
     {
+      print "Procedimiento 2\n";
       $sql = <<<FinFunc
       CREATE PROCEDURE employeesMaintenance()
       BEGIN

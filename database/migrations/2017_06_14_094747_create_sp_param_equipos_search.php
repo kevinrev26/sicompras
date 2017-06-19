@@ -13,6 +13,7 @@ class CreateSpParamEquiposSearch extends Migration
      */
     public function up()
     {
+      print "Procedimiento 0\n";
         $sql = <<<FinFunc
         CREATE PROCEDURE getEquipments(IN _nombre VARCHAR(191), IN _unidad VARCHAR(191))
         BEGIN

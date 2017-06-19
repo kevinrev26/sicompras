@@ -14,6 +14,7 @@ class BitacoraMantenimiento extends Migration
     public function up()
     {
         Schema::create('bitacora_mantenimiento', function(Blueprint $table){
+          print "Bitacora de mantenimiento\n";
           $table->increments('id');
           $table->string('fecha_mantenimiento');
           $table->string('descripcion_mantenimiento');

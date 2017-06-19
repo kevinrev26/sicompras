@@ -13,10 +13,11 @@ class CreateSpEquipmentsMaintenance extends Migration
      */
     public function up()
     {
+      print "Procedimiento 3\n";
       $sql = <<<FinFunc
         CREATE PROCEDURE equipmentsMaintenance()
         BEGIN
-        SELECT inv_equipo, nombre_equipo, tipo_mantenimiento FROM equipo, bitacora_mantenimiento, catalogo_equipo where equipo.id_equipo = bitacora_mantenimiento.equipo AND equipo.id_catalogo = catalogo_equipo.id
+        SELECT inv_equipo, nombre_equipo, tipo_mantenimiento FROM equipo, bitacora_mantenimiento, catalogo_equipo where equipo.id_equipo = bitacora_mantenimiento.equipo AND equipo.id_catalogo = catalogo_equipo.id;
         END;
 FinFunc;
       DB::connection()->getPdo()->exec($sql);
