@@ -32,7 +32,7 @@
 
     <div class="panel panel-default">
 	
-      <div class="panel-heading">Nueva licitación, {{ session('solicitudId')->user->depto->inst->nombre_institucion}}</div>
+      <div class="panel-heading">Nueva licitación</div>
 	  
       <div class="panel-body row">
 	  
@@ -80,7 +80,7 @@
 		  </div>
 			
             <input type="hidden" name="usuario" value="{{ Auth::id() }}" />
-            <input type="hidden" name="solicitud" value="{{ session('solicitudId')->id }}" />
+            <input type="hidden" name="solicitud" value="{{ session('solicitudId') }}" />
             
 		  <div class="form-group">
            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 center">
