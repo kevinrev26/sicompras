@@ -134,6 +134,10 @@ class SolicitudeController extends Controller
 
     public function search(Request $filters)
     {
-      # code...
+      $id = $filters->input('numero');
+      $total = $filters->input('total');
+      $lugar = $filters->input('lugar');
+      $data = DB::select('CALL getSolicitudes(?,?,?)', array($id, $total, $lugar));
+      return view('solicitudes.index', ['solicitudes' => $data]);
     }
 }

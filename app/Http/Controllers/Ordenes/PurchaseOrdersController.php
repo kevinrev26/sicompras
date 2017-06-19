@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Modelos\OrdenCompra;
 use App\Modelos\Oferta;
 use App\Modelos\Solicitud;
+use \DB;
 
 class PurchaseOrdersController extends Controller
 {
@@ -54,6 +55,9 @@ class PurchaseOrdersController extends Controller
 
     public function search(Request $filters)
     {
-      # code...
+      $fecha = $filters->input('fecha');
+      $id = $filters->input('id');
+      $data = DB::select('CALL getOrdenes(?,?)', array($fecha, $id));
+      return view('ordenes.index', ['ordenes' => $data]);
     }
 }

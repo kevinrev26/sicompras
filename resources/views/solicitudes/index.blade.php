@@ -9,7 +9,7 @@
       {{ session('message') }}
     </div>
   @endif
-  <div id="filtros">
+  <!-- <div id="filtros">
     <form class="form-inline" method="GET" action="{{ url('/solicitude/search') }}" >
       <div class="form-group">
         <label for="numero">Numero de solicitud: </label>
@@ -24,13 +24,8 @@
       <div class="form-group">
         <label for="lugar">Lugar de entrega:  </label>
         <input type="text" class="form-control" id="lugar" name="lugar" />
-
-      </div>
-      <div class="form-group">
-        <label for="estado">Estado de la solicitud: </label>
-        <input type="text" class="form-control" id="estado" name="estado" />
         <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search">Buscar</span></button>
-      </div>
+      </div> -->
 
     </form>
   </div>
