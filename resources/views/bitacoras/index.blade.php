@@ -83,37 +83,35 @@
 			  <br/>
             </div>
             
-              <label class="control-label col-sm-4">Tipo de Mantenimiento: <span class="asterisk">*</span></label>
-                <div class="col-sm-8">
+               <div class="form-group">
+              <label class="control-label col-sm-2" >Tipo de Mantenimiento: </label>
+                <div class="col-sm-10">
                   <select name="mantenimiento">
-				    
                     <option value="PREVENTIVO">Preventivo</option>
                     <option value="CORRECTIVO">Correctivo</option>
                   </select>
-				  <br/>
                 </div>
-              
-                <label class="control-label col-sm-4">Proveedor: <span class="asterisk">*</span></label>
-                  <div class="col-sm-8">
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-2" >Proveedor: </label>
+                  <div class="col-sm-10">
                     <select v-model="identificador">
-					   
                       @foreach ($proveedores as $proveedor)
                         <option value="{{ $proveedor->id }}" >
                           {{ $proveedor->name }}
                         </option>
                       @endforeach
                     </select>
-					<br/>
                   </div>
-                
-                  <label class="control-label col-sm-4" for="imagen">Empleado: <span class="asterisk">*</span></label>
-                  <div class="col-md-8 selectContainer">
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="imagen">Empleado: </label>
+                  <div class="col-md-6 selectContainer">
                     <select class="form-control" name="empleado">
-					           
                       <option v-for="e in empleados" v-bind:value="e.id"> @{{ e.nombre_completo }} </option>
                     </select>
-					<br/>
                   </div>
+                </div>
                 </div>
 				
 		  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
