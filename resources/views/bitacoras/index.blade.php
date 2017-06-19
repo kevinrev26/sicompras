@@ -86,7 +86,7 @@
               <label class="control-label col-sm-4">Tipo de Mantenimiento: <span class="asterisk">*</span></label>
                 <div class="col-sm-8">
                   <select name="mantenimiento">
-				    <option disabled selected value> -- selecciona una opción -- </option>
+				    
                     <option value="PREVENTIVO">Preventivo</option>
                     <option value="CORRECTIVO">Correctivo</option>
                   </select>
@@ -96,7 +96,7 @@
                 <label class="control-label col-sm-4">Proveedor: <span class="asterisk">*</span></label>
                   <div class="col-sm-8">
                     <select v-model="identificador">
-					    <option disabled selected value> -- selecciona una opción -- </option>
+					   
                       @foreach ($proveedores as $proveedor)
                         <option value="{{ $proveedor->id }}" >
                           {{ $proveedor->name }}
@@ -109,7 +109,7 @@
                   <label class="control-label col-sm-4" for="imagen">Empleado: <span class="asterisk">*</span></label>
                   <div class="col-md-8 selectContainer">
                     <select class="form-control" name="empleado">
-					           <option> -- selecciona una opción -- </option>
+					           
                       <option v-for="e in empleados" v-bind:value="e.id"> @{{ e.nombre_completo }} </option>
                     </select>
 					<br/>
