@@ -14,4 +14,10 @@ class Compra extends Model
     {
       return $this->hasOne('App\Modelos\Proveedor', 'id');
     }
+
+    public function orden()
+    {
+      return $this->hasOne('App\Modelos\OrdenCompra','id','orden_compra');
+    }
+
 }

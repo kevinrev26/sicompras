@@ -31,5 +31,6 @@ class Empleado extends Migration
     public function down()
     {
         Schema::dropifExists('empleado');
+        print "Empleado\n";
     }
 }

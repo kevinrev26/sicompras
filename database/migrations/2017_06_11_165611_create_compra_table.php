@@ -37,5 +37,6 @@ class CreateCompraTable extends Migration
     public function down()
     {
         Schema::dropIfExists('compra');
+        print "Compra\n";
     }
 }

@@ -37,5 +37,6 @@ class CreateDepartamentoTable extends Migration
         //
         //$table->dropForeign('departamento_institucion_foreign');
         Schema::dropIfExists('departamento');
+        print "Departamento\n";
     }
 }

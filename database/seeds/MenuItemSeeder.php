@@ -54,7 +54,7 @@ class MenuItemSeeder extends Seeder
           'menu' => $menu->id,
         ]);
         $table->insert([
-          'nombre_item' => 'Buscar solicitud',
+          'nombre_item' => 'Buscar solicitud de compra',
           'ruta' => '/solicitude',
           'menu' => $menu->id,
         ]);

@@ -83,7 +83,7 @@ class SolicitudeController extends Controller
         $nuevo->id = intval($req->input('id'));
 
         $nuevo->unidad_medida = strtoupper($req->input('unidad'));
-        $nuevo->cantidad = count($valores);
+        //$nuevo->cantidad = count($valores);
         $nuevo->especificaciones_tecnicas = $req->input('especificaciones');
         if ($req->input('precio') <= 0.00){
           return redirect('/addsolicitud')->withErrors(['El precio debe de ser un número real mayor que cero. No se admiten caracteres.']);

@@ -17,7 +17,7 @@ class CreateSolicitudTable extends Migration
           print "Solicitud\n";
           $table->integer('id')->unsigned();
           $table->string('unidad_medida', 50);
-          $table->integer('cantidad')->unsigned();
+          //$table->integer('cantidad')->unsigned();
           $table->string('especificaciones_tecnicas', 100);
           $table->float('precio_estimado',8,2);
           $table->string('forma_entrega',50);

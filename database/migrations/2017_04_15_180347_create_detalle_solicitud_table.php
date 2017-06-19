@@ -36,5 +36,6 @@ class CreateDetalleSolicitudTable extends Migration
     public function down()
     {
         Schema::dropIfExists('detalle_solicitud');
+        print "Detalle de solicitud\n";
     }
 }

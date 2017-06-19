@@ -14,7 +14,7 @@ class CreateDetalleCompraTable extends Migration
     public function up()
     {
         Schema::create('detalle_compra', function (Blueprint $table) {
-            print "Detalle de Solicitud\n";
+            print "Detalle de compra\n";
             $table->integer('id_orden')->unsigned();
             $table->integer('id_equipo')->unsigned();
 
@@ -36,8 +36,7 @@ class CreateDetalleCompraTable extends Migration
      */
     public function down()
     {
-        Schema::table('detalle_compra', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('detalle_compra');
+        print "Detalle de compra\n";
     }
 }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Modelos\Equipo;
 use App\Modelos\CatalogoEquipo;
+use Auth;
 
 class StockEquipmentsController extends Controller
 {
@@ -14,7 +15,7 @@ class StockEquipmentsController extends Controller
   public function index()
   {
     return view('stock.index', [
-      'equipos' => Equipo::all()
+      'equipos' => Equipo::where('id_equipo',Auth::user()->departamento)
     ]);
   }
 

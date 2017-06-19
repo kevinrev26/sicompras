@@ -30,5 +30,6 @@ class CreateMenuTable extends Migration
     {
         //
         Schema::dropIfExists('menu');
+        print "Menu\n";
     }
 }

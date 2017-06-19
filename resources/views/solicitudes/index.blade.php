@@ -39,7 +39,7 @@
       <thead>
         <tr>
           <th> id </th>
-          <th> Cantidad </th>
+          
           <th> Precio Estimado </th>
           <th> Estado </th>
           <th> Autor </th>
@@ -51,7 +51,7 @@
           <tr>
             <td>{{ $solicitud->id }}</td>
             {{-- <td>{{ $solicitud->pivot->cantidad }}</td> --}}
-            <td>DEBUG</td>
+
             {{--La propiedad pivot, la posee el catalogo de equipos --}}
             <td>{{ $solicitud->precio_estimado }} $</td>
             <td>
