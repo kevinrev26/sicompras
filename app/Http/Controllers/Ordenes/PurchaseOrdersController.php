@@ -54,6 +54,9 @@ class PurchaseOrdersController extends Controller
 
     public function search(Request $filters)
     {
-      # code...
+      $fecha = $filters->input('fecha');
+      $id = $filters->input('id');
+      $data = DB::select('CALL getOrdenes(?,?)', array($fecha, $id));
+      return view('ordenes.index', ['ordenes' => $data]);
     }
 }

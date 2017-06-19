@@ -24,14 +24,8 @@
       <div class="form-group">
         <label for="lugar">Lugar de entrega:  </label>
         <input type="text" class="form-control" id="lugar" name="lugar" />
-
       </div>
-      <div class="form-group">
-        <label for="estado">Estado de la solicitud: </label>
-        <input type="text" class="form-control" id="estado" name="estado" />
-        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search">Buscar</span></button>
-      </div>
-
+      
     </form>
   </div>
   @if (count($solicitudes)>0)

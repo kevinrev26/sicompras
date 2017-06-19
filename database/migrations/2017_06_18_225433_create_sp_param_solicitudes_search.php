@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSpEquipmentsMaintenance extends Migration
+class CreateSpParamSolicitudesSearch extends Migration
 {
     /**
      * Run the migrations.
@@ -14,10 +14,10 @@ class CreateSpEquipmentsMaintenance extends Migration
     public function up()
     {
       $sql = <<<FinFunc
-        CREATE PROCEDURE equipmentsMaintenance()
-        BEGIN
-        SELECT inv_equipo, nombre_equipo, tipo_mantenimiento FROM equipo, bitacora_mantenimiento, catalogo_equipo where equipo.id_equipo = bitacora_mantenimiento.equipo AND equipo.id_catalogo = catalogo_equipo.id;
-        END;
+      CREATE PROCEDURE getSolicitudes(IN _id int(10), IN _precio double(8,2), IN _lugar VARCHAR(50))
+      BEGIN
+        SELECT * from solicitud where id = _id or precio_estimado <= _precio OR lugar_entrega like CONCAT('%',_lugar,'%');
+      END;
 FinFunc;
       DB::connection()->getPdo()->exec($sql);
     }

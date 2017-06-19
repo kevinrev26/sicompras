@@ -118,6 +118,9 @@ class BiddingsController extends Controller
 
     public function search(Request $filters)
     {
-      # code...
+      $id = $filters->input('id');
+      $titulo = $filters->input('titulo');
+      $data = DB::select('CALL getLicitaciones(?,?)', array($id, $titulo));
+      return view('equipos.index', ['licitaciones' => $data]);
     }
 }
